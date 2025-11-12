@@ -108,7 +108,7 @@ export default function Curriculum() {
   )
 
   return (
-    <section id="curriculum" className="relative py-16 sm:py-20 lg:py-24">
+    <section id="curriculum" className="relative overflow-x-clip py-14 sm:py-18 lg:py-20">
       {sectionGlow}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
@@ -174,7 +174,7 @@ export default function Curriculum() {
           <div>
             <div
               ref={scrollerRef}
-              className={`${snapStrict ? 'snap-x snap-mandatory' : 'snap-x snap-proximity'} relative -mx-3.5 flex gap-5 overflow-x-auto px-3.5 pb-4 md:pb-6 lg:pb-6 [scrollbar-width:none] [-ms-overflow-style:none]`}
+              className={`${snapStrict ? 'snap-x snap-mandatory' : 'snap-x snap-proximity'} no-scrollbar relative flex gap-5 overflow-x-auto pb-4 md:pb-6 lg:pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%_-_24px),transparent)]`}
             >
               <style>{`.no-scrollbar::-webkit-scrollbar{display:none}`}</style>
               {years.map((y, idx) => {
@@ -184,18 +184,18 @@ export default function Curriculum() {
                     key={y.year}
                     data-slide
                     data-index={idx}
-                    className={`snap-center shrink-0 w-[88%] sm:w-[82%] md:w-[76%] lg:w-[68%] ${snapStrict ? '[scroll-snap-stop:always]' : ''}`}
+                    className={`snap-center shrink-0 w-[86%] sm:w-[80%] md:w-[74%] lg:w-[66%] ${snapStrict ? '[scroll-snap-stop:always]' : ''}`}
                   >
                     <motion.div
                       initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ amount: 0.3, once: true }}
                       transition={{ duration: 0.4, ease: 'easeOut' }}
-                      className="relative rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+                      className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
                     >
-                      {/* Gradient outline glow */}
+                      {/* Gradient outline glow (clipped) */}
                       <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 [mask-image:linear-gradient(white,transparent)]" />
-                      <div className="pointer-events-none absolute -inset-px rounded-3xl opacity-40 blur-md" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.25), rgba(139,92,246,0.25))' }} />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-35 blur-md" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.22), rgba(139,92,246,0.22))' }} />
 
                       <div className="relative z-10 flex items-start justify-between gap-4">
                         <div>
