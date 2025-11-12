@@ -117,14 +117,9 @@ export default function Hero() {
               >
                 <a
                   href="#admissions-aseat"
-                  className="relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 font-semibold text-white shadow-lg hover:shadow-xl transition"
                 >
-                  {/* Glow base - softened */}
-                  <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-sky-500 via-cyan-400 to-violet-500 blur-sm opacity-40" />
-                  {/* Button surface - subtler shadow and tint */}
-                  <span className="relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-sky-600/60 via-cyan-500/60 to-violet-600/60 px-6 py-3 shadow-[0_8px_18px_rgba(56,189,248,0.22)]">
-                    Apply Now — Next A-SEAT Exam: {examDate}
-                  </span>
+                  Apply via A-SEAT
                 </a>
               </motion.div>
             </motion.div>
