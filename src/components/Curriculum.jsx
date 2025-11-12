@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Layers, Rocket, Wrench, Brain, Briefcase, Image as ImageIcon } from 'lucide-react'
+import { Layers, Rocket, Wrench, Brain, Briefcase } from 'lucide-react'
 
 export default function Curriculum() {
   const years = [
@@ -145,7 +145,6 @@ export default function Curriculum() {
                         </span>
                       ))}
                       <span className="ml-auto inline-flex items-center gap-1 rounded-xl border border-slate-200/70 bg-white/80 px-2 py-1 text-[11px] text-slate-600 shadow-sm transition-transform hover:scale-[1.02]">
-                        <ImageIcon className="h-3.5 w-3.5 text-sky-500" />
                         Project mockups
                       </span>
                     </div>
