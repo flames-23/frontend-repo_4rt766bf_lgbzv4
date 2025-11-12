@@ -11,6 +11,7 @@ import Admissions from './components/Admissions'
 import AdmissionsCTA from './components/AdmissionsCTA'
 import SchoolCSAI from './components/SchoolCSAI'
 import Mentors from './components/Mentors'
+import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Placements />
         <SchoolCSAI />
         <Mentors />
+        <ASeatCTA />
         <Admissions />
         <AdmissionsCTA />
       </main>
