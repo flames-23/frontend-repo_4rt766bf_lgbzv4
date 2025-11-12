@@ -28,17 +28,20 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]"
-            >
-              A 4-Year B.Tech in Computer Science & AI
-              <span className="block mt-2 text-white/90">built by engineers from Google, Microsoft & Apple</span>
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight md:leading-[1.1]"
+           >
+              A 4-Year B.Tech in
+              <span className="block mt-2 text-white/90">Computer Science & AI</span>
+              <span className="block mt-2 text-white/80 font-semibold text-base sm:text-lg md:text-xl tracking-normal">
+                built by engineers from Google, Microsoft & Apple
+              </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="mt-6 text-lg md:text-xl text-white/90 max-w-2xl"
+              className="mt-6 text-base md:text-lg text-white/90 max-w-2xl"
             >
               An AI-first engineering degree that blends rigorous fundamentals, industry mentorship, paid internships, and research opportunities.
             </motion.p>
