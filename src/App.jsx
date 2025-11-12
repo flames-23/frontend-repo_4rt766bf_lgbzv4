@@ -13,6 +13,7 @@ import SchoolCSAI from './components/SchoolCSAI'
 import Mentors from './components/Mentors'
 import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
+import JobGuarantee from './components/JobGuarantee'
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <CampusCarousel />
         <Placements />
         <SchoolCSAI />
+        <JobGuarantee />
         <Mentors />
         <ASeatCTA />
         <Admissions />
