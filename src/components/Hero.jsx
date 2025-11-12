@@ -17,7 +17,7 @@ export default function Hero() {
   }))
 
   return (
-    <section className="relative min-h-[82vh] pt-20 overflow-hidden text-white">
+    <section className="relative min-h-[88vh] pt-20 overflow-hidden text-white">
       {/* Background video */}
       <div className="absolute inset-0" aria-hidden>
         <video
@@ -65,67 +65,73 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Foreground content */}
+      {/* Foreground content - left column only */}
       <div className="relative z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="max-w-4xl rounded-3xl border border-white/15 bg-white/10 p-6 sm:p-8 md:p-10 backdrop-blur-xl shadow-[0_16px_56px_-16px_rgba(91,146,255,0.35)]"
-          >
-            {/* Top badges */}
-            <div className="mb-4 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-                AICTE Approved
-              </span>
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-                UGC Recognised
-              </span>
-            </div>
-
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-3xl sm:text-5xl md:text-[2.9rem] font-extrabold tracking-tight leading-tight md:leading-[1.07]"
-            >
-              <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-violet-300 bg-clip-text text-transparent">
-                4-Year B.Tech in Computer Science & AI
-              </span>
-            </motion.h1>
-
-            {/* Subtext */}
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-3 text-base md:text-lg text-white/90"
-            >
-              Built by Engineers from Google, Apple & Microsoft
-            </motion.p>
-
-            {/* CTA */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+            {/* Left: text content */}
             <motion.div
-              initial={{ opacity: 0, y: 6 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mt-6"
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="py-10 sm:py-14 md:py-16 pr-0 md:pr-8"
             >
-              <a
-                href="#admissions-aseat"
-                className="relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
-              >
-                {/* Glow base */}
-                <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-sky-500 via-cyan-400 to-violet-500 blur-md opacity-70" />
-                {/* Button surface */}
-                <span className="relative inline-flex items-center gap-2 rounded-full border border-white/15 bg-gradient-to-r from-sky-600/70 via-cyan-500/70 to-violet-600/70 px-6 py-3 shadow-[0_10px_30px_rgba(56,189,248,0.35)]">
-                  Apply Now — Next A-SEAT Exam: {examDate}
+              {/* Top badges */}
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  AICTE Approved
                 </span>
-              </a>
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  UGC Recognised
+                </span>
+              </div>
+
+              {/* Heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+                className="text-3xl sm:text-5xl md:text-[2.9rem] font-extrabold tracking-tight leading-tight md:leading-[1.07]"
+              >
+                <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-violet-300 bg-clip-text text-transparent">
+                  4-Year B.Tech in Computer Science & AI
+                </span>
+              </motion.h1>
+
+              {/* Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="mt-3 text-base md:text-lg text-white/90 max-w-xl"
+              >
+                Built by Engineers from Google, Apple & Microsoft
+              </motion.p>
+
+              {/* CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="mt-6"
+              >
+                <a
+                  href="#admissions-aseat"
+                  className="relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+                >
+                  {/* Glow base */}
+                  <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-sky-500 via-cyan-400 to-violet-500 blur-md opacity-70" />
+                  {/* Button surface */}
+                  <span className="relative inline-flex items-center gap-2 rounded-full border border-white/15 bg-gradient-to-r from-sky-600/70 via-cyan-500/70 to-violet-600/70 px-6 py-3 shadow-[0_10px_30px_rgba(56,189,248,0.35)]">
+                    Apply Now — Next A-SEAT Exam: {examDate}
+                  </span>
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right: empty column to keep text on left half */}
+            <div className="hidden md:block" aria-hidden />
+          </div>
         </div>
       </div>
 
