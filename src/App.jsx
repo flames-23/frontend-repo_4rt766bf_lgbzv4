@@ -14,6 +14,7 @@ import Mentors from './components/Mentors'
 import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
 import JobGuarantee from './components/JobGuarantee'
+import Results from './components/Results'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Placements />
         <SchoolCSAI />
         <JobGuarantee />
+        <Results />
         <Mentors />
         <ASeatCTA />
         <Admissions />
