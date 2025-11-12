@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ProgramCards from './components/ProgramCards'
 import CampusShowcase from './components/CampusShowcase'
+import SchoolCSAI from './components/SchoolCSAI'
 import Mentors from './components/Mentors'
 import Footer from './components/Footer'
 
@@ -14,6 +15,7 @@ function App() {
         <Hero />
         <ProgramCards />
         <CampusShowcase />
+        <SchoolCSAI />
         <Mentors />
 
         <section id="admissions" className="py-20">
