@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 
 export default function Hero() {
-  const videoSrc = 'https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4'
+  // Replaced globe video with a premium college campus background
+  const videoSrc = 'https://videos.pexels.com/video-files/5212327/5212327-uhd_2560_1440_25fps.mp4'
+  const posterSrc = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=60'
 
   return (
     <section className="relative min-h-[92vh] pt-24 overflow-hidden text-white">
@@ -14,6 +16,7 @@ export default function Hero() {
           loop
           muted
           playsInline
+          poster={posterSrc}
         />
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
