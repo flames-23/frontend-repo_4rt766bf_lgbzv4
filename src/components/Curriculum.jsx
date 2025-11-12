@@ -100,18 +100,18 @@ export default function Curriculum() {
     <>
       <div className="pointer-events-none absolute inset-0 -z-10">
         {/* Ambient gradient glows */}
-        <div className="absolute -top-20 -left-16 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.35)_0%,rgba(37,99,235,0)_60%)] blur-2xl" />
-        <div className="absolute top-10 right-0 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.35)_0%,rgba(139,92,246,0)_60%)] blur-2xl" />
-        <div className="absolute bottom-0 left-1/3 h-72 w-[40rem] -translate-x-1/2 rounded-[999px] bg-[linear-gradient(120deg,rgba(59,130,246,0.15),rgba(16,185,129,0.06),rgba(139,92,246,0.15))] opacity-60 blur-2xl" />
+        <div className="absolute -top-20 -left-16 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.3)_0%,rgba(37,99,235,0)_60%)] blur-2xl" />
+        <div className="absolute top-10 right-0 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.3)_0%,rgba(139,92,246,0)_60%)] blur-2xl" />
+        <div className="absolute bottom-0 left-1/3 h-64 w-[36rem] -translate-x-1/2 rounded-[999px] bg-[linear-gradient(120deg,rgba(59,130,246,0.13),rgba(16,185,129,0.06),rgba(139,92,246,0.13))] opacity-60 blur-2xl" />
       </div>
     </>
   )
 
   return (
-    <section id="curriculum" className="relative py-24 sm:py-28 lg:py-32">
+    <section id="curriculum" className="relative py-16 sm:py-20 lg:py-24">
       {sectionGlow}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
+        <div className="mb-8 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -128,17 +128,17 @@ export default function Curriculum() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="mt-4 text-lg text-gray-300"
+            className="mt-3 text-base text-gray-300"
           >
             Your 4-year journey across fundamentals, real-world engineering, depth, and placements.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[240px,1fr] gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-[236px,1fr] gap-5">
           {/* Sticky mini-year sidebar (desktop) */}
           <div className="hidden md:block">
-            <div className="sticky top-24 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-              <div className="mb-3 flex items-center justify-between">
+            <div className="sticky top-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+              <div className="mb-2.5 flex items-center justify-between">
                 <span className="text-[10px] font-semibold tracking-[0.2em] text-cyan-300/90">YEARS</span>
                 <button
                   onClick={() => setSnapStrict((s) => !s)}
@@ -174,7 +174,7 @@ export default function Curriculum() {
           <div>
             <div
               ref={scrollerRef}
-              className={`${snapStrict ? 'snap-x snap-mandatory' : 'snap-x snap-proximity'} relative -mx-4 flex gap-6 overflow-x-auto px-4 pb-4 md:pb-6 lg:pb-8 [scrollbar-width:none] [-ms-overflow-style:none]`}
+              className={`${snapStrict ? 'snap-x snap-mandatory' : 'snap-x snap-proximity'} relative -mx-3.5 flex gap-5 overflow-x-auto px-3.5 pb-4 md:pb-6 lg:pb-6 [scrollbar-width:none] [-ms-overflow-style:none]`}
             >
               <style>{`.no-scrollbar::-webkit-scrollbar{display:none}`}</style>
               {years.map((y, idx) => {
@@ -184,14 +184,14 @@ export default function Curriculum() {
                     key={y.year}
                     data-slide
                     data-index={idx}
-                    className={`snap-center shrink-0 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[72%] ${snapStrict ? '[scroll-snap-stop:always]' : ''}`}
+                    className={`snap-center shrink-0 w-[88%] sm:w-[82%] md:w-[76%] lg:w-[68%] ${snapStrict ? '[scroll-snap-stop:always]' : ''}`}
                   >
                     <motion.div
-                      initial={{ opacity: 0, y: 14 }}
+                      initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ amount: 0.3, once: true }}
-                      transition={{ duration: 0.45, ease: 'easeOut' }}
-                      className="relative rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+                      transition={{ duration: 0.4, ease: 'easeOut' }}
+                      className="relative rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
                     >
                       {/* Gradient outline glow */}
                       <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 [mask-image:linear-gradient(white,transparent)]" />
@@ -210,13 +210,13 @@ export default function Curriculum() {
                           </h3>
                           <p className="mt-2 max-w-2xl text-gray-300">{y.caption}</p>
                         </div>
-                        <div className="hidden sm:flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500/30 via-cyan-400/30 to-violet-500/30 text-white shadow-inner shadow-cyan-500/20 ring-1 ring-white/10">
-                          <Icon className="h-6 w-6 text-cyan-200" />
+                        <div className="hidden sm:flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500/30 via-cyan-400/30 to-violet-500/30 text-white shadow-inner shadow-cyan-500/20 ring-1 ring-white/10">
+                          <Icon className="h-5 w-5 text-cyan-200" />
                         </div>
                       </div>
 
                       {/* Cards grid */}
-                      <div className="relative mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="relative mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {y.items.map((it) => (
                           <motion.div
                             key={it}
@@ -224,20 +224,20 @@ export default function Curriculum() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.25, ease: 'easeOut' }}
-                            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all hover:border-cyan-300/30 hover:shadow-[0_12px_48px_rgba(59,130,246,0.15)]"
+                            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_8px_22px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all hover:border-cyan-300/30 hover:shadow-[0_12px_44px_rgba(59,130,246,0.15)]"
                           >
                             <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(120px_60px_at_10%_-10%,rgba(56,189,248,0.25),transparent),radial-gradient(120px_60px_at_110%_120%,rgba(139,92,246,0.25),transparent)]" />
-                            <div className="mb-2 flex items-center gap-2">
+                            <div className="mb-1.5 flex items-center gap-2">
                               <span className="h-2 w-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-400 shadow-[0_0_12px_rgba(56,189,248,0.6)]" />
-                              <span className="text-base font-semibold text-white">{it}</span>
+                              <span className="text-[15px] font-semibold text-white">{it}</span>
                             </div>
-                            <div className="mt-1 text-sm text-gray-300">Labs and projects focused on real outcomes.</div>
+                            <div className="text-sm text-gray-300">Labs and projects focused on real outcomes.</div>
                           </motion.div>
                         ))}
                       </div>
 
                       {/* CTA row */}
-                      <div className="mt-6 flex flex-wrap items-center gap-3">
+                      <div className="mt-5 flex flex-wrap items-center gap-3">
                         <button
                           onClick={() => scrollTo(Math.max(0, idx - 1))}
                           className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-100 transition-colors hover:border-cyan-300/40"
@@ -258,7 +258,7 @@ export default function Curriculum() {
             </div>
 
             {/* Dots indicator (mobile/tablet) */}
-            <div className="mt-6 flex items-center justify-center gap-2 md:hidden">
+            <div className="mt-5 flex items-center justify-center gap-2 md:hidden">
               {years.map((_, i) => (
                 <button
                   key={i}

@@ -29,25 +29,25 @@ const tracks = [
 
 export default function Achievers() {
   return (
-    <section id="achievers" className="py-24 bg-gradient-to-b from-white to-violet-50/40">
+    <section id="achievers" className="py-16 bg-gradient-to-b from-white to-violet-50/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Achievers Tracks</h2>
-          <p className="mt-4 text-lg text-gray-700">Elite tracks mentored by experts with measurable outcomes.</p>
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Achievers Tracks</h2>
+          <p className="mt-3 text-base text-gray-700">Elite tracks mentored by experts with measurable outcomes.</p>
         </div>
 
-        {/* 4 big cards in one screen on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 compact cards for tighter layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {tracks.map((t, i) => (
             <motion.article
               key={t.short}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
+              transition={{ duration: 0.45, delay: i * 0.04 }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Huge image on top */}
+              {/* Image */}
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4 / 5' }}>
                 <img
                   src={t.img}
@@ -56,15 +56,15 @@ export default function Achievers() {
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-                <span className="absolute left-3 top-3 rounded-full bg-white/80 backdrop-blur px-3 py-1 text-xs font-medium text-gray-800">
+                <span className="absolute left-3 top-3 rounded-full bg-white/80 backdrop-blur px-2.5 py-1 text-[11px] font-medium text-gray-800">
                   {t.short}
                 </span>
               </div>
 
-              {/* Text below image */}
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-gray-900">{t.name}</h3>
-                <p className="mt-2 text-sm text-gray-600">{t.result}</p>
+              {/* Text */}
+              <div className="p-4">
+                <h3 className="text-base font-semibold text-gray-900">{t.name}</h3>
+                <p className="mt-1.5 text-sm text-gray-600">{t.result}</p>
               </div>
             </motion.article>
           ))}
