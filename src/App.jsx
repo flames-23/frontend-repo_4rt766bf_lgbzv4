@@ -1,26 +1,37 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import ProgramCards from './components/ProgramCards'
+import CampusShowcase from './components/CampusShowcase'
+import Footer from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white dark:bg-neutral-950 text-gray-900 dark:text-white">
+      <Navbar />
+
+      <main>
+        <Hero />
+        <ProgramCards />
+        <CampusShowcase />
+
+        <section id="admissions" className="py-20">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold">Admissions Open 2025</h2>
+            <p className="mt-3 text-gray-600 dark:text-gray-300">
+              Merit-first, holistic reviews with scholarships for exceptional talent. Limited seats across flagship programs.
+            </p>
+            <form className="mt-8 grid gap-3 sm:grid-cols-3 bg-white/70 dark:bg-white/5 backdrop-blur border border-gray-900/10 dark:border-white/10 rounded-2xl p-4">
+              <input className="col-span-1 rounded-lg px-4 py-3 bg-white/80 dark:bg-white/10 border border-gray-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Full name" />
+              <input type="email" className="col-span-1 rounded-lg px-4 py-3 bg-white/80 dark:bg-white/10 border border-gray-900/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email" />
+              <button type="button" className="col-span-1 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all">
+                Get Prospectus
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   )
 }
