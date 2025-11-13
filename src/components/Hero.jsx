@@ -66,13 +66,33 @@ export default function Hero() {
               Learn from engineers who’ve built real systems at
             </p>
 
-            {/* Logos row */}
+            {/* Logos row - replaced with real company logos */}
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-95">
-              <LogoGoogle variant="light" />
-              <LogoApple variant="light" />
-              <LogoMicrosoft variant="light" />
-              <LogoAmazon variant="light" />
-              <LogoServiceNow variant="light" />
+              <img
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/google-logo-97e403d0b48d2da1c9d47dc98b6198171ff21048714ba6575c6cadb409053aee.svg.gz"
+                alt="Google"
+                loading="lazy"
+                className="h-7 sm:h-8 w-auto" />
+              <img
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/microsoft-logo-e807dee90674e40eecefb333c9c5520fd1b6350061677237394015dd7e01f855.svg.gz"
+                alt="Microsoft"
+                loading="lazy"
+                className="h-7 sm:h-8 w-auto" />
+              <img
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/amazon-logo-a2568f4eba54775b04f3ff133b9208b24f88523a928b35ea6c937f336426f1aa.svg.gz"
+                alt="Amazon"
+                loading="lazy"
+                className="h-7 sm:h-8 w-auto" />
+              <img
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/meta-logo-f70b8a81c2da4927bea050414bf0c252ec5f8f2ca865eb6a00bb8d5771bce59b.svg.gz"
+                alt="Meta"
+                loading="lazy"
+                className="h-7 sm:h-8 w-auto" />
+              <img
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/adobe-logo-8e264a414a3687d0fe237cb585973f1b1ac4c26c639684f1aaa7de0ca4301dd9.svg.gz"
+                alt="Adobe"
+                loading="lazy"
+                className="h-7 sm:h-8 w-auto" />
             </div>
 
             {/* CTA buttons */}
@@ -131,68 +151,5 @@ export default function Hero() {
       {/* Fade to next section bottom edge */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--ds-bg-darker)] via-[color-mix(in_srgb,var(--ds-bg-darker)_60%,transparent)] to-transparent" />
     </section>
-  )
-}
-
-// Logos remain monochrome; adapt to light/dark via variant
-function baseLogoClass() {
-  return 'h-8 w-auto opacity-90'
-}
-
-function LogoGoogle({ variant = 'dark' }) {
-  const fill = variant === 'dark' ? '#1F2937' : '#E8EAED'
-  return (
-    <svg className={baseLogoClass()} viewBox="0 0 48 48" fill="none" aria-label="Google logo">
-      <path fill={fill} d="M43.6 24.5c0-1.5-.1-3-.4-4.4H24v8.4h11.1c-.5 2.8-2.1 5.1-4.4 6.7v5.6h7.1c4.1-3.8 5.8-9.4 5.8-16.3z"/>
-      <path fill={fill} d="M24 44c5.4 0 9.9-1.8 13.2-4.9l-7.1-5.6c-2 1.4-4.6 2.3-6.1 2.3-4.7 0-8.6-3.2-10-7.5H6.6v5.9C9.9 39.9 16.3 44 24 44z"/>
-      <path fill={fill} d="M14 28.3c-.3-1-.5-2.1-.5-3.3s.2-2.3.5-3.3v-5.9H6.6C5 18.1 4 21 4 25s1 6.9 2.6 9.2L14 28.3z"/>
-      <path fill={fill} d="M24 14.2c2.9 0 5.6 1 7.6 3l5.7-5.7C33.9 8.2 29.4 6 24 6 16.3 6 9.9 10.1 6.6 16.8L14 22.1c1.4-4.3 5.3-7.9 10-7.9z"/>
-    </svg>
-  )
-}
-
-function LogoApple({ variant = 'dark' }) {
-  const fill = variant === 'dark' ? '#1F2937' : '#E8EAED'
-  return (
-    <svg className={baseLogoClass()} viewBox="0 0 48 48" fill={fill} aria-label="Apple logo">
-      <path d="M32.8 24.4c0-4.2 3.5-6.4 3.6-6.5-2-2.8-5.1-3.2-6.2-3.2-2.6-.3-5.1 1.5-6.4 1.5-1.3 0-3.4-1.5-5.6-1.5-2.9 0-5.6 1.7-7.1 4.3-3.1 5.4-.8 13.4 2.2 17.8 1.5 2.2 3.3 4.6 5.6 4.5 2.2-.1 3.1-1.4 5.9-1.4 2.8 0 3.6 1.4 5.9 1.4 2.4 0 3.9-2.2 5.4-4.4 1.7-2.4 2.4-4.7 2.4-4.8-.1 0-4.8-1.8-4.8-7.7z"/>
-      <path d="M28.9 11.7c1.2-1.5 2-3.6 1.8-5.7-1.8.1-4 1.2-5.3 2.7-1.2 1.4-2.1 3.5-1.9 5.5 2 .1 4.1-1.1 5.4-2.5z"/>
-    </svg>
-  )
-}
-
-function LogoMicrosoft({ variant = 'dark' }) {
-  const fill = variant === 'dark' ? '#1F2937' : '#E8EAED'
-  return (
-    <svg className={baseLogoClass()} viewBox="0 0 48 48" aria-label="Microsoft logo">
-      <rect x="6" y="6" width="16" height="16" fill={fill}/>
-      <rect x="26" y="6" width="16" height="16" fill={fill}/>
-      <rect x="6" y="26" width="16" height="16" fill={fill}/>
-      <rect x="26" y="26" width="16" height="16" fill={fill}/>
-    </svg>
-  )
-}
-
-function LogoAmazon({ variant = 'dark' }) {
-  const fill = variant === 'dark' ? '#1F2937' : '#E8EAED'
-  return (
-    <svg className={baseLogoClass()} viewBox="0 0 64 24" fill="none" aria-label="Amazon logo">
-      <path fill={fill} d="M9.6 6.5c-3.5 0-6.3 2.9-6.3 6.5s2.8 6.5 6.3 6.5c1.9 0 3.4-.8 4.4-2v1.6h3.8V6.7H14v1.7c-1-1.2-2.5-1.9-4.4-1.9zm.9 9.8c-2.1 0-3.7-1.7-3.7-3.8S8.4 8.7 10.5 8.7s3.7 1.7 3.7 3.8-1.6 3.8-3.7 3.8zM22.7 6.7h3.7v14.4h-3.7zM30.5 6.7h3.6v2c.9-1.5 2.3-2.2 4.3-2.2 3.3 0 5.6 2.3 5.6 6.1v8.5h-3.7v-7.7c0-2.3-1.3-3.6-3.4-3.6-2.1 0-3.4 1.4-3.4 3.6v7.7h-3V6.7z"/>
-      <path fill={fill} d="M58.7 18.5c-4.3 3.3-11.2 4.9-16.7 3.7-.8-.2-1.3-.4-1.3-.4s.5.6 1.2 1c5.7 3.4 15.1-.6 18.2-4 .3-.4-.5-.7-1.4-.3z"/>
-      <path fill={fill} d="M56.3 16.6c-2.2-1.2-5.9-1.6-8.6-1.2-1.5.2-2 .5-2 .5s.6.2 1.6.4c3.5.9 8.2 1.1 10.4.7.6-.1.7-.2.7-.3 0-.1-.8-.1-2.1-.1z"/>
-    </svg>
-  )
-}
-
-function LogoServiceNow({ variant = 'dark' }) {
-  const fill = variant === 'dark' ? '#1F2937' : '#E8EAED'
-  return (
-    <svg className={baseLogoClass()} viewBox="0 0 120 24" fill="none" aria-label="ServiceNow logo">
-      <circle cx="12" cy="12" r="10" fill={fill} />
-      <rect x="28" y="8" width="18" height="8" rx="4" fill={fill} />
-      <rect x="50" y="8" width="18" height="8" rx="4" fill={fill} />
-      <rect x="72" y="8" width="18" height="8" rx="4" fill={fill} />
-      <rect x="94" y="8" width="18" height="8" rx="4" fill={fill} />
-    </svg>
   )
 }
