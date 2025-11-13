@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MacbookM5() {
   const macbookImg =
-    "https://9to5mac.com/wp-content/uploads/sites/6/2025/02/m5-macbook-pro.jpg?quality=82&strip=all&w=1600";
+    "https://9to5mac.com/wp-content/uploads/sites/6/2025/02/m5-macbook-pro.jpg";
 
   return (
     <section className="relative overflow-hidden bg-[#050505] py-28 sm:py-32 lg:py-40">
@@ -49,7 +49,7 @@ export default function MacbookM5() {
         </div>
 
         {/* Visual focus: framed MacBook */}
-        <div className="relative mx-auto mt-16 sm:mt-20 max-w-6xl">
+        <div className="relative mx-auto mt-16 sm:mt-20 max-w-4xl lg:max-w-5xl">
           {/* Back glow behind the device */}
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-[58%] blur-3xl opacity-55"
@@ -61,7 +61,7 @@ export default function MacbookM5() {
           />
 
           {/* Central MacBook visual inside a premium frame */}
-          <div className="relative mx-auto max-w-5xl">
+          <div className="relative mx-auto w-full">
             {/* Outer glow rim */}
             <div
               className="absolute -inset-6 -z-10 opacity-30 blur-2xl"
@@ -74,7 +74,7 @@ export default function MacbookM5() {
             {/* Frame with subtle gold stroke */}
             <div className="relative mx-auto w-full aspect-[16/10] rounded-[28px] p-[1px] bg-gradient-to-br from-[#F6E3B4]/30 via-white/10 to-transparent ring-1 ring-white/10 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)]">
               {/* Inner bezel */}
-              <div className="relative h-full w-full overflow-hidden rounded-[27px] bg-[#0a0a0a] ring-1 ring-white/10">
+              <div className="relative h-full w-full overflow-hidden rounded-[27px] bg-[#0a0a0a] ring-1 ring-white/10 p-3 sm:p-4">
                 {/* Camera bar + dot */}
                 <div className="pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 h-1.5 w-16 rounded-full bg-white/10" />
                 <div className="pointer-events-none absolute left-1/2 top-5 -translate-x-1/2 h-2 w-2 rounded-full bg-white/20" />
@@ -83,12 +83,13 @@ export default function MacbookM5() {
                 <img
                   src={macbookImg}
                   alt="MacBook Pro with M5 chip"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   style={{
                     filter: "contrast(1.03) saturate(1.02)",
                   }}
                   loading="lazy"
                   decoding="async"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
                 />
 
                 {/* Glass glare */}
