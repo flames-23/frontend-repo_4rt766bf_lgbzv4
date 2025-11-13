@@ -1,14 +1,12 @@
 import Navbar from './components/Navbar'
 import AdmissionsBanner from './components/AdmissionsBanner'
 import Hero from './components/Hero'
-import About from './components/About'
 import WhyASCA from './components/WhyASCA'
 import Curriculum from './components/Curriculum'
 import Achievers from './components/Achievers'
 import CampusCarousel from './components/CampusCarousel'
 import Placements from './components/Placements'
 import Admissions from './components/Admissions'
-import SchoolCSAI from './components/SchoolCSAI'
 import Mentors from './components/Mentors'
 import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
@@ -35,8 +33,6 @@ function App() {
         {/* Place AUET before results */}
         <AUET />
         <Results />
-        <About />
-        <SchoolCSAI />
         <ComparisonASCA />
         <Leadership />
         <WhyASCA />
