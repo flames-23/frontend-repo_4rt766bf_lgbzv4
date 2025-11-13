@@ -39,14 +39,14 @@ export default function Navbar() {
           </div>
 
           {/* Center – Menu items (desktop) */}
-          <nav className="hidden md:flex items-center justify-center gap-7">
+          <nav className="hidden md:flex items-center justify-center gap-7 whitespace-nowrap">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative inline-flex items-center gap-2 text-[15px] font-semibold text-[#111827] tracking-tight transition-colors"
+                className="group relative inline-flex items-center gap-2 text-[15px] font-semibold text-[#111827] tracking-tight transition-colors whitespace-nowrap"
               >
-                <span className="border-b-2 border-transparent group-hover:border-blue-500/70 group-hover:text-blue-700">
+                <span className="border-b-2 border-transparent group-hover:border-blue-500/70 group-hover:text-blue-700 whitespace-nowrap">
                   {item.label}
                 </span>
                 {item.new && (
