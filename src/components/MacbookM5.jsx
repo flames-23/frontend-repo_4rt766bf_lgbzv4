@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MacbookM5() {
   const macbookImg =
-    "https://images.unsplash.com/photo-1517059224940-d4af9eec41e5?q=80&w=2000&auto=format&fit=crop";
+    "https://9to5mac.com/wp-content/uploads/sites/6/2025/02/m5-macbook-pro.jpg?quality=82&strip=all&w=1600";
 
   return (
     <section className="relative overflow-hidden bg-[#050505] py-28 sm:py-32 lg:py-40">
@@ -20,14 +20,14 @@ export default function MacbookM5() {
       {/* Deep ambient gold rays / glow */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute left-1/2 top-1/2 h-[1600px] w-[1600px] -translate-x-1/2 -translate-y-1/2 opacity-30 blur-3xl"
+          className="absolute left-1/2 top-1/2 h:[1600px] w-[1600px] -translate-x-1/2 -translate-y-1/2 opacity-25 blur-3xl"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(246,227,180,0.22) 0%, rgba(246,227,180,0.08) 45%, rgba(246,227,180,0.03) 65%, transparent 75%)",
+              "radial-gradient(closest-side, rgba(246,227,180,0.18) 0%, rgba(246,227,180,0.08) 45%, rgba(246,227,180,0.03) 65%, transparent 75%)",
           }}
         />
         <div
-          className="absolute left-1/2 top-0 h-[1600px] w-[1600px] -translate-x-1/2 -translate-y-1/3 opacity-25 blur-2xl"
+          className="absolute left-1/2 top-0 h-[1600px] w-[1600px] -translate-x-1/2 -translate-y-1/3 opacity-20 blur-2xl"
           style={{
             background:
               "conic-gradient(from 200deg at 50% 50%, rgba(246,227,180,0.06), transparent 18%, rgba(246,227,180,0.08) 28%, transparent 48%, rgba(246,227,180,0.07) 60%, transparent 78%, rgba(246,227,180,0.06) 92%, transparent)",
@@ -36,10 +36,10 @@ export default function MacbookM5() {
           }}
         />
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(246,227,180,0.14) 1px, transparent 1px)",
+              "radial-gradient(rgba(246,227,180,0.12) 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         />
@@ -63,11 +63,11 @@ export default function MacbookM5() {
         <div className="relative mx-auto mt-16 sm:mt-20 max-w-6xl">
           {/* Back glow behind the device */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-[58%] blur-3xl opacity-60"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-[58%] blur-3xl opacity-55"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(246,227,180,0.38), rgba(246,227,180,0.12), transparent 70%)",
-              filter: "drop-shadow(0 50px 140px rgba(246,227,180,0.35))",
+                "radial-gradient(closest-side, rgba(246,227,180,0.32), rgba(246,227,180,0.12), transparent 70%)",
+              filter: "drop-shadow(0 40px 120px rgba(246,227,180,0.28))",
             }}
           />
 
@@ -92,20 +92,43 @@ export default function MacbookM5() {
             </div>
           </div>
 
-          {/* Central MacBook visual (no frame, no card) */}
-          <div className="relative">
-            <img
-              src={macbookImg}
-              alt="MacBook Pro with M5 chip"
-              className="mx-auto block w-full max-w-5xl select-none rounded-none object-cover shadow-[0_80px_200px_-60px_rgba(0,0,0,0.9)]"
-              style={{
-                filter:
-                  "drop-shadow(0 40px 120px rgba(246,227,180,0.25)) contrast(1.02)",
-              }}
+          {/* Central MacBook visual inside a premium frame */}
+          <div className="relative mx-auto max-w-5xl">
+            {/* Outer glow rim */}
+            <div className="absolute -inset-6 -z-10 opacity-30 blur-2xl"
+                 style={{
+                   background:
+                     "radial-gradient(closest-side, rgba(246,227,180,0.18), transparent 65%)",
+                 }}
             />
 
-            {/* Soft top reflection */}
-            <div className="pointer-events-none absolute left-1/2 top-0 h-[40%] w-[120%] -translate-x-1/2 bg-gradient-to-b from-white/20 to-transparent" />
+            {/* Frame with subtle gold stroke */}
+            <div className="relative mx-auto w-full aspect-[16/10] rounded-[28px] p-[1px] bg-gradient-to-br from-[#F6E3B4]/30 via-white/10 to-transparent ring-1 ring-white/10 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)]">
+              {/* Inner bezel */}
+              <div className="relative h-full w-full overflow-hidden rounded-[27px] bg-[#0a0a0a] ring-1 ring-white/10">
+                {/* Camera bar + dot */}
+                <div className="pointer-events-none absolute left-1/2 top-3 -translate-x-1/2 h-1.5 w-16 rounded-full bg-white/10" />
+                <div className="pointer-events-none absolute left-1/2 top-5 -translate-x-1/2 h-2 w-2 rounded-full bg-white/20" />
+
+                {/* Image */}
+                <img
+                  src={macbookImg}
+                  alt="MacBook Pro with M5 chip"
+                  className="h-full w-full object-cover"
+                  style={{
+                    filter: "contrast(1.03) saturate(1.02)",
+                  }}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                {/* Glass glare */}
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.04)_24%,transparent_40%)] mix-blend-screen" />
+
+                {/* Subtle bottom fade */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
 

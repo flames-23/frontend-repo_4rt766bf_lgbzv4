@@ -28,9 +28,6 @@ function App() {
         {/* Hero remains as-is */}
         <Hero />
 
-        {/* Super-premium MacBook Pro M5 section */}
-        <MacbookM5 />
-
         {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
         <Placements />
@@ -40,6 +37,8 @@ function App() {
         <ComparisonASCA />
         <Leadership />
         <WhyASCA />
+        {/* Super-premium MacBook Pro M5 section placed after Why Algouniversity School of CS and AI */}
+        <MacbookM5 />
         <Curriculum />
         <Achievers />
         {/* Move Talent Club section right after Achievers */}
