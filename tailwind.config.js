@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         geist: ['Geist', 'system-ui', 'sans-serif'],
         'geist-mono': ['Geist Mono', 'monospace'],
         mona: ['Mona Sans', 'system-ui', 'sans-serif'],
