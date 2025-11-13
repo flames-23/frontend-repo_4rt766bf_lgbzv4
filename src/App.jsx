@@ -14,34 +14,20 @@ import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
 import JobGuarantee from './components/JobGuarantee'
 import Results from './components/Results'
-import SectionTransition from './components/SectionTransition'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[color:var(--ds-white)] text-[color:var(--ds-body-light)]">
+    <div className="min-h-screen bg-[#F5F7FA] text-[color:var(--ds-body-light)]">
       <Navbar />
       <AdmissionsBanner />
 
       <main>
-        {/* Dark hero */}
+        {/* Hero remains as-is */}
         <Hero />
 
-        {/* Dark → Light transition */}
-        <SectionTransition variant="dark-to-light" size="lg" />
-
-        {/* Light section */}
+        {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
-
-        {/* Light → Dark transition */}
-        <SectionTransition variant="light-to-dark" size="md" />
-
-        {/* Dark section */}
         <Placements />
-
-        {/* Dark → Light transition */}
-        <SectionTransition variant="dark-to-light" size="md" />
-
-        {/* Light sections block */}
         <Results />
         <About />
         <SchoolCSAI />
@@ -49,24 +35,9 @@ function App() {
         <Curriculum />
         <Achievers />
         <CampusCarousel />
-
-        {/* Light → Dark transition */}
-        <SectionTransition variant="light-to-dark" size="md" />
-
-        {/* Dark section */}
         <Mentors />
-
-        {/* Dark → Light transition */}
-        <SectionTransition variant="dark-to-light" size="md" />
-
-        {/* Light → application CTA */}
         <ASeatCTA />
         <Admissions />
-
-        {/* Light → Dark transition for footer area */}
-        <SectionTransition variant="light-to-dark" size="lg" />
-
-        {/* Removed AdmissionsCTA section */}
       </main>
 
       <Footer />

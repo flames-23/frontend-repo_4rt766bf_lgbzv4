@@ -43,7 +43,7 @@
 }
 
 @layer utilities {
-  /* Dark section gradient with subtle starfield */
+  /* Dark section background (kept for hero-style sections) */
   .section-dark {
     position: relative;
     background: radial-gradient(80% 80% at 20% 0%, var(--ds-bg-deep) 0%, var(--ds-bg-deeper, #0a1326) 45%, var(--ds-bg-darker) 100%);
@@ -63,42 +63,19 @@
     pointer-events: none;
   }
 
-  /* Light section base with soft blue–violet edge glow */
+  /* Light section base: neutral, no glow, no fades for clean cuts */
   .section-light {
     position: relative;
-    background: var(--ds-white);
+    background: transparent; /* inherit page light background */
     color: var(--ds-body-light);
   }
-  .section-light.edge-glow:before {
-    content: "";
-    position: absolute;
-    inset: -2rem;
-    background: radial-gradient(50% 50% at 20% 0%, color-mix(in srgb, var(--ds-blue) 18%, transparent) 0%, transparent 60%),
-                radial-gradient(60% 60% at 100% 100%, color-mix(in srgb, var(--ds-violet) 16%, transparent) 0%, transparent 70%);
-    filter: blur(24px);
-    z-index: 0;
-    pointer-events: none;
-  }
 
-  /* Section transition utilities */
-  .transition-dark-to-light {
-    background: linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--ds-bg-darker) 85%, transparent) 0%,
-      color-mix(in srgb, var(--ds-bg-deep) 65%, transparent) 35%,
-      color-mix(in srgb, var(--ds-white) 0%, transparent) 65%,
-      var(--ds-white) 100%
-    );
-  }
-  .transition-light-to-dark {
-    background: linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--ds-white) 85%, transparent) 0%,
-      color-mix(in srgb, var(--ds-light) 55%, transparent) 35%,
-      color-mix(in srgb, var(--ds-bg-deep) 25%, transparent) 75%,
-      var(--ds-bg-darker) 100%
-    );
-  }
+  /* Remove any previous edge glow to avoid fade-like transitions */
+  /* Intentionally left blank: .section-light.edge-glow disabled */
+
+  /* Remove gradient transition utilities to enforce hard cuts */
+  .transition-dark-to-light { background: none; }
+  .transition-light-to-dark { background: none; }
 
   /* Glass card for light-on-dark contexts */
   .glass-card {
