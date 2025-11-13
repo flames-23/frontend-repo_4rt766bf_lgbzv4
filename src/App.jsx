@@ -31,15 +31,16 @@ function App() {
 
       <main>
         <Hero />
+        {/* Move Job Guarantee section directly after Hero */}
+        <JobGuarantee />
         <About />
-        {/* Move School of CS & AI section directly after Hero and About */}
+        {/* School of CS & AI follows About */}
         <SchoolCSAI />
         <WhyASCA />
         <Curriculum />
         <Achievers />
         <CampusCarousel />
         <Placements />
-        <JobGuarantee />
         <Results />
         <Mentors />
         <ASeatCTA />
