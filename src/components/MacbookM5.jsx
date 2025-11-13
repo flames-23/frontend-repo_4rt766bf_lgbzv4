@@ -35,21 +35,18 @@ export default function MacbookM5() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Minimal Apple-like heading */}
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="inline-block bg-white/5 px-3 py-1 text-[11px] font-semibold tracking-[0.22em] text-[#F6E3B4] ring-1 ring-white/10 rounded-full">
-            EVERY STUDENT. MACBOOK PRO. M5.
-          </p>
-          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-6xl font-semibold tracking-tight text-white">
-            Performance you can carry.
+        {/* Standard heading pattern (matching Campus Life) */}
+        <div className="mb-10 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Build Industry-Preferred Skills Through Practical Learning.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/70">
+          <p className="mt-3 text-white/70">
             A super‑premium learning experience—built on the Apple M5 architecture. Create, train, and ship with the same tools used by world‑class teams.
           </p>
         </div>
 
         {/* Visual focus: framed MacBook */}
-        <div className="relative mx-auto mt-16 sm:mt-20 max-w-4xl lg:max-w-5xl">
+        <div className="relative mx-auto mt-12 sm:mt-16 max-w-4xl lg:max-w-5xl">
           {/* Back glow behind the device */}
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-[58%] blur-3xl opacity-55"
