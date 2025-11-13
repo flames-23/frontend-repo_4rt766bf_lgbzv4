@@ -17,6 +17,7 @@ import Results from './components/Results'
 import ComparisonASCA from './components/ComparisonASCA'
 import Leadership from './components/Leadership'
 import TalentClub from './components/TalentClub'
+import AUET from './components/AUET'
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
         <TalentClub />
         <CampusCarousel />
         <Mentors />
+        {/* AUET section driving registration intents */}
+        <AUET />
         <ASeatCTA />
         <Admissions />
       </main>
