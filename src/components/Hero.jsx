@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion'
 
 export default function Hero() {
-  const videoSrc =
-    'https://videos.pexels.com/video-files/7987806/7987806-uhd_2560_1440_25fps.mp4'
-  const posterSrc =
-    'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1600&auto=format&fit=crop'
+  const youtubeId = 'Rguj5vn18JI'
+  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1&enablejsapi=1`
 
   return (
     <section className="relative section-dark overflow-hidden">
@@ -78,17 +76,16 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Video with rounded rectangle and thin glow */}
+          {/* Right: YouTube embed with rounded rectangle and thin glow */}
           <div className="relative w-full">
             <div className="relative aspect-[16/9] w-full max-w-[800px] ml-auto overflow-hidden rounded-3xl ring-1 ring-white/20 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_30px_80px_-30px_rgba(79,140,255,0.35),0_24px_60px_-24px_rgba(154,111,255,0.25)]">
-              <video
-                className="h-full w-full object-cover"
-                src={videoSrc}
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={posterSrc}
+              <iframe
+                className="h-full w-full"
+                src={embedUrl}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
               />
               {/* subtle top/edge vignette */}
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.35)_0%,rgba(2,6,23,0)_35%)]" />
