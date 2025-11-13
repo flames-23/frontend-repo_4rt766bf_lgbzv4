@@ -3,7 +3,14 @@
 > vite
 
 
-  VITE v5.4.20  ready in 636 ms
+  VITE v5.4.20  ready in 306 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.2.67:3000/
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+4  |  
+5  |  /* Import unified font */
+6  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7  |  
+8  |  /* Design System: Colors, Typography, and Section Utilities */

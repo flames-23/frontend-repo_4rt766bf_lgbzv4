@@ -14,7 +14,7 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 relative bg-white/90 backdrop-blur border-b border-slate-200 shadow-[0_2px_12px_rgba(17,24,39,0.06)]">
+    <header className="sticky top-0 z-50 relative bg-white/90 backdrop-blur border-b border-black/10 shadow-[0_2px_12px_rgba(17,24,39,0.06)]">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-[2px]" style={{ backgroundImage: 'linear-gradient(90deg, var(--ds-blue), var(--ds-violet))' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,14 +23,14 @@ export default function Navbar() {
             <a href="#home" className="flex items-center gap-3">
               <span className="relative inline-flex items-center justify-center">
                 <span className="p-[2px] rounded-xl" style={{ backgroundImage: 'linear-gradient(90deg, var(--ds-blue), var(--ds-violet))' }}>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-white ring-1 ring-slate-200/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_rgba(17,24,39,0.06)]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-white ring-1 ring-black/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_rgba(17,24,39,0.06)]">
                     <Shield className="h-6 w-6" style={{ color: 'var(--ds-blue)' }} />
                   </span>
                 </span>
               </span>
               <span className="leading-tight select-none">
-                <span className="block text-[14px] font-extrabold tracking-tight text-[#111827]">ALGO UNIVERSITY</span>
-                <span className="block text-[12px] text-slate-600">School of CS & AI</span>
+                <span className="block text-[14px] font-extrabold tracking-tight text-[color:var(--ds-body-light)]">ALGO UNIVERSITY</span>
+                <span className="block text-[12px] subtext">School of CS & AI</span>
               </span>
             </a>
           </div>
@@ -40,9 +40,9 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative inline-flex items-center gap-2 text-[15px] font-semibold text-[#111827] tracking-tight transition-colors whitespace-nowrap"
+                className="group relative inline-flex items-center gap-2 text-[15px] font-semibold tracking-tight transition-colors whitespace-nowrap text-[color:var(--ds-body-light)]"
               >
-                <span className="border-b-2 border-transparent group-hover:text-[color:var(--ds-blue)]" style={{ borderColor: 'transparent' }}>
+                <span className="border-b-2 border-transparent group-hover:text-[color:var(--ds-blue)]">
                   {item.label}
                 </span>
                 {item.new && (
@@ -64,7 +64,7 @@ export default function Navbar() {
             </a>
 
             <button
-              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100/80 ring-1 ring-slate-200/70 shadow-[0_2px_8px_rgba(17,24,39,0.06)]"
+              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full text-[color:var(--ds-body-light)] hover:bg-black/5 ring-1 ring-black/10 shadow-[0_2px_8px_rgba(17,24,39,0.06)]"
               aria-label="Toggle menu"
               onClick={() => setOpen((v) => !v)}
             >
@@ -83,22 +83,22 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         />
         <div
-          className={`absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-200 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white shadow-2xl border-l border-black/10 transform transition-transform duration-200 ${open ? 'translate-x-0' : 'translate-x-full'}`}
         >
-          <div className="flex items-center justify-between px-4 h-20 border-b border-slate-200">
+          <div className="flex items-center justify-between px-4 h-20 border-b border-black/10">
             <div className="flex items-center gap-3">
               <span className="p-[2px] rounded-lg" style={{ backgroundImage: 'linear-gradient(90deg, var(--ds-blue), var(--ds-violet))' }}>
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-[12px] bg-white ring-1 ring-slate-200/80">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-[12px] bg-white ring-1 ring-black/10">
                   <Shield className="h-5 w-5" style={{ color: 'var(--ds-blue)' }} />
                 </span>
               </span>
               <div className="leading-tight">
-                <div className="text-[13px] font-extrabold text-[#111827]">ALGO UNIVERSITY</div>
-                <div className="text-[11px] text-slate-600">School of CS & AI</div>
+                <div className="text-[13px] font-extrabold text-[color:var(--ds-body-light)]">ALGO UNIVERSITY</div>
+                <div className="text-[11px] subtext">School of CS & AI</div>
               </div>
             </div>
             <button
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--ds-body-light)] hover:bg-black/5"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             >
@@ -113,7 +113,7 @@ export default function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between rounded-md px-3 py-2 text-[15px] font-semibold text-[#111827] hover:bg-slate-50"
+                    className="flex items-center justify-between rounded-md px-3 py-2 text-[15px] font-semibold text-[color:var(--ds-body-light)] hover:bg-black/5"
                   >
                     <span>{item.label}</span>
                     {item.new && (
