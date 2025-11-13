@@ -16,6 +16,7 @@ import ComparisonASCA from './components/ComparisonASCA'
 import Leadership from './components/Leadership'
 import TalentClub from './components/TalentClub'
 import AUET from './components/AUET'
+import MacbookM5 from './components/MacbookM5'
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
       <main>
         {/* Hero remains as-is */}
         <Hero />
+
+        {/* Super-premium MacBook Pro M5 section */}
+        <MacbookM5 />
 
         {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
