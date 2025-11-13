@@ -25,7 +25,7 @@ const points = [
 
 export default function WhyASCA() {
   return (
-    <section id="why" className="section-light edge-glow py-16">
+    <section id="why" className="section-light py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Why AlgoUniversity School of CS & AI</h2>

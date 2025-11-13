@@ -1,6 +1,6 @@
 export default function Admissions() {
   return (
-    <section id="admissions-aseat" className="section-light edge-glow py-24">
+    <section id="admissions-aseat" className="section-light py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="rounded-3xl border border-blue-200/30 bg-gradient-to-br from-white to-[#f6f7ff] p-8 md:p-12 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.15)]">
           <div className="max-w-3xl">

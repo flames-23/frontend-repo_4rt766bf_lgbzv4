@@ -152,13 +152,13 @@ export default function Curriculum() {
   }
 
   const fade = {
-    initial: { opacity: 0, y: 12 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-    exit: { opacity: 0, y: -8, transition: { duration: 0.25 } }
+    initial: { opacity: 1, y: 0 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0 } },
+    exit: { opacity: 1, y: 0, transition: { duration: 0 } }
   }
 
   return (
-    <section id="curriculum" className="section-light edge-glow relative isolate overflow-hidden py-20 sm:py-24">
+    <section id="curriculum" className="section-light relative isolate overflow-hidden py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div initial={fade.initial} whileInView={fade.animate} viewport={{ once: true, amount: 0.35 }} className="text-center">
@@ -257,12 +257,8 @@ export default function Curriculum() {
                       className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:gap-6 md:pb-3"
                     >
                       {activeYear.projects.map((p, idx) => (
-                        <motion.div
+                        <div
                           key={p.title}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, amount: 0.3 }}
-                          transition={{ delay: idx * 0.05 }}
                           className={`group relative w-[82%] min-w-[260px] max-w-[320px] snap-start rounded-2xl ${p.ring} ${p.accent} border border-slate-200/70 p-4 shadow-sm`}
                         >
                           <div className="flex items-start gap-3">
@@ -275,7 +271,7 @@ export default function Curriculum() {
                             </div>
                           </div>
                           <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, rgba(79,140,255,0.10), rgba(154,111,255,0.10))' }} />
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </div>

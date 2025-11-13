@@ -20,7 +20,7 @@ function Tile({ icon: Icon, title, desc }) {
 
 export default function SchoolCSAI() {
   return (
-    <section id="school-csai" className="section-light edge-glow py-24">
+    <section id="school-csai" className="section-light py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">

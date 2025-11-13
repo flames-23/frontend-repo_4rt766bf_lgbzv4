@@ -14,6 +14,7 @@ import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
 import JobGuarantee from './components/JobGuarantee'
 import Results from './components/Results'
+import ComparisonASCA from './components/ComparisonASCA'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Results />
         <About />
         <SchoolCSAI />
+        <ComparisonASCA />
         <WhyASCA />
         <Curriculum />
         <Achievers />
