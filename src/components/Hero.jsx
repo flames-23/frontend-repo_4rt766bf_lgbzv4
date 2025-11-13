@@ -16,7 +16,7 @@ export default function Hero() {
   }))
 
   return (
-    <section className="relative min-h-[90vh] pt-24 overflow-hidden text-white">
+    <section className="relative min-h-[88vh] pt-16 pb-8 overflow-hidden text-white">
       {/* Background: dark premium gradient + ambient glows */}
       <div aria-hidden className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(80%_80%_at_20%_0%,#0b1b3a_0%,#0a1326_45%,#070c1a_100%)]" />
@@ -25,13 +25,13 @@ export default function Hero() {
           initial={{ x: -160, opacity: 0.5 }}
           animate={{ x: 160 }}
           transition={{ duration: 12, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute top-24 left-0 h-[2px] w-[22rem] -rotate-12 rounded-full bg-gradient-to-r from-sky-400/40 via-cyan-300/30 to-violet-500/40 blur-md"
+          className="absolute top-20 left-0 h-[2px] w-[22rem] -rotate-12 rounded-full bg-gradient-to-r from-sky-400/40 via-cyan-300/30 to-violet-500/40 blur-md"
         />
         <motion.div
           initial={{ x: 140, opacity: 0.5 }}
           animate={{ x: -140 }}
           transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute bottom-24 right-0 h-[2px] w-[26rem] rotate-8 rounded-full bg-gradient-to-r from-violet-500/40 via-blue-500/30 to-cyan-400/40 blur-md"
+          className="absolute bottom-20 right-0 h-[2px] w-[26rem] rotate-8 rounded-full bg-gradient-to-r from-violet-500/40 via-blue-500/30 to-cyan-400/40 blur-md"
         />
 
         {/* Floating particles */}
@@ -50,16 +50,16 @@ export default function Hero() {
       {/* Foreground content */}
       <div className="relative z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-6 lg:gap-8">
             {/* Left: text content */}
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="py-8 sm:py-12 md:py-16 pr-0 md:pr-6 lg:pr-8"
+              className="py-6 sm:py-8 md:py-10 pr-0 md:pr-4 lg:pr-6"
             >
               {/* Top badges */}
-              <div className="mb-4 flex flex-wrap items-center gap-2">
+              <div className="mb-2.5 flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                   AICTE Approved
                 </span>
@@ -73,7 +73,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="text-3xl sm:text-5xl md:text-[2.9rem] font-extrabold tracking-tight leading-tight md:leading-[1.07]"
+                className="text-[2.4rem] sm:text-[3.25rem] md:text-[3.75rem] font-extrabold tracking-tight leading-[1.04]"
               >
                 <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-violet-300 bg-clip-text text-transparent">
                   4-Year B.Tech That Gets You Job-Ready
@@ -85,7 +85,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mt-4 text-base md:text-lg text-white/90 max-w-xl"
+                className="mt-2 text-[1.05rem] md:text-lg text-white/90 max-w-xl"
               >
                 Learn from engineers who’ve built real systems at:
               </motion.p>
@@ -94,8 +94,8 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.18 }}
-                className="mt-4 flex items-center gap-5 sm:gap-6 md:gap-7"
+                transition={{ duration: 0.5, delay: 0.16 }}
+                className="mt-2 flex items-center gap-6 sm:gap-7 md:gap-8"
               >
                 <LogoGoogle />
                 <LogoApple />
@@ -108,8 +108,8 @@ export default function Hero() {
               <motion.p
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.24 }}
-                className="mt-4 text-sm md:text-base text-white/80 max-w-xl"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-3 text-[0.98rem] md:text-[1.05rem] text-white/85 max-w-xl"
               >
                 No outdated coursework. Only real-world engineering taught by real practitioners.
               </motion.p>
@@ -118,12 +118,12 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.28 }}
-                className="mt-7"
+                transition={{ duration: 0.5, delay: 0.24 }}
+                className="mt-6"
               >
                 <a
                   href="#admissions-aseat"
-                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-600 px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_30px_-10px_rgba(72,155,255,0.6)] ring-1 ring-white/10 transition-all hover:brightness-110 hover:shadow-[0_14px_40px_-12px_rgba(129,140,248,0.65)]"
+                  className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-4 text-[16px] font-semibold text-white tracking-tight shadow-[0_10px_28px_rgba(79,70,229,0.35),0_6px_16px_rgba(59,130,246,0.25)] ring-1 ring-white/10 transition-all hover:scale-[1.02] hover:shadow-[0_16px_44px_rgba(79,70,229,0.45),0_10px_24px_rgba(59,130,246,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 >
                   Apply via A-SEAT
                 </a>
@@ -135,9 +135,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut', delay: 0.08 }}
-              className="relative w-full"
+              className="relative w-full md:-mt-4"
             >
-              <div className="relative mx-auto aspect-[16/10] w-full max-w-[640px] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl shadow-black/40">
+              {/* Background glow behind video for smoother blend */}
+              <div aria-hidden className="absolute -inset-6 -z-10 hidden md:block">
+                <div className="h-full w-full rounded-[28px] bg-[radial-gradient(60%_60%_at_30%_20%,rgba(59,130,246,0.28),transparent_70%),radial-gradient(60%_60%_at_100%_80%,rgba(139,92,246,0.26),transparent_70%)] blur-2xl opacity-80" />
+              </div>
+
+              <div className="relative ml-0 md:ml-2 lg:ml-3 aspect-[16/9] w-full max-w-[780px] lg:max-w-[860px] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl shadow-black/40">
                 <video
                   className="h-full w-full object-cover"
                   src={videoSrc}
@@ -158,14 +163,14 @@ export default function Hero() {
       </div>
 
       {/* Edge vignette to keep it premium and contained */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#070c1a] via-[#070c1a]/60 to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070c1a] via-[#070c1a]/60 to-transparent" />
     </section>
   )
 }
 
 // --- Logo SVGs (monochrome with subtle glow) ---
 function baseLogoClass() {
-  return 'h-6 w-auto opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]'
+  return 'h-8 w-auto opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.22)]'
 }
 
 function LogoGoogle() {
