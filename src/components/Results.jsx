@@ -76,12 +76,10 @@ export default function Results() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight">
-            <span className="bg-gradient-to-br from-sky-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
-              Results That Speak for Themselves.
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-[#111827]">
+            Results That Speak for Themselves.
           </h2>
-          <p className="mt-4 text-slate-600 text-base sm:text-lg">
+          <p className="mt-4 text-[#4B5563] text-base sm:text-lg">
             Hear from our students who turned their B.Tech into real-world success stories.
           </p>
         </motion.div>
@@ -117,35 +115,33 @@ export default function Results() {
                 transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 * idx }}
                 className="group relative w-[85%] sm:w-[360px] lg:w-[400px] shrink-0 snap-center"
               >
-                {/* Gradient border with glass card */}
-                <div className="rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-300 via-cyan-300 to-violet-300">
-                  <div className="rounded-2xl overflow-hidden border border-slate-200/80 bg-white/60 backdrop-blur-xl shadow-[0_10px_30px_-12px_rgba(2,6,23,0.20)]">
-                    {/* Thumbnail */}
-                    <button
-                      onClick={() => setOpenVideo(t.videoId)}
-                      className="relative block w-full"
-                    >
-                      <img
-                        src={`https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg`}
-                        alt={`${t.name} testimonial thumbnail`}
-                        className="h-56 w-full object-cover"
-                        loading="lazy"
-                      />
-                      {/* Play overlay */}
-                      <span className="absolute inset-0 grid place-items-center">
-                        <span className="relative grid place-items-center h-16 w-16 rounded-full bg-white/90 text-slate-800 shadow-xl ring-1 ring-slate-200 transition group-hover:scale-105">
-                          <Play className="h-6 w-6" fill="currentColor" />
-                        </span>
+                {/* Panel card */}
+                <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                  {/* Thumbnail */}
+                  <button
+                    onClick={() => setOpenVideo(t.videoId)}
+                    className="relative block w-full"
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg`}
+                      alt={`${t.name} testimonial thumbnail`}
+                      className="h-56 w-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Play overlay */}
+                    <span className="absolute inset-0 grid place-items-center">
+                      <span className="relative grid place-items-center h-16 w-16 rounded-full bg-white/90 text-slate-800 shadow-xl ring-1 ring-slate-200 transition group-hover:scale-105">
+                        <Play className="h-6 w-6" fill="currentColor" />
                       </span>
-                      {/* subtle top highlight */}
-                      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/60 to-transparent" />
-                    </button>
+                    </span>
+                    {/* subtle top highlight */}
+                    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/60 to-transparent" />
+                  </button>
 
-                    {/* Meta */}
-                    <div className="p-5">
-                      <div className="text-sm font-medium text-slate-700">{t.name} • {t.company}</div>
-                      <p className="mt-1 text-slate-600 text-sm">“{t.quote}”</p>
-                    </div>
+                  {/* Meta */}
+                  <div className="p-5">
+                    <div className="text-sm font-medium text-slate-700">{t.name} • {t.company}</div>
+                    <p className="mt-1 text-slate-600 text-sm">“{t.quote}”</p>
                   </div>
                 </div>
               </motion.div>

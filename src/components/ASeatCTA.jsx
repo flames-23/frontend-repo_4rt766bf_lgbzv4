@@ -22,19 +22,15 @@ export default function ASeatCTA() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Glass panel */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_30px_80px_-30px_rgba(56,189,248,0.25)]">
-          {/* Gradient light flare */}
-          <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-tr from-cyan-400/30 via-blue-500/25 to-violet-500/30" style={{ animation: 'glowPulse 6s ease-in-out infinite' }} />
-          <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-gradient-to-br from-violet-500/25 via-fuchsia-500/20 to-cyan-400/25" style={{ animation: 'glowPulse 8s ease-in-out infinite' }} />
-
+        {/* White panel */}
+        <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 lg:p-10 shadow-sm">
           <div className="relative grid gap-5 lg:grid-cols-12 items-center">
             <div className="lg:col-span-8">
-              <p className="text-sm font-medium tracking-wider text-cyan-300/90">Admissions 2025</p>
-              <h2 className="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Get Started with <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">A-SEAT</span> — The Entrance to AlgoUniversity.
+              <p className="text-sm font-medium tracking-wider text-[#4B5563]">Admissions 2025</p>
+              <h2 className="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111827]">
+                Get Started with <span className="text-[#111827]">A-SEAT</span> — The Entrance to AlgoUniversity.
               </h2>
-              <p className="mt-3 text-base text-gray-300 max-w-2xl">
+              <p className="mt-3 text-base text-[#4B5563] max-w-2xl">
                 Claim your edge in Computer Science & AI. Limited seats, high mentorship density, and a builder-first culture to launch your career.
               </p>
             </div>
@@ -45,13 +41,11 @@ export default function ASeatCTA() {
                   href="#admissions"
                   className="group relative inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white transition focus:outline-none"
                 >
-                  <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 opacity-90 transition-opacity group-hover:opacity-100" />
-                  <span className="absolute inset-0 rounded-xl ring-1 ring-white/20" />
+                  <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-95 transition-opacity group-hover:opacity-100" />
+                  <span className="absolute inset-0 rounded-xl ring-1 ring-black/5" />
                   <span className="relative z-10">Register Now</span>
-                  {/* Glow */}
-                  <span aria-hidden className="absolute -inset-1 -z-10 rounded-xl bg-gradient-to-r from-cyan-500/40 via-blue-500/30 to-violet-500/40 blur-2xl" />
                 </a>
-                <a href="#admissions" className="text-sm text-gray-300 hover:text-white/90 transition">Learn about the process</a>
+                <a href="#admissions" className="text-sm text-[#4B5563] hover:text-[#111827] transition">Learn about the process</a>
               </div>
             </div>
           </div>
