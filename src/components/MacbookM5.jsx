@@ -38,7 +38,7 @@ export default function MacbookM5() {
         {/* Standard heading pattern (matching Campus Life) */}
         <div className="mb-10 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Build Industry-Preferred Skills Through Practical Learning.
+            Every ASCA student receives a MacBook Pro powered by Apple M5.
           </h2>
           <p className="mt-3 text-white/70">
             A super‑premium learning experience—built on the Apple M5 architecture. Create, train, and ship with the same tools used by world‑class teams.
