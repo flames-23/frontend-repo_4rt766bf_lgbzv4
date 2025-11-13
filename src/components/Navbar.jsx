@@ -14,35 +14,43 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white/100 border-b border-gray-200 shadow-[0_1px_0_0_rgba(0,0,0,0.04)]">
+    <header className="sticky top-0 z-50 relative bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-200 shadow-[0_2px_12px_rgba(17,24,39,0.06)]">
+      {/* Faint top glow to match hero lighting */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-[2px] bg-gradient-to-r from-sky-400/60 via-blue-500/50 to-violet-500/60 opacity-80" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 items-center h-20">
-          {/* Left – Logo */}
+        <div className="grid grid-cols-3 items-center h-[88px]">
+          {/* Left – Logo (rounded card aesthetic) */}
           <div className="flex items-center gap-3">
             <a href="#home" className="flex items-center gap-3">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900 text-white">
-                <Shield className="h-6 w-6" />
+              <span className="relative inline-flex items-center justify-center">
+                {/* Gradient border container with soft rounding to match hero cards */}
+                <span className="p-[2px] rounded-xl bg-gradient-to-r from-blue-500 to-violet-500 shadow-[0_8px_20px_rgba(79,70,229,0.15)]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-white ring-1 ring-slate-200/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_16px_rgba(17,24,39,0.06)]">
+                    <Shield className="h-6 w-6 text-blue-600" />
+                  </span>
+                </span>
               </span>
-              <span className="leading-tight">
-                <span className="block text-sm font-bold tracking-wide text-gray-900">ALGO UNIVERSITY</span>
-                <span className="block text-[12px] text-gray-500">School of CS & AI</span>
+              <span className="leading-tight select-none">
+                <span className="block text-[14px] font-extrabold tracking-tight text-[#111827]">ALGO UNIVERSITY</span>
+                <span className="block text-[12px] text-slate-600">School of CS & AI</span>
               </span>
             </a>
           </div>
 
           {/* Center – Menu items (desktop) */}
-          <nav className="hidden md:flex items-center justify-center gap-6">
+          <nav className="hidden md:flex items-center justify-center gap-7">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative inline-flex items-center gap-2 text-[16px] font-medium text-[#374151] transition-colors"
+                className="group relative inline-flex items-center gap-2 text-[15px] font-semibold text-[#111827] tracking-tight transition-colors"
               >
-                <span className="border-b-2 border-transparent group-hover:border-blue-500 group-hover:text-blue-600">
+                <span className="border-b-2 border-transparent group-hover:border-blue-500/70 group-hover:text-blue-700">
                   {item.label}
                 </span>
                 {item.new && (
-                  <span className="inline-flex -ml-1 items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white bg-gradient-to-r from-[#2563EB] to-[#60A5FA] shadow-sm">
+                  <span className="inline-flex -ml-1 items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white bg-gradient-to-r from-blue-600 to-violet-600 shadow-[0_6px_18px_rgba(59,130,246,0.35)]">
                     New
                   </span>
                 )}
@@ -51,16 +59,17 @@ export default function Navbar() {
           </nav>
 
           {/* Right – Primary CTA + Hamburger */}
-          <div className="flex items-center justify-end gap-3">
+          <div className="flex items-center justify-end gap-3 pr-1 sm:pr-2 md:pr-3 lg:pr-4">
+            {/* Apply Now – matches hero CTA */}
             <a
               href="#admissions"
-              className="hidden md:inline-flex items-center justify-center rounded-full px-5 py-2.5 text-white text-[16px] font-bold bg-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,0.25)] hover:bg-[#1e4fd0] transition-transform duration-150 hover:scale-[1.02]"
+              className="hidden md:inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3.5 text-white text-[15px] font-semibold tracking-tight shadow-[0_10px_28px_rgba(79,70,229,0.35),0_6px_16px_rgba(59,130,246,0.25)] ring-1 ring-white/10 hover:shadow-[0_14px_36px_rgba(79,70,229,0.45),0_10px_24px_rgba(59,130,246,0.35)] transition-transform duration-150 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
             >
               Apply Now
             </a>
 
             <button
-              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100"
+              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100/80 ring-1 ring-slate-200/70 shadow-[0_2px_8px_rgba(17,24,39,0.06)]"
               aria-label="Toggle menu"
               onClick={() => setOpen((v) => !v)}
             >
@@ -86,16 +95,18 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between px-4 h-20 border-b border-gray-200">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gray-900 text-white">
-                <Shield className="h-5 w-5" />
+              <span className="p-[2px] rounded-lg bg-gradient-to-r from-blue-500 to-violet-500">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-[12px] bg-white ring-1 ring-slate-200/80">
+                  <Shield className="h-5 w-5 text-blue-600" />
+                </span>
               </span>
               <div className="leading-tight">
-                <div className="text-[13px] font-bold text-gray-900">ALGO UNIVERSITY</div>
-                <div className="text-[11px] text-gray-500">School of CS & AI</div>
+                <div className="text-[13px] font-extrabold text-[#111827]">ALGO UNIVERSITY</div>
+                <div className="text-[11px] text-slate-600">School of CS & AI</div>
               </div>
             </div>
             <button
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             >
@@ -110,11 +121,11 @@ export default function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between rounded-md px-3 py-2 text-[15px] font-medium text-[#374151] hover:bg-gray-50"
+                    className="flex items-center justify-between rounded-md px-3 py-2 text-[15px] font-semibold text-[#111827] hover:bg-slate-50"
                   >
                     <span>{item.label}</span>
                     {item.new && (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white bg-gradient-to-r from-[#2563EB] to-[#60A5FA]">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white bg-gradient-to-r from-blue-600 to-violet-600 shadow-[0_6px_18px_rgba(59,130,246,0.35)]">
                         New
                       </span>
                     )}
@@ -127,7 +138,7 @@ export default function Navbar() {
               <a
                 href="#admissions"
                 onClick={() => setOpen(false)}
-                className="inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-white text-[16px] font-bold bg-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,0.25)] hover:bg-[#1e4fd0]"
+                className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-5 py-3.5 text-white text-[15px] font-semibold tracking-tight shadow-[0_10px_28px_rgba(79,70,229,0.35),0_6px_16px_rgba(59,130,246,0.25)] ring-1 ring-white/10 hover:shadow-[0_14px_36px_rgba(79,70,229,0.45),0_10px_24px_rgba(59,130,246,0.35)]"
               >
                 Apply Now
               </a>
