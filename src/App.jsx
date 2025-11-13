@@ -32,12 +32,13 @@ function App() {
       <main>
         <Hero />
         <About />
+        {/* Move School of CS & AI section directly after Hero and About */}
+        <SchoolCSAI />
         <WhyASCA />
         <Curriculum />
         <Achievers />
         <CampusCarousel />
         <Placements />
-        <SchoolCSAI />
         <JobGuarantee />
         <Results />
         <Mentors />
