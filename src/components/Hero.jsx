@@ -76,7 +76,7 @@ export default function Hero() {
                 className="text-[2.4rem] sm:text-[3.25rem] md:text-[3.75rem] font-extrabold tracking-tight leading-[1.04]"
               >
                 <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-violet-300 bg-clip-text text-transparent">
-                  4-Year B.Tech That Gets You Job-Ready
+                  B.Tech in CS and AI That Gets You a Job
                 </span>
               </motion.h1>
 
