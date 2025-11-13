@@ -8,7 +8,6 @@ import Achievers from './components/Achievers'
 import CampusCarousel from './components/CampusCarousel'
 import Placements from './components/Placements'
 import Admissions from './components/Admissions'
-import AdmissionsCTA from './components/AdmissionsCTA'
 import SchoolCSAI from './components/SchoolCSAI'
 import Mentors from './components/Mentors'
 import ASeatCTA from './components/ASeatCTA'
@@ -67,8 +66,7 @@ function App() {
         {/* Light → Dark transition for footer area */}
         <SectionTransition variant="light-to-dark" size="lg" />
 
-        {/* Dark footer CTA and footer */}
-        <AdmissionsCTA />
+        {/* Removed AdmissionsCTA section */}
       </main>
 
       <Footer />
