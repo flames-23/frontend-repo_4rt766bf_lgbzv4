@@ -35,12 +35,12 @@ function App() {
         <About />
         <SchoolCSAI />
         <ComparisonASCA />
-        {/* New dark-theme Talent Club section to match ASCA comparison styles */}
-        <TalentClub />
         <Leadership />
         <WhyASCA />
         <Curriculum />
         <Achievers />
+        {/* Move Talent Club section right after Achievers */}
+        <TalentClub />
         <CampusCarousel />
         <Mentors />
         <ASeatCTA />
