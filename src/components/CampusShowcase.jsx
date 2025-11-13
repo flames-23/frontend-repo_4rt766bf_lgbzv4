@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SectionHeading from './SectionHeading'
 
 export default function CampusShowcase() {
   const items = [
@@ -22,10 +23,14 @@ export default function CampusShowcase() {
   return (
     <section id="campus" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Experience Campus Life</h2>
-          <p className="mt-3 text-gray-600 dark:text-gray-300">A community designed to inspire, collaborate, and create.</p>
-        </div>
+        <SectionHeading
+          align="center"
+          theme="light"
+          size="lg"
+          title="Experience Campus Life"
+          subtitle="A community designed to inspire, collaborate, and create."
+          className="mb-10"
+        />
 
         <div className="grid md:grid-cols-3 gap-6">
           {items.map((card) => (

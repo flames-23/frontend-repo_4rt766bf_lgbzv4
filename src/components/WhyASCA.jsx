@@ -1,4 +1,5 @@
 import { Briefcase, LineChart, Users, ShieldCheck } from 'lucide-react'
+import SectionHeading from './SectionHeading'
 
 const points = [
   {
@@ -27,10 +28,14 @@ export default function WhyASCA() {
   return (
     <section id="why" className="section-light py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Why AlgoUniversity School of CS & AI</h2>
-          <p className="mt-3 text-base text-slate-700">A program engineered for outcomes with a builder-first ethos.</p>
-        </div>
+        <SectionHeading
+          align="center"
+          theme="light"
+          size="lg"
+          title="Why AlgoUniversity School of CS & AI"
+          subtitle="A program engineered for outcomes with a builder-first ethos."
+          className="mb-8"
+        />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {points.map(({ icon: Icon, title, desc }) => (

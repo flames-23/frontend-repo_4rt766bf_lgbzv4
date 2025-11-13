@@ -19,7 +19,8 @@ export default function SectionHeading({
 
   const titleSizes = size === 'lg' ? 'text-3xl sm:text-4xl lg:text-5xl' : 'text-3xl sm:text-4xl'
 
-  const titleColor = isDark ? 'text-white' : 'text-[#111827]'
+  // Enforce pure white on dark backgrounds and pure black on light backgrounds
+  const titleColor = isDark ? 'text-white' : 'text-black'
   const subtitleColor = isDark ? 'text-[#A9A9B2]' : 'text-[#4B5563]'
 
   return (
@@ -27,7 +28,7 @@ export default function SectionHeading({
       {kicker ? (
         <div className={cx(
           'mb-2 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ring-1',
-          isDark ? 'text-white ring-white/10 bg-white/5' : 'text-[#111827] ring-slate-200 bg-white'
+          isDark ? 'text-white ring-white/10 bg-white/5' : 'text-black ring-slate-200 bg-white'
         )}>
           {kicker}
         </div>
