@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useRef, useState, useCallback } from 'react'
+import SectionHeading from './SectionHeading.jsx'
 
 export default function JobGuarantee() {
   const youtubeId = '-cn-lOA21Og'
@@ -36,6 +37,15 @@ export default function JobGuarantee() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading outside the card */}
+        <SectionHeading
+          title="Hear From Our Founder"
+          align="center"
+          theme="light"
+          size="lg"
+          className="mb-6 sm:mb-8"
+        />
+
         {/* White glass-style card (matches A-SEAT style) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -50,12 +60,8 @@ export default function JobGuarantee() {
 
           {/* Content */}
           <div className="relative">
-            <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900/95">
-              Hear From Our Founder
-            </h2>
-
             {/* Video container */}
-            <div className="mt-6 sm:mt-8">
+            <div className="mt-0 sm:mt-0">
               {/* Gradient edge and glow */}
               <div className="group relative">
                 <div className="absolute -inset-2 -z-10 rounded-3xl bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-violet-500/20 opacity-40 blur-2xl" aria-hidden />
