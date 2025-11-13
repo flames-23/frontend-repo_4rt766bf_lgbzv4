@@ -1,3 +1,5 @@
+import SectionHeading from './SectionHeading.jsx'
+
 export default function Placements() {
   const stats = [
     { label: 'Average CTC', value: '25 LPA' },
@@ -29,9 +31,6 @@ export default function Placements() {
     'https://upload.wikimedia.org/wikipedia/commons/0/01/Intel_logo_%282020%2C_dark_blue%29.svg',
     'https://upload.wikimedia.org/wikipedia/commons/4/4d/Logo_OpenAI.svg',
   ]
-
-  // Lazy import to avoid breaking if component path changes
-  const SectionHeading = require('./SectionHeading.jsx').default
 
   return (
     <section id="placements" className="py-16 bg-[#F5F7FA]">
