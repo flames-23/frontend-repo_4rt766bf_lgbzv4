@@ -30,6 +30,9 @@ export default function Placements() {
     'https://upload.wikimedia.org/wikipedia/commons/4/4d/Logo_OpenAI.svg',
   ]
 
+  // Lazy import to avoid breaking if component path changes
+  const SectionHeading = require('./SectionHeading.jsx').default
+
   return (
     <section id="placements" className="py-16 bg-[#F5F7FA]">
       <style>{`
@@ -40,14 +43,23 @@ export default function Placements() {
       `}</style>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading outside of the card, on light background → black text via theme="light" */}
+        <div className="mb-8 sm:mb-10">
+          <SectionHeading
+            title="Placements & Outcomes"
+            subtitle="Ship real products, publish research, and join high-growth teams. Our network opens doors across product, research, and quant."
+            align="center"
+            theme="light"
+            size="lg"
+          />
+        </div>
+
         {/* Light panel wrapper */}
         <div className="rounded-3xl border border-gray-200 bg-white shadow-sm p-6 sm:p-8 lg:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111827]">Placements & Outcomes</h2>
-              <p className="mt-3 text-base text-[#4B5563]">Ship real products, publish research, and join high-growth teams. Our network opens doors across product, research, and quant.</p>
-
-              <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {/* Heading moved outside; keep content only */}
+              <div className="mt-0 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {stats.map((s) => (
                   <div key={s.label} className="rounded-2xl border border-gray-200 bg-white p-4 text-center shadow-xs">
                     <div className="text-xl font-bold text-[#111827]">{s.value}</div>
