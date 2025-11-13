@@ -1,8 +1,30 @@
 import { motion } from 'framer-motion'
+import { useRef, useState, useCallback } from 'react'
 
 export default function JobGuarantee() {
   const youtubeId = '-cn-lOA21Og'
-  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1` 
+  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1&enablejsapi=1`
+
+  const iframeRef = useRef(null)
+  const [muted, setMuted] = useState(true)
+
+  const unmute = useCallback(() => {
+    const iframe = iframeRef.current
+    if (!iframe) return
+    try {
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: 'unMute', args: [] }),
+        '*'
+      )
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
+        '*'
+      )
+      setMuted(false)
+    } catch (e) {
+      // no-op
+    }
+  }, [])
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20">
@@ -44,6 +66,7 @@ export default function JobGuarantee() {
 
                     <div className="aspect-video">
                       <iframe
+                        ref={iframeRef}
                         className="h-full w-full"
                         src={embedUrl}
                         title="Hear from our founder"
@@ -51,6 +74,16 @@ export default function JobGuarantee() {
                         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                         allowFullScreen
                       />
+
+                      {muted && (
+                        <button
+                          type="button"
+                          onClick={unmute}
+                          className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                        >
+                          Unmute
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

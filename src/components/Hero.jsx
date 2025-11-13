@@ -1,8 +1,31 @@
 import { motion } from 'framer-motion'
+import { useRef, useState, useCallback } from 'react'
 
 export default function Hero() {
   const youtubeId = 'Rguj5vn18JI'
   const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1&enablejsapi=1`
+
+  const iframeRef = useRef(null)
+  const [muted, setMuted] = useState(true)
+
+  const unmute = useCallback(() => {
+    const iframe = iframeRef.current
+    if (!iframe) return
+    try {
+      // Unmute and play using YouTube IFrame Player API via postMessage
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: 'unMute', args: [] }),
+        '*'
+      )
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
+        '*'
+      )
+      setMuted(false)
+    } catch (e) {
+      // no-op
+    }
+  }, [])
 
   return (
     <section className="relative section-dark overflow-hidden">
@@ -80,6 +103,7 @@ export default function Hero() {
           <div className="relative w-full">
             <div className="relative aspect-[16/9] w-full max-w-[800px] ml-auto overflow-hidden rounded-3xl ring-1 ring-white/20 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_30px_80px_-30px_rgba(79,140,255,0.35),0_24px_60px_-24px_rgba(154,111,255,0.25)]">
               <iframe
+                ref={iframeRef}
                 className="h-full w-full"
                 src={embedUrl}
                 title="YouTube video player"
@@ -89,6 +113,16 @@ export default function Hero() {
               />
               {/* subtle top/edge vignette */}
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.35)_0%,rgba(2,6,23,0)_35%)]" />
+
+              {muted && (
+                <button
+                  type="button"
+                  onClick={unmute}
+                  className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/60"
+                >
+                  Unmute
+                </button>
+              )}
             </div>
           </div>
         </div>
