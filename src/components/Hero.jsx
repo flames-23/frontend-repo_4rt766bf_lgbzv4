@@ -58,7 +58,7 @@ export default function Hero() {
               <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 font-semibold text-white/80 backdrop-blur-sm">UGC Recognised</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-white">
               B.Tech in CS & AI That Gets You a Job
             </h1>
 
