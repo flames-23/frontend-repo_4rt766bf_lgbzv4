@@ -6,133 +6,106 @@ export default function Hero() {
   const posterSrc =
     'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1600&auto=format&fit=crop'
 
-  const particles = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    size: [3, 4, 5, 6][i % 4],
-    left: `${(i * 9 + 11) % 100}%`,
-    top: `${(i * 14 + 7) % 100}%`,
-    delay: i * 0.35,
-  }))
-
   return (
-    <section className="section-dark relative min-h-[88vh] pt-12 pb-10 overflow-hidden">
-      {/* Ambient ribbons */}
+    <section className="relative section-dark overflow-hidden">
+      {/* Full-width dark gradient background overlay (blue → deep navy → black) */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_-10%_-10%,rgba(79,140,255,0.45),transparent_50%),radial-gradient(900px_500px_at_110%_10%,rgba(154,111,255,0.25),transparent_55%),linear-gradient(180deg,#0b1226_0%,#070b14_50%,#030712_100%)]" />
+
+      {/* Subtle moving ribbons to keep premium vibe */}
       <div aria-hidden className="absolute inset-0">
         <motion.div
-          initial={{ x: -160, opacity: 0.35 }}
-          animate={{ x: 160 }}
+          initial={{ x: -120, opacity: 0.35 }}
+          animate={{ x: 120 }}
           transition={{ duration: 12, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute top-20 left-0 h-[2px] w-[22rem] -rotate-12 rounded-full ribbon-blue blur-md"
+          className="absolute top-24 left-0 h-px w-[22rem] -rotate-12 rounded-full ribbon-blue blur-sm"
         />
         <motion.div
-          initial={{ x: 140, opacity: 0.35 }}
-          animate={{ x: -140 }}
+          initial={{ x: 120, opacity: 0.3 }}
+          animate={{ x: -120 }}
           transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute bottom-20 right-0 h-[2px] w-[26rem] rotate-8 rounded-full ribbon-violet blur-md"
+          className="absolute bottom-24 right-0 h-px w-[26rem] rotate-6 rounded-full ribbon-violet blur-sm"
         />
-
-        {/* Floating particles */}
-        {particles.map((p) => (
-          <motion.span
-            key={p.id}
-            className="absolute rounded-full bg-white/25 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
-            style={{ width: p.size, height: p.size, left: p.left, top: p.top }}
-            initial={{ y: 0, opacity: 0.4 }}
-            animate={{ y: [0, -10, 0], opacity: [0.4, 0.8, 0.4] }}
-            transition={{ duration: 7 + (p.id % 5), repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-          />
-        ))}
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Light glass card */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white via-white to-[#eef2ff] backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),0_30px_80px_-30px_rgba(79,140,255,0.25),0_24px_60px_-24px_rgba(154,111,255,0.22)]"
-          >
-            {/* Blue/Violet glow flares */}
-            <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#4F8CFF]/40 via-[#4F8CFF]/25 to-[#9A6FFF]/40 blur-3xl" />
-            <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-gradient-to-br from-[#9A6FFF]/35 via-[#9A6FFF]/25 to-[#4F8CFF]/35 blur-3xl" />
-
-            <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-6 lg:gap-10 p-6 sm:p-8 lg:p-12">
-              {/* Left: text content (dark for readability) */}
-              <div className="pr-0 md:pr-4 lg:pr-8">
-                {/* Badges */}
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center rounded-full border border-black/5 bg-white/70 px-3 py-1 text-[11px] font-semibold text-[#111]/80 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                    AICTE Approved
-                  </span>
-                  <span className="inline-flex items-center rounded-full border border-black/5 bg-white/70 px-3 py-1 text-[11px] font-semibold text-[#111]/80 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                    UGC Recognised
-                  </span>
-                </div>
-
-                <h1 className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] font-extrabold leading-tight tracking-tight text-[#111]">
-                  B.Tech in CS and AI That Gets You a Job
-                </h1>
-
-                <p className="mt-2 text-[1.05rem] md:text-lg text-[#555] max-w-xl">
-                  Learn from engineers who’ve built real systems at:
-                </p>
-
-                <div className="mt-3 flex items-center gap-6 sm:gap-7 md:gap-8">
-                  <LogoGoogle variant="dark" />
-                  <LogoApple variant="dark" />
-                  <LogoMicrosoft variant="dark" />
-                  <LogoAmazon variant="dark" />
-                  <LogoServiceNow variant="dark" />
-                </div>
-
-                <p className="mt-4 text-[0.98rem] md:text-[1.05rem] text-[#555] max-w-xl">
-                  No outdated coursework. Only real-world engineering taught by real practitioners.
-                </p>
-
-                {/* CTA using accent gradient */}
-                <div className="mt-6">
-                  <a
-                    href="#admissions-aseat"
-                    className="group relative inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-[15px] font-semibold text-white transition focus:outline-none"
-                  >
-                    <span className="absolute inset-0 rounded-2xl accent-gradient opacity-95 transition-opacity group-hover:opacity-100" />
-                    <span className="absolute inset-0 rounded-2xl ring-1 ring-white/50" />
-                    <span className="relative z-10">Apply via A-SEAT</span>
-                    <span aria-hidden className="absolute -inset-1 -z-10 rounded-2xl accent-gradient blur-2xl opacity-40" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Right: visual block with autoplay looping video */}
-              <div className="relative w-full">
-                <div className="relative aspect-[16/9] w-full max-w-[780px] lg:max-w-[860px] overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-[0_10px_30px_-10px_rgba(2,6,23,0.12)] bg-white">
-                  <video
-                    className="h-full w-full object-cover"
-                    src={videoSrc}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={posterSrc}
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0)_30%),linear-gradient(0deg,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0)_45%)]" />
-                </div>
-              </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          {/* Left: Heading, subheading, logos, CTAs */}
+          <div className="max-w-2xl">
+            {/* Small credibility badges (optional) */}
+            <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px]">
+              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 font-semibold text-white/80 backdrop-blur-sm">AICTE Approved</span>
+              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 font-semibold text-white/80 backdrop-blur-sm">UGC Recognised</span>
             </div>
-          </motion.div>
+
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF]">
+              B.Tech in CS & AI That Gets You a Job
+            </h1>
+
+            <p className="mt-3 text-base sm:text-lg text-white/80">
+              Learn from engineers who’ve built real systems at
+            </p>
+
+            {/* Logos row */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-95">
+              <LogoGoogle variant="light" />
+              <LogoApple variant="light" />
+              <LogoMicrosoft variant="light" />
+              <LogoAmazon variant="light" />
+              <LogoServiceNow variant="light" />
+            </div>
+
+            {/* CTA buttons */}
+            <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
+              <a
+                href="#admissions-aseat"
+                className="relative inline-flex items-center justify-center rounded-full px-6 sm:px-7 py-3 text-sm sm:text-[15px] font-semibold text-white transition shadow-[0_10px_30px_-10px_rgba(79,140,255,0.6)]"
+              >
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF] opacity-95 transition-opacity" />
+                <span className="relative z-10">Apply via A-SEAT</span>
+                <span aria-hidden className="absolute -inset-1 -z-10 rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF] blur-2xl opacity-30" />
+              </a>
+
+              <a
+                href="#download-brochure"
+                className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 sm:px-7 py-3 text-sm sm:text-[15px] font-semibold text-white/90 backdrop-blur-md hover:bg-white/10 transition"
+              >
+                Download Brochure
+              </a>
+            </div>
+
+            <div className="mt-3 text-xs text-white/70">
+              Admissions open for 2025 batch.
+            </div>
+          </div>
+
+          {/* Right: Video with rounded rectangle and thin glow */}
+          <div className="relative w-full">
+            <div className="relative aspect-[16/9] w-full max-w-[800px] ml-auto overflow-hidden rounded-3xl ring-1 ring-white/20 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_30px_80px_-30px_rgba(79,140,255,0.35),0_24px_60px_-24px_rgba(154,111,255,0.25)]">
+              <video
+                className="h-full w-full object-cover"
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={posterSrc}
+              />
+              {/* subtle top/edge vignette */}
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.35)_0%,rgba(2,6,23,0)_35%)]" />
+            </div>
+          </div>
         </div>
       </div>
 
+      {/* Fade to next section bottom edge */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--ds-bg-darker)] via-[color-mix(in_srgb,var(--ds-bg-darker)_60%,transparent)] to-transparent" />
     </section>
   )
 }
 
-// Logos remain monochrome
+// Logos remain monochrome; adapt to light/dark via variant
 function baseLogoClass() {
-  return 'h-8 w-auto drop-shadow-[0_0_6px_rgba(2,6,23,0.08)]'
+  return 'h-8 w-auto opacity-90'
 }
 
 function LogoGoogle({ variant = 'dark' }) {
