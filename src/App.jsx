@@ -15,6 +15,7 @@ import ASeatCTA from './components/ASeatCTA'
 import Footer from './components/Footer'
 import JobGuarantee from './components/JobGuarantee'
 import Results from './components/Results'
+import SectionTransition from './components/SectionTransition'
 
 function App() {
   return (
@@ -23,21 +24,50 @@ function App() {
       <AdmissionsBanner />
 
       <main>
+        {/* Dark hero */}
         <Hero />
-        {/* Job Guarantee section followed immediately by Placements and Results */}
+
+        {/* Dark → Light transition */}
+        <SectionTransition variant="dark-to-light" size="lg" />
+
+        {/* Light section */}
         <JobGuarantee />
+
+        {/* Light → Dark transition */}
+        <SectionTransition variant="light-to-dark" size="md" />
+
+        {/* Dark section */}
         <Placements />
+
+        {/* Dark → Light transition */}
+        <SectionTransition variant="dark-to-light" size="md" />
+
+        {/* Light sections block */}
         <Results />
         <About />
-        {/* School of CS & AI follows About */}
         <SchoolCSAI />
         <WhyASCA />
         <Curriculum />
         <Achievers />
         <CampusCarousel />
+
+        {/* Light → Dark transition */}
+        <SectionTransition variant="light-to-dark" size="md" />
+
+        {/* Dark section */}
         <Mentors />
+
+        {/* Dark → Light transition */}
+        <SectionTransition variant="dark-to-light" size="md" />
+
+        {/* Light → application CTA */}
         <ASeatCTA />
         <Admissions />
+
+        {/* Light → Dark transition for footer area */}
+        <SectionTransition variant="light-to-dark" size="lg" />
+
+        {/* Dark footer CTA and footer */}
         <AdmissionsCTA />
       </main>
 
