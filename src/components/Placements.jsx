@@ -31,8 +31,7 @@ export default function Placements() {
   ]
 
   return (
-    <section id="placements" className="py-16">
-      {/* Keyframes for continuous scroll */}
+    <section id="placements" className="section-dark py-16">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -43,22 +42,21 @@ export default function Placements() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Placements & Outcomes</h2>
-            <p className="mt-3 text-base text-gray-300">Ship real products, publish research, and join high-growth teams. Our network opens doors across product, research, and quant.</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Placements & Outcomes</h2>
+            <p className="mt-3 text-base text-white/70">Ship real products, publish research, and join high-growth teams. Our network opens doors across product, research, and quant.</p>
 
             <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {stats.map((s) => (
-                <div key={s.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_8px_30px_-12px_rgba(56,189,248,0.25)]">
+                <div key={s.label} className="rounded-2xl glass-card p-4 text-center">
                   <div className="text-xl font-bold text-white">{s.value}</div>
-                  <div className="mt-1 text-sm text-gray-300">{s.label}</div>
+                  <div className="mt-1 text-sm text-white/80">{s.label}</div>
                 </div>
               ))}
             </div>
 
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-center">
               {gridLogos.map((src, i) => (
-                <div key={i} className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur relative overflow-hidden">
-                  <div aria-hidden className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-400/0 via-cyan-400/0 to-violet-500/10 blur-2xl" />
+                <div key={i} className="flex items-center justify-center rounded-xl glass-card p-4 relative overflow-hidden">
                   <img src={src} alt="Logo" className="max-h-8 object-contain invert contrast-75 opacity-90" />
                 </div>
               ))}
@@ -66,36 +64,32 @@ export default function Placements() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_16px_44px_-20px_rgba(124,58,237,0.25)]">
+            <div className="rounded-3xl overflow-hidden glass-card">
               <img src="https://images.unsplash.com/photo-1757691079287-eb6a8d167287?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxTdHVkZW50cyUyMHBsYWNlZCUyMGF0JTIwdG9wfGVufDB8MHx8fDE3NjI5NTU4NTd8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80" alt="Students placed at top companies" className="w-full h-[340px] object-cover" />
             </div>
           </div>
         </div>
 
-        {/* Partners marquee section */}
         <div className="mt-12 relative">
-          {/* Ambient glow */}
-          <div aria-hidden className="absolute -inset-x-6 -inset-y-3 mx-auto max-w-7xl rounded-[28px] bg-gradient-to-r from-cyan-500/0 via-blue-500/10 to-violet-600/0 blur-2xl" />
+          <div aria-hidden className="absolute -inset-x-6 -inset-y-3 mx-auto max-w-7xl rounded-[28px]" style={{ backgroundImage: 'linear-gradient(90deg, color-mix(in srgb, var(--ds-blue) 12%, transparent), color-mix(in srgb, var(--ds-violet) 12%, transparent))' }} />
 
-          <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl px-4 sm:px-6 py-8 sm:py-10 overflow-hidden">
+          <div className="relative rounded-3xl glass-card px-4 sm:px-6 py-8 sm:py-10 overflow-hidden">
             <div className="flex items-center justify-between flex-wrap gap-3">
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight accent-text">
                 Active Partnerships with 1300+ Companies
               </h3>
-              <p className="text-sm text-gray-300/90">
+              <p className="text-sm text-white/80">
                 A living network across product, research, AI, and quant.
               </p>
             </div>
 
-            {/* Infinite horizontal logo carousel */}
             <div className="mt-6 relative overflow-hidden">
-              {/* Edge glow lines */}
-              <div aria-hidden className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-transparent" />
-              <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-neutral-950 via-neutral-950/60 to-transparent" />
+              <div aria-hidden className="pointer-events-none absolute left-0 top-0 h-full w-16" style={{ backgroundImage: 'linear-gradient(to_right, rgba(0,0,0,0.8), rgba(0,0,0,0.5), transparent)' }} />
+              <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-full w-16" style={{ backgroundImage: 'linear-gradient(to_left, rgba(0,0,0,0.8), rgba(0,0,0,0.5), transparent)' }} />
 
               <div className="flex gap-8 min-w-max" style={{ animation: 'marquee 36s linear infinite' }}>
                 {[...carouselLogos, ...carouselLogos].map((src, i) => (
-                  <div key={i} className="shrink-0 flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-md shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_8px_30px_-12px_rgba(99,102,241,0.35)]">
+                  <div key={i} className="shrink-0 flex items-center justify-center rounded-2xl glass-card px-6 py-4">
                     <img src={src} alt="Partner logo" className="h-7 sm:h-8 object-contain grayscale contrast-100 brightness-110 opacity-90" />
                   </div>
                 ))}

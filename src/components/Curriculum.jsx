@@ -18,22 +18,22 @@ export default function Curriculum() {
           {
             title: 'Build an Interactive Game',
             tagline: 'Tic‑Tac‑Toe, Snake, or Memory Match with clean UI',
-            accent: 'bg-amber-50',
-            ring: 'ring-amber-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '🎮'
           },
           {
             title: 'Create an Image Editor',
             tagline: 'Filters, crop, and draw — like a mini‑Canva',
-            accent: 'bg-sky-50',
-            ring: 'ring-sky-200',
+            accent: 'bg-[rgba(154,111,255,0.06)]',
+            ring: 'ring-[rgba(154,111,255,0.25)]',
             emoji: '🖼️'
           },
           {
             title: 'Algo Visualizer',
             tagline: 'See sorting/searching come alive in the browser',
-            accent: 'bg-violet-50',
-            ring: 'ring-violet-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '📊'
           }
         ]
@@ -51,22 +51,22 @@ export default function Curriculum() {
           {
             title: 'E‑commerce App',
             tagline: 'Catalog, cart, checkout, and admin analytics',
-            accent: 'bg-emerald-50',
-            ring: 'ring-emerald-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '🛒'
           },
           {
             title: 'Chatbot + Realtime',
             tagline: 'Messaging UI with bot replies and sockets',
-            accent: 'bg-cyan-50',
-            ring: 'ring-cyan-200',
+            accent: 'bg-[rgba(154,111,255,0.06)]',
+            ring: 'ring-[rgba(154,111,255,0.25)]',
             emoji: '💬'
           },
           {
             title: 'API Platform',
             tagline: 'Design, document, test and publish APIs',
-            accent: 'bg-blue-50',
-            ring: 'ring-blue-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '🧩'
           }
         ]
@@ -84,22 +84,22 @@ export default function Curriculum() {
           {
             title: 'ML Model Suite',
             tagline: 'Classification, recommendation, or NLP pipeline',
-            accent: 'bg-fuchsia-50',
-            ring: 'ring-fuchsia-200',
+            accent: 'bg-[rgba(154,111,255,0.06)]',
+            ring: 'ring-[rgba(154,111,255,0.25)]',
             emoji: '🤖'
           },
           {
             title: 'Trading Simulator',
             tagline: 'Backtesting, risk metrics, and strategy dashboards',
-            accent: 'bg-indigo-50',
-            ring: 'ring-indigo-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '📈'
           },
           {
             title: 'Observability Stack',
             tagline: 'Metrics, logs, traces — dashboards and alerts',
-            accent: 'bg-lime-50',
-            ring: 'ring-lime-200',
+            accent: 'bg-[rgba(154,111,255,0.06)]',
+            ring: 'ring-[rgba(154,111,255,0.25)]',
             emoji: '📡'
           }
         ]
@@ -117,22 +117,22 @@ export default function Curriculum() {
           {
             title: 'Company Capstone',
             tagline: 'Ship a feature end‑to‑end with mentors',
-            accent: 'bg-rose-50',
-            ring: 'ring-rose-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '🏁'
           },
           {
             title: 'Internship Sprint',
             tagline: 'Tickets, standups, demos, and retros',
-            accent: 'bg-teal-50',
-            ring: 'ring-teal-200',
+            accent: 'bg-[rgba(154,111,255,0.06)]',
+            ring: 'ring-[rgba(154,111,255,0.25)]',
             emoji: '🧭'
           },
           {
             title: 'Portfolio Lab',
             tagline: 'Craft case studies and outcomes recruiters love',
-            accent: 'bg-yellow-50',
-            ring: 'ring-yellow-200',
+            accent: 'bg-[rgba(79,140,255,0.06)]',
+            ring: 'ring-[rgba(79,140,255,0.25)]',
             emoji: '📁'
           }
         ]
@@ -158,18 +158,12 @@ export default function Curriculum() {
   }
 
   return (
-    <section id="curriculum" className="relative isolate overflow-hidden py-20 sm:py-24">
-      {/* Bright white background with subtle gradients and dividers */}
-      <div className="absolute inset-0 -z-10 bg-white" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_500px_at_10%_0%,rgba(56,189,248,0.08),transparent),radial-gradient(900px_500px_at_90%_100%,rgba(139,92,246,0.08),transparent)]" />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="curriculum" className="section-light edge-glow relative isolate overflow-hidden py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div initial={fade.initial} whileInView={fade.animate} viewport={{ once: true, amount: 0.35 }} className="text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
-            <span className="bg-gradient-to-r from-sky-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
-              Build Industry-Preferred Skills Through Practical Learning.
-            </span>
+            <span className="accent-text">Build Industry-Preferred Skills Through Practical Learning.</span>
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-base sm:text-lg text-slate-600">
             A hands-on, 4-year B.Tech where every semester combines coding, design, and real-world projects guided by engineers from top tech companies.
@@ -192,7 +186,7 @@ export default function Curriculum() {
                         onClick={() => setActive(y.key)}
                         className={`group flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left transition shadow-sm ring-1 ${
                           activeState
-                            ? 'bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500 text-white ring-transparent'
+                            ? 'accent-gradient text-white ring-transparent'
                             : 'bg-slate-50/80 text-slate-700 ring-slate-200 hover:bg-white hover:text-slate-900'
                         }`}
                         aria-pressed={activeState}
@@ -201,7 +195,7 @@ export default function Curriculum() {
                           className={`flex h-9 w-9 items-center justify-center rounded-xl ring-1 ${
                             activeState
                               ? 'bg-white/20 text-white ring-white/30'
-                              : 'bg-white text-sky-600 ring-slate-200'
+                              : 'bg-white text-[color:var(--ds-blue)] ring-slate-200'
                           }`}
                         >
                           <Icon className="h-5 w-5" />
@@ -226,7 +220,7 @@ export default function Curriculum() {
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-700">
-                        <span className="inline-block h-2 w-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-400" />
+                        <span className="inline-block h-2 w-2 rounded-full accent-gradient" />
                         {activeYear.label}
                       </div>
                       <h3 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">{activeYear.title}</h3>
@@ -237,7 +231,6 @@ export default function Curriculum() {
 
                   {/* Horizontal projects carousel */}
                   <div className="relative mt-6">
-                    {/* Arrows */}
                     <div className="pointer-events-none absolute -left-3 -right-3 top-1/2 z-10 hidden -translate-y-1/2 justify-between md:flex">
                       <div className="pointer-events-auto">
                         <button
@@ -281,7 +274,7 @@ export default function Curriculum() {
                               <p className="mt-1 text-sm text-slate-700">{p.tagline}</p>
                             </div>
                           </div>
-                          <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.10), rgba(139,92,246,0.10))' }} />
+                          <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, rgba(79,140,255,0.10), rgba(154,111,255,0.10))' }} />
                         </motion.div>
                       ))}
                     </div>
@@ -289,17 +282,15 @@ export default function Curriculum() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Subtle divider */}
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-              {/* Quick legend */}
               <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-600">
                 <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-1">
-                  <Rocket className="h-3.5 w-3.5 text-sky-500" />
+                  <Rocket className="h-3.5 w-3.5 text-[color:var(--ds-blue)]" />
                   Projects evolve in complexity each year
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-1">
-                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500" />
+                  <span className="h-2 w-2 rounded-full accent-gradient" />
                   Smooth animations and practical learning
                 </span>
               </div>

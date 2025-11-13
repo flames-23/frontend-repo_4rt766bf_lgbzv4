@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 
 export default function Hero() {
-  // Media for the visual block (royalty-free stock video)
   const videoSrc =
     'https://videos.pexels.com/video-files/7987806/7987806-uhd_2560_1440_25fps.mp4'
   const posterSrc =
@@ -16,29 +15,27 @@ export default function Hero() {
   }))
 
   return (
-    <section className="relative min-h-[88vh] pt-12 pb-10 overflow-hidden">
-      {/* Background: keep dark premium gradient */}
+    <section className="section-dark relative min-h-[88vh] pt-12 pb-10 overflow-hidden">
+      {/* Ambient ribbons */}
       <div aria-hidden className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_80%_at_20%_0%,#0b1b3a_0%,#0a1326_45%,#070c1a_100%)]" />
-        {/* Ambient gradient ribbons (very subtle) */}
         <motion.div
           initial={{ x: -160, opacity: 0.35 }}
           animate={{ x: 160 }}
           transition={{ duration: 12, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute top-20 left-0 h-[2px] w-[22rem] -rotate-12 rounded-full bg-gradient-to-r from-sky-400/30 via-cyan-300/20 to-violet-500/30 blur-md"
+          className="absolute top-20 left-0 h-[2px] w-[22rem] -rotate-12 rounded-full ribbon-blue blur-md"
         />
         <motion.div
           initial={{ x: 140, opacity: 0.35 }}
           animate={{ x: -140 }}
           transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-          className="absolute bottom-20 right-0 h-[2px] w-[26rem] rotate-8 rounded-full bg-gradient-to-r from-violet-500/30 via-blue-500/20 to-cyan-400/30 blur-md"
+          className="absolute bottom-20 right-0 h-[2px] w-[26rem] rotate-8 rounded-full ribbon-violet blur-md"
         />
 
         {/* Floating particles */}
         {particles.map((p) => (
           <motion.span
             key={p.id}
-            className="absolute rounded-full bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+            className="absolute rounded-full bg-white/25 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
             style={{ width: p.size, height: p.size, left: p.left, top: p.top }}
             initial={{ y: 0, opacity: 0.4 }}
             animate={{ y: [0, -10, 0], opacity: [0.4, 0.8, 0.4] }}
@@ -50,21 +47,21 @@ export default function Hero() {
       {/* Foreground content */}
       <div className="relative z-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* White/Lite glass card matching A-SEAT vibe */}
+          {/* Light glass card */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white via-white to-[#eef2ff] backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),0_30px_80px_-30px_rgba(56,189,248,0.25),0_24px_60px_-24px_rgba(99,102,241,0.22)]"
+            className="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white via-white to-[#eef2ff] backdrop-blur-xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),0_30px_80px_-30px_rgba(79,140,255,0.25),0_24px_60px_-24px_rgba(154,111,255,0.22)]"
           >
-            {/* Gentle glow flares to match A-SEAT */}
-            <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-cyan-300/40 via-blue-400/30 to-violet-400/40 blur-3xl" />
-            <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-gradient-to-br from-violet-400/35 via-fuchsia-400/30 to-cyan-300/35 blur-3xl" />
+            {/* Blue/Violet glow flares */}
+            <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#4F8CFF]/40 via-[#4F8CFF]/25 to-[#9A6FFF]/40 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-gradient-to-br from-[#9A6FFF]/35 via-[#9A6FFF]/25 to-[#4F8CFF]/35 blur-3xl" />
 
             <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-6 lg:gap-10 p-6 sm:p-8 lg:p-12">
               {/* Left: text content (dark for readability) */}
               <div className="pr-0 md:pr-4 lg:pr-8">
-                {/* Badges: light gray chips */}
+                {/* Badges */}
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center rounded-full border border-black/5 bg-white/70 px-3 py-1 text-[11px] font-semibold text-[#111]/80 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
                     AICTE Approved
@@ -74,17 +71,14 @@ export default function Hero() {
                   </span>
                 </div>
 
-                {/* Heading */}
                 <h1 className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] font-extrabold leading-tight tracking-tight text-[#111]">
                   B.Tech in CS and AI That Gets You a Job
                 </h1>
 
-                {/* One-line subtext */}
                 <p className="mt-2 text-[1.05rem] md:text-lg text-[#555] max-w-xl">
                   Learn from engineers who’ve built real systems at:
                 </p>
 
-                {/* Company logos (monochrome, consistent) */}
                 <div className="mt-3 flex items-center gap-6 sm:gap-7 md:gap-8">
                   <LogoGoogle variant="dark" />
                   <LogoApple variant="dark" />
@@ -93,21 +87,20 @@ export default function Hero() {
                   <LogoServiceNow variant="dark" />
                 </div>
 
-                {/* Supporting line */}
                 <p className="mt-4 text-[0.98rem] md:text-[1.05rem] text-[#555] max-w-xl">
                   No outdated coursework. Only real-world engineering taught by real practitioners.
                 </p>
 
-                {/* CTA (match A-SEAT gradient pill) */}
+                {/* CTA using accent gradient */}
                 <div className="mt-6">
                   <a
                     href="#admissions-aseat"
                     className="group relative inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-[15px] font-semibold text-white transition focus:outline-none"
                   >
-                    <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 opacity-95 transition-opacity group-hover:opacity-100" />
+                    <span className="absolute inset-0 rounded-2xl accent-gradient opacity-95 transition-opacity group-hover:opacity-100" />
                     <span className="absolute inset-0 rounded-2xl ring-1 ring-white/50" />
                     <span className="relative z-10">Apply via A-SEAT</span>
-                    <span aria-hidden className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-cyan-500/40 via-blue-500/30 to-violet-500/40 blur-2xl" />
+                    <span aria-hidden className="absolute -inset-1 -z-10 rounded-2xl accent-gradient blur-2xl opacity-40" />
                   </a>
                 </div>
               </div>
@@ -124,7 +117,6 @@ export default function Hero() {
                     playsInline
                     poster={posterSrc}
                   />
-                  {/* Soft inner vignette to seat it in the card */}
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0)_30%),linear-gradient(0deg,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0)_45%)]" />
                 </div>
               </div>
@@ -133,13 +125,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom vignette to keep it premium and contained */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#070c1a] via-[#070c1a]/60 to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--ds-bg-darker)] via-[color-mix(in_srgb,var(--ds-bg-darker)_60%,transparent)] to-transparent" />
     </section>
   )
 }
 
-// --- Logo SVGs (monochrome with subtle glow on dark; darker for light cards) ---
+// Logos remain monochrome
 function baseLogoClass() {
   return 'h-8 w-auto drop-shadow-[0_0_6px_rgba(2,6,23,0.08)]'
 }
