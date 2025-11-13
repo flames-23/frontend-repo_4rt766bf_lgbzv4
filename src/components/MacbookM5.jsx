@@ -6,17 +6,6 @@ export default function MacbookM5() {
 
   return (
     <section className="relative overflow-hidden bg-[#050505] py-28 sm:py-32 lg:py-40">
-      <style>{`
-        @keyframes floatY {
-          0%, 100% { transform: translateY(0px) }
-          50% { transform: translateY(-10px) }
-        }
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0) translateX(0) rotate(0.001deg); }
-          50% { transform: translateY(-8px) translateX(4px) rotate(0.001deg); }
-        }
-      `}</style>
-
       {/* Deep ambient gold rays / glow */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -59,7 +48,7 @@ export default function MacbookM5() {
           </p>
         </div>
 
-        {/* Floating visuals */}
+        {/* Visual focus: framed MacBook */}
         <div className="relative mx-auto mt-16 sm:mt-20 max-w-6xl">
           {/* Back glow behind the device */}
           <div
@@ -71,35 +60,15 @@ export default function MacbookM5() {
             }}
           />
 
-          {/* Apple logo floating */}
-          <div
-            className="absolute -left-6 sm:left-10 -top-6 sm:-top-2 opacity-90"
-            style={{ animation: "floatSlow 10s ease-in-out infinite" }}
-          >
-            <AppleLogo className="h-12 w-12 sm:h-16 sm:w-16 text-[#F6E3B4] drop-shadow-[0_6px_30px_rgba(246,227,180,0.35)]" />
-          </div>
-
-          {/* M5 chip floating */}
-          <div
-            className="absolute right-2 sm:right-8 -top-2 sm:top-4"
-            style={{ animation: "floatY 7s ease-in-out infinite" }}
-          >
-            <div className="relative grid place-items-center h-16 w-16 sm:h-20 sm:w-20 rounded-[14px] bg-gradient-to-br from-white/10 to-white/[0.05] ring-1 ring-white/20 backdrop-blur-[2px]">
-              <div className="absolute inset-0 rounded-[14px] bg-gradient-to-tr from-[#F6E3B4]/20 to-transparent" />
-              <span className="relative z-10 text-lg sm:text-xl font-semibold tracking-widest text-[#F6E3B4]">
-                M5
-              </span>
-            </div>
-          </div>
-
           {/* Central MacBook visual inside a premium frame */}
           <div className="relative mx-auto max-w-5xl">
             {/* Outer glow rim */}
-            <div className="absolute -inset-6 -z-10 opacity-30 blur-2xl"
-                 style={{
-                   background:
-                     "radial-gradient(closest-side, rgba(246,227,180,0.18), transparent 65%)",
-                 }}
+            <div
+              className="absolute -inset-6 -z-10 opacity-30 blur-2xl"
+              style={{
+                background:
+                  "radial-gradient(closest-side, rgba(246,227,180,0.18), transparent 65%)",
+              }}
             />
 
             {/* Frame with subtle gold stroke */}
@@ -148,18 +117,5 @@ export default function MacbookM5() {
         </div>
       </div>
     </section>
-  );
-}
-
-function AppleLogo({ className = "" }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 256 317"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M213.803 167.436c-.371-39.51 32.23-58.446 33.685-59.33-18.355-26.83-46.958-30.495-57.101-30.924-24.305-2.463-47.385 14.3-59.694 14.3-12.31 0-31.137-13.952-51.139-13.58-26.34.372-50.567 15.295-64.1 38.84-27.297 47.416-6.978 117.517 19.582 155.972 12.968 18.749 28.42 39.784 48.742 39.028 19.582-.743 27.003-12.64 50.732-12.64 23.73 0 30.37 12.64 51.14 12.268 21.12-.371 34.5-19.126 47.436-37.918 14.919-21.78 21.078-42.868 21.45-43.935-.448-.186-41.145-15.782-41.334-62.081zM174.225 54.39c10.86-13.183 18.185-31.47 16.165-49.71-15.64.62-34.58 10.4-45.78 23.583-10.04 11.58-18.82 30.05-16.46 47.74 17.45 1.36 35.21-8.87 46.07-21.612z" />
-    </svg>
   );
 }
