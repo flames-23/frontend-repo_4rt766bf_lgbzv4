@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import JobGuarantee from './components/JobGuarantee'
 import Results from './components/Results'
 import ComparisonASCA from './components/ComparisonASCA'
+import Leadership from './components/Leadership'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <About />
         <SchoolCSAI />
         <ComparisonASCA />
+        <Leadership />
         <WhyASCA />
         <Curriculum />
         <Achievers />
