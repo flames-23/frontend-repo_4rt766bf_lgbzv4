@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
 
 export default function JobGuarantee() {
+  const youtubeId = '-cn-lOA21Og'
+  const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1` 
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-20">
       {/* Ambient background kept subtle so focus stays on the card */}
@@ -40,14 +43,13 @@ export default function JobGuarantee() {
                     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent" />
 
                     <div className="aspect-video">
-                      <video
-                        className="h-full w-full object-cover"
-                        src="https://assets.mixkit.co/videos/preview/mixkit-man-typing-fast-1126-large.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        poster="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop"
+                      <iframe
+                        className="h-full w-full"
+                        src={embedUrl}
+                        title="Hear from our founder"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        allowFullScreen
                       />
                     </div>
                   </div>
