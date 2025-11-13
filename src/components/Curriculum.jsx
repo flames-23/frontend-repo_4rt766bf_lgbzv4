@@ -1,182 +1,311 @@
-import { motion } from 'framer-motion'
-import { Layers, Rocket, Wrench, Brain, Briefcase } from 'lucide-react'
+import { useMemo, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight, GraduationCap, Rocket, Wrench, Brain, Briefcase } from 'lucide-react'
 
 export default function Curriculum() {
-  const years = [
-    {
-      tag: 'Year 1',
-      title: 'Foundations',
-      subtitle: 'Computer Science Foundations',
-      desc: 'C++, Python, DSA, Logic, Git. Build strong fundamentals that compound across 4 years.',
-      icon: Rocket,
-      bullets: [
-        'C++, Python, Data Structures & Algorithms',
-        'Logic, Discrete Math, and OS basics',
-        'Git, GitHub, VS Code, clean coding practices'
-      ],
-      logos: ['Python', 'GitHub', 'VSCode']
-    },
-    {
-      tag: 'Year 2',
-      title: 'Build',
-      subtitle: 'Build Real-World Applications',
-      desc: 'Frontend, backend, APIs, and cloud. Ship projects that look and feel production-grade.',
-      icon: Wrench,
-      bullets: [
-        'Frontend, Backend, and REST APIs',
-        'Cloud deploys & CI basics',
-        'Projects: e-commerce, chat app, recommender'
-      ],
-      logos: ['React', 'Node.js', 'MongoDB', 'AWS']
-    },
-    {
-      tag: 'Year 3',
-      title: 'Specialize',
-      subtitle: 'Specialize in Your Track',
-      desc: 'Choose AI, Quant, Full‑Stack, or Research. Build advanced systems and ship to users.',
-      icon: Brain,
-      bullets: [
-        'AI Chatbots & applied ML systems',
-        'Model deployment & monitoring',
-        'Quant simulator or research projects'
-      ],
-      logos: ['TensorFlow', 'Docker', 'Flask', 'Streamlit']
-    },
-    {
-      tag: 'Year 4',
-      title: 'Launch',
-      subtitle: 'Capstone & Paid Internships',
-      desc: 'Industry-led projects, internships, and a refined portfolio that gets you hired.',
-      icon: Briefcase,
-      bullets: [
-        'Industry capstone & portfolio showcase',
-        'Internships with real teams & tooling',
-        'Career launch & interview prep'
-      ],
-      logos: ['ServiceNow', 'Google Cloud', 'Jira', 'Slack']
-    }
-  ]
+  const YEARS = useMemo(
+    () => [
+      {
+        key: 'y1',
+        label: 'Year 1',
+        icon: GraduationCap,
+        title: 'Foundation',
+        blurb:
+          'Master the fundamentals: DSA, Python, problem-solving, and core CS concepts. Build small but complete apps to cement concepts.',
+        details:
+          'Focus areas include DSA, Python, version control, and essential CS foundations. Projects like Tic‑Tac‑Toe, image editor, and mini dashboards bring learning to life.',
+        projects: [
+          {
+            title: 'Build an Interactive Game',
+            tagline: 'Tic‑Tac‑Toe, Snake, or Memory Match with clean UI',
+            accent: 'bg-amber-50',
+            ring: 'ring-amber-200',
+            emoji: '🎮'
+          },
+          {
+            title: 'Create an Image Editor',
+            tagline: 'Filters, crop, and draw — like a mini‑Canva',
+            accent: 'bg-sky-50',
+            ring: 'ring-sky-200',
+            emoji: '🖼️'
+          },
+          {
+            title: 'Algo Visualizer',
+            tagline: 'See sorting/searching come alive in the browser',
+            accent: 'bg-violet-50',
+            ring: 'ring-violet-200',
+            emoji: '📊'
+          }
+        ]
+      },
+      {
+        key: 'y2',
+        label: 'Year 2',
+        icon: Wrench,
+        title: 'Development',
+        blurb:
+          'Ship full‑stack apps: frontend, backend, and APIs. Learn deployments and quality engineering practices.',
+        details:
+          'Web apps, backend services, REST APIs, auth, and CI. Build an E‑commerce app, realtime chat, and payment integrations.',
+        projects: [
+          {
+            title: 'E‑commerce App',
+            tagline: 'Catalog, cart, checkout, and admin analytics',
+            accent: 'bg-emerald-50',
+            ring: 'ring-emerald-200',
+            emoji: '🛒'
+          },
+          {
+            title: 'Chatbot + Realtime',
+            tagline: 'Messaging UI with bot replies and sockets',
+            accent: 'bg-cyan-50',
+            ring: 'ring-cyan-200',
+            emoji: '💬'
+          },
+          {
+            title: 'API Platform',
+            tagline: 'Design, document, test and publish APIs',
+            accent: 'bg-blue-50',
+            ring: 'ring-blue-200',
+            emoji: '🧩'
+          }
+        ]
+      },
+      {
+        key: 'y3',
+        label: 'Year 3',
+        icon: Brain,
+        title: 'Specialization',
+        blurb:
+          'Choose AI, Full‑Stack, or Quant. Build ML models, analytics dashboards, simulations, and scalable systems.',
+        details:
+          'Deep‑dive into your track: model training and deployment, data pipelines, or advanced systems design and performance.',
+        projects: [
+          {
+            title: 'ML Model Suite',
+            tagline: 'Classification, recommendation, or NLP pipeline',
+            accent: 'bg-fuchsia-50',
+            ring: 'ring-fuchsia-200',
+            emoji: '🤖'
+          },
+          {
+            title: 'Trading Simulator',
+            tagline: 'Backtesting, risk metrics, and strategy dashboards',
+            accent: 'bg-indigo-50',
+            ring: 'ring-indigo-200',
+            emoji: '📈'
+          },
+          {
+            title: 'Observability Stack',
+            tagline: 'Metrics, logs, traces — dashboards and alerts',
+            accent: 'bg-lime-50',
+            ring: 'ring-lime-200',
+            emoji: '📡'
+          }
+        ]
+      },
+      {
+        key: 'y4',
+        label: 'Year 4',
+        icon: Briefcase,
+        title: 'Industry Immersion',
+        blurb:
+          'Work on paid internships and real company projects. Finish with a standout portfolio and interview readiness.',
+        details:
+          'Collaborate with engineers on production codebases, contribute to OSS, and polish a compelling portfolio and capstone.',
+        projects: [
+          {
+            title: 'Company Capstone',
+            tagline: 'Ship a feature end‑to‑end with mentors',
+            accent: 'bg-rose-50',
+            ring: 'ring-rose-200',
+            emoji: '🏁'
+          },
+          {
+            title: 'Internship Sprint',
+            tagline: 'Tickets, standups, demos, and retros',
+            accent: 'bg-teal-50',
+            ring: 'ring-teal-200',
+            emoji: '🧭'
+          },
+          {
+            title: 'Portfolio Lab',
+            tagline: 'Craft case studies and outcomes recruiters love',
+            accent: 'bg-yellow-50',
+            ring: 'ring-yellow-200',
+            emoji: '📁'
+          }
+        ]
+      }
+    ],
+    []
+  )
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay: 0.05 * i } })
+  const [active, setActive] = useState('y1')
+  const activeYear = YEARS.find((y) => y.key === active) || YEARS[0]
+
+  const scrollerRef = useRef(null)
+  const scrollBy = (delta) => {
+    const el = scrollerRef.current
+    if (!el) return
+    el.scrollBy({ left: delta, behavior: 'smooth' })
+  }
+
+  const fade = {
+    initial: { opacity: 0, y: 12 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+    exit: { opacity: 0, y: -8, transition: { duration: 0.25 } }
   }
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24" id="curriculum">
-      {/* Soft white background with gentle gradient waves */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_50%_-10%,rgba(99,102,241,0.06),transparent),radial-gradient(900px_500px_at_10%_10%,rgba(56,189,248,0.08),transparent)]" />
-      <div className="absolute -top-24 -left-20 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.18),transparent_60%)] blur-3xl" />
-      <div className="absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.16),transparent_60%)] blur-3xl" />
-      <div className="absolute inset-0 -z-10" aria-hidden>
-        <div className="h-full w-full bg-white/85" />
-      </div>
+    <section id="curriculum" className="relative isolate overflow-hidden py-20 sm:py-24">
+      {/* Bright white background with subtle gradients and dividers */}
+      <div className="absolute inset-0 -z-10 bg-white" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_500px_at_10%_0%,rgba(56,189,248,0.08),transparent),radial-gradient(900px_500px_at_90%_100%,rgba(139,92,246,0.08),transparent)]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="text-center">
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
-              A 4-Year Curriculum Designed With the Industry, For the Industry.
+        <motion.div initial={fade.initial} whileInView={fade.animate} viewport={{ once: true, amount: 0.35 }} className="text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+            <span className="bg-gradient-to-r from-sky-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
+              Build Industry-Preferred Skills Through Practical Learning.
             </span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-3 max-w-3xl text-base sm:text-lg text-slate-600">
-            From foundations to real-world innovation — build applications, deploy AI models, and graduate with the skills top companies hire for.
-          </motion.p>
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-base sm:text-lg text-slate-600">
+            A hands-on, 4-year B.Tech where every semester combines coding, design, and real-world projects guided by engineers from top tech companies.
+          </p>
         </motion.div>
 
-        {/* Cards row: horizontal scroll on mobile, grid on xl */}
-        <div className="mt-10 sm:mt-12">
-          <div className="relative -mx-4 px-4">
-            <div className="scrollbar-hide flex gap-5 overflow-x-auto pb-2 sm:gap-6 sm:pb-4 md:gap-8 xl:grid xl:grid-cols-4 xl:gap-6 xl:overflow-visible">
-              {years.map((y, idx) => {
-                const Icon = y.icon || Layers
-                return (
-                  <motion.div
-                    key={y.tag}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.3 }}
-                    custom={idx}
-                    className="group relative w-[85%] shrink-0 rounded-3xl border border-slate-200/60 bg-white/70 p-5 shadow-[0_6px_30px_rgba(2,6,23,0.08)] backdrop-blur-xl transition-transform hover:-translate-y-0.5 sm:w-[70%] md:w-[60%] xl:w-auto"
-                  >
-                    {/* soft gradient edge */}
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/40 [mask-image:linear-gradient(white,transparent)]" />
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-40 blur-md" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.16), rgba(139,92,246,0.16))' }} />
-
-                    {/* header */}
-                    <div className="relative z-10 flex items-start justify-between gap-3">
-                      <div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-700">
-                          <span className="inline-block h-2 w-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-400" />
-                          {y.tag}
-                        </div>
-                        <h3 className="mt-2 text-2xl font-semibold tracking-tight">
-                          <span className="bg-gradient-to-r from-sky-500/90 via-cyan-500/90 to-violet-500/90 bg-clip-text text-transparent">{y.title}</span>
-                        </h3>
-                        <p className="mt-1 text-sm font-medium text-slate-700">{y.subtitle}</p>
-                        <p className="mt-2 text-sm text-slate-600">{y.desc}</p>
-                      </div>
-                      <div className="hidden sm:flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 via-cyan-100 to-violet-100 text-slate-700 ring-1 ring-slate-200/70">
-                        <Icon className="h-5 w-5 text-sky-500" />
-                      </div>
-                    </div>
-
-                    {/* bullets */}
-                    <ul className="relative z-10 mt-4 space-y-2">
-                      {y.bullets.map((b) => (
-                        <li key={b} className="flex items-start gap-2">
-                          <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-r from-sky-400 to-violet-400 shadow-[0_0_0_3px_rgba(56,189,248,0.08)]" />
-                          <span className="text-sm text-slate-700">{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* tech logos + illustrative tiles */}
-                    <div className="relative z-10 mt-5 flex flex-wrap items-center gap-2.5">
-                      {y.logos.map((l) => (
+        {/* Two-column interactive layout */}
+        <div className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-12">
+          {/* Left: vertical year navigation */}
+          <div className="md:col-span-4 lg:col-span-3">
+            <nav className="relative rounded-2xl border border-slate-200 bg-white/70 p-3 shadow-sm backdrop-blur-xl">
+              <ul className="space-y-2">
+                {YEARS.map((y, i) => {
+                  const Icon = y.icon || Rocket
+                  const activeState = active === y.key
+                  return (
+                    <li key={y.key}>
+                      <button
+                        type="button"
+                        onClick={() => setActive(y.key)}
+                        className={`group flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left transition shadow-sm ring-1 ${
+                          activeState
+                            ? 'bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500 text-white ring-transparent'
+                            : 'bg-slate-50/80 text-slate-700 ring-slate-200 hover:bg-white hover:text-slate-900'
+                        }`}
+                        aria-pressed={activeState}
+                      >
                         <span
-                          key={l}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/80 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition-colors hover:border-sky-300/60 hover:text-sky-700"
+                          className={`flex h-9 w-9 items-center justify-center rounded-xl ring-1 ${
+                            activeState
+                              ? 'bg-white/20 text-white ring-white/30'
+                              : 'bg-white text-sky-600 ring-slate-200'
+                          }`}
                         >
-                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-r from-sky-400 to-violet-400" />
-                          {l}
+                          <Icon className="h-5 w-5" />
                         </span>
-                      ))}
-                      <span className="ml-auto inline-flex items-center gap-1 rounded-xl border border-slate-200/70 bg-white/80 px-2 py-1 text-[11px] text-slate-600 shadow-sm transition-transform hover:scale-[1.02]">
-                        Project mockups
-                      </span>
+                        <div className="flex-1">
+                          <div className="text-xs font-semibold opacity-90">{y.label}</div>
+                          <div className={`text-sm font-semibold ${activeState ? 'opacity-100' : 'opacity-80'}`}>{y.title}</div>
+                        </div>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Right: dynamic content */}
+          <div className="md:col-span-8 lg:col-span-9">
+            <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl">
+              <AnimatePresence mode="wait">
+                <motion.div key={active} initial={fade.initial} animate={fade.animate} exit={fade.exit}>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-700">
+                        <span className="inline-block h-2 w-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-400" />
+                        {activeYear.label}
+                      </div>
+                      <h3 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">{activeYear.title}</h3>
+                      <p className="mt-1 text-slate-700">{activeYear.blurb}</p>
+                      <p className="mt-2 text-sm text-slate-600">{activeYear.details}</p>
                     </div>
-                  </motion.div>
-                )
-              })}
+                  </div>
+
+                  {/* Horizontal projects carousel */}
+                  <div className="relative mt-6">
+                    {/* Arrows */}
+                    <div className="pointer-events-none absolute -left-3 -right-3 top-1/2 z-10 hidden -translate-y-1/2 justify-between md:flex">
+                      <div className="pointer-events-auto">
+                        <button
+                          aria-label="Scroll left"
+                          onClick={() => scrollBy(-320)}
+                          className="group rounded-full bg-white/90 p-2 shadow ring-1 ring-slate-200 hover:bg-white"
+                        >
+                          <ChevronLeft className="h-5 w-5 text-slate-700 group-hover:text-slate-900" />
+                        </button>
+                      </div>
+                      <div className="pointer-events-auto">
+                        <button
+                          aria-label="Scroll right"
+                          onClick={() => scrollBy(320)}
+                          className="group rounded-full bg-white/90 p-2 shadow ring-1 ring-slate-200 hover:bg-white"
+                        >
+                          <ChevronRight className="h-5 w-5 text-slate-700 group-hover:text-slate-900" />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div
+                      ref={scrollerRef}
+                      className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:gap-6 md:pb-3"
+                    >
+                      {activeYear.projects.map((p, idx) => (
+                        <motion.div
+                          key={p.title}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{ delay: idx * 0.05 }}
+                          className={`group relative w-[82%] min-w-[260px] max-w-[320px] snap-start rounded-2xl ${p.ring} ${p.accent} border border-slate-200/70 p-4 shadow-sm`}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/80 ring-1 ring-inset ring-white/60 text-2xl">
+                              <span aria-hidden>{p.emoji}</span>
+                            </div>
+                            <div>
+                              <h4 className="text-base font-semibold text-slate-900">{p.title}</h4>
+                              <p className="mt-1 text-sm text-slate-700">{p.tagline}</p>
+                            </div>
+                          </div>
+                          <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.10), rgba(139,92,246,0.10))' }} />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Subtle divider */}
+              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+
+              {/* Quick legend */}
+              <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-600">
+                <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-1">
+                  <Rocket className="h-3.5 w-3.5 text-sky-500" />
+                  Projects evolve in complexity each year
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-1">
+                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500" />
+                  Smooth animations and practical learning
+                </span>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* partner strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mt-12 sm:mt-16"
-        >
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/80 p-4 shadow-[0_6px_24px_rgba(2,6,23,0.06)] backdrop-blur-xl">
-            <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 blur-md" style={{ background: 'linear-gradient(120deg, rgba(56,189,248,0.12), rgba(139,92,246,0.12))' }} />
-            <div className="relative z-10 grid grid-cols-3 items-center gap-3 sm:grid-cols-6">
-              {['Google', 'Microsoft', 'Amazon', 'Apple', 'Stripe', 'ServiceNow'].map((b) => (
-                <div
-                  key={b}
-                  className="flex items-center justify-center rounded-xl border border-slate-200/70 bg-white/80 px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300/60"
-                >
-                  <span className="bg-gradient-to-r from-sky-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent">{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
