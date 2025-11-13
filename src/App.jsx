@@ -32,6 +32,8 @@ function App() {
         {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
         <Placements />
+        {/* Place AUET before results */}
+        <AUET />
         <Results />
         <About />
         <SchoolCSAI />
@@ -44,8 +46,6 @@ function App() {
         <TalentClub />
         <CampusCarousel />
         <Mentors />
-        {/* AUET section driving registration intents */}
-        <AUET />
         <ASeatCTA />
         <Admissions />
       </main>
