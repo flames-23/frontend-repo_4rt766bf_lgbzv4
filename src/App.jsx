@@ -31,8 +31,10 @@ function App() {
 
       <main>
         <Hero />
-        {/* Move Job Guarantee section directly after Hero */}
+        {/* Job Guarantee section followed immediately by Placements and Results */}
         <JobGuarantee />
+        <Placements />
+        <Results />
         <About />
         {/* School of CS & AI follows About */}
         <SchoolCSAI />
@@ -40,8 +42,6 @@ function App() {
         <Curriculum />
         <Achievers />
         <CampusCarousel />
-        <Placements />
-        <Results />
         <Mentors />
         <ASeatCTA />
         <Admissions />
