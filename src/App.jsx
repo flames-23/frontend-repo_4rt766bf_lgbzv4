@@ -16,6 +16,7 @@ import JobGuarantee from './components/JobGuarantee'
 import Results from './components/Results'
 import ComparisonASCA from './components/ComparisonASCA'
 import Leadership from './components/Leadership'
+import TalentClub from './components/TalentClub'
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
         <About />
         <SchoolCSAI />
         <ComparisonASCA />
+        {/* New dark-theme Talent Club section to match ASCA comparison styles */}
+        <TalentClub />
         <Leadership />
         <WhyASCA />
         <Curriculum />
