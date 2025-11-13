@@ -9,8 +9,6 @@ export default function Navbar() {
     { label: 'Admissions & Fees', href: '#admissions' },
     { label: 'Placements++', href: '#placements', new: true },
     { label: 'Recognition', href: '#recognition', new: true },
-    { label: 'Campus Life', href: '#campus' },
-    { label: 'Events', href: '#events' },
     { label: 'Our Students', href: '#students' },
     { label: 'FAQs', href: '#faqs' },
   ]
