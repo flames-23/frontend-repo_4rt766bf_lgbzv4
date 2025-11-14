@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useRef, useState, useCallback } from 'react'
 
 export default function Hero() {
-  const youtubeId = 'Rguj5vn18JI'
+  const youtubeId = 'BxsQaKIZB3Q'
   const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&loop=1&playlist=${youtubeId}&modestbranding=1&enablejsapi=1`
 
   const iframeRef = useRef(null)
