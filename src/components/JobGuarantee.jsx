@@ -77,8 +77,7 @@ export default function JobGuarantee() {
                         src={embedUrl}
                         title="Hear from our founder"
                         frameBorder="0"
-                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share"
                       />
 
                       {muted && (

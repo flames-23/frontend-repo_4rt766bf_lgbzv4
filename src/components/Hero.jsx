@@ -69,27 +69,27 @@ export default function Hero() {
             {/* Logos row - replaced with real company logos */}
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-95">
               <img
-                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/google-logo-97e403d0b48d2da1c9d47dc98b6198171ff21048714ba6575c6cadb409053aee.svg.gz"
+                src="https://images.unsplash.com/photo-1611162618071-b39a2ec4b0d7?q=80&w=600&auto=format&fit=contain"
                 alt="Google"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/microsoft-logo-e807dee90674e40eecefb333c9c5520fd1b6350061677237394015dd7e01f855.svg.gz"
+                src="https://images.unsplash.com/photo-1611162618071-19010bfe1b49?q=80&w=600&auto=format&fit=contain"
                 alt="Microsoft"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/amazon-logo-a2568f4eba54775b04f3ff133b9208b24f88523a928b35ea6c937f336426f1aa.svg.gz"
+                src="https://images.unsplash.com/photo-1611162618071-35936f705a94?q=80&w=600&auto=format&fit=contain"
                 alt="Amazon"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/meta-logo-f70b8a81c2da4927bea050414bf0c252ec5f8f2ca865eb6a00bb8d5771bce59b.svg.gz"
+                src="https://images.unsplash.com/photo-1611162617263-4fddb0d5f65e?q=80&w=600&auto=format&fit=contain"
                 alt="Meta"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/adobe-logo-8e264a414a3687d0fe237cb585973f1b1ac4c26c639684f1aaa7de0ca4301dd9.svg.gz"
+                src="https://images.unsplash.com/photo-1611162618071-3f5b0e0b6fd8?q=80&w=600&auto=format&fit=contain"
                 alt="Adobe"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
@@ -128,8 +128,7 @@ export default function Hero() {
                 src={embedUrl}
                 title="YouTube video player"
                 frameBorder="0"
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share"
               />
               {/* subtle top/edge vignette */}
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.35)_0%,rgba(2,6,23,0)_35%)]" />
