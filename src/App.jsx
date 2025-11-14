@@ -18,6 +18,7 @@ import TalentClub from './components/TalentClub'
 import AUET from './components/AUET'
 import MacbookM5 from './components/MacbookM5'
 import SchoolCSAI from './components/SchoolCSAI'
+import AdmissionsProcess from './components/AdmissionsProcess'
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
         <Achievers />
         {/* Move Talent Club section right after Achievers */}
         <TalentClub />
+        {/* New Admissions & Process section in light theme */}
+        <AdmissionsProcess />
         <CampusCarousel />
         <Mentors />
         <ASeatCTA />
