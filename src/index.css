@@ -28,6 +28,9 @@
   /* Global font */
   html, body, #root { font-family: var(--ds-font-sans); }
 
+  /* Prevent accidental horizontal scrolling on small screens */
+  html, body { overflow-x: hidden; }
+
   /* Headings: bold, large, high-impact */
   h1 { @apply font-extrabold tracking-tight; }
   h2 { @apply font-bold tracking-tight; }
