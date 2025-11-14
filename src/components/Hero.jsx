@@ -66,30 +66,30 @@ export default function Hero() {
               Learn from engineers who’ve built real systems at
             </p>
 
-            {/* Logos row - reverted to stable brand SVGs */}
+            {/* Logos row - updated to Scaler CDN SVGs */}
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-95">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/google-logo-97e403d0b48d2da1c9d47dc98b6198171ff21048714ba6575c6cadb409053aee.svg.gz"
                 alt="Google"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/microsoft-logo-e807dee90674e40eecefb333c9c5520fd1b6350061677237394015dd7e01f855.svg.gz"
                 alt="Microsoft"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/amazon-logo-a2568f4eba54775b04f3ff133b9208b24f88523a928b35ea6c937f336426f1aa.svg.gz"
                 alt="Amazon"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg"
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/meta-logo-f70b8a81c2da4927bea050414bf0c252ec5f8f2ca865eb6a00bb8d5771bce59b.svg.gz"
                 alt="Meta"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Adobe_Corporate_Horizontal_Red_HEX.svg"
+                src="https://assets-v2.scaler.com/assets/programs/undergrad/svg/adobe-logo-8e264a414a3687d0fe237cb585973f1b1ac4c26c639684f1aaa7de0ca4301dd9.svg.gz"
                 alt="Adobe"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
