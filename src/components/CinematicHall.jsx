@@ -23,7 +23,7 @@ function Vignette(){
 function HighlightCard({ title, tag }){
   return (
     <motion.div
-      className="group relative aspect-[16/7] w-[88vw] sm:w-[80vw] md:w-[72vw] lg:w-[60vw] xl:w-[50vw] overflow-hidden rounded-3xl bg-zinc-900 ring-1 ring-white/10 shadow-2xl"
+      className="group relative aspect-[16/10] md:aspect-[16/7] w-[92vw] sm:w-[84vw] md:w-[74vw] lg:w-[60vw] xl:w-[50vw] overflow-hidden rounded-3xl bg-zinc-900 ring-1 ring-white/10 shadow-2xl"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -35,6 +35,7 @@ function HighlightCard({ title, tag }){
         <img
           src={`https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000&auto=format&fit=crop`}
           alt="achievement background"
+          loading="lazy"
           className="h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),rgba(0,0,0,0.35),rgba(0,0,0,0.85))]" />
@@ -43,14 +44,14 @@ function HighlightCard({ title, tag }){
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full w-full items-end p-8 sm:p-10">
+      <div className="relative z-10 flex h-full w-full items-end p-5 sm:p-8">
         <div>
           {tag ? (
             <div className="mb-3 inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/90 ring-1 ring-white/15">
               {tag}
             </div>
           ) : null}
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_20px_rgba(255,255,255,0.25)]">
+          <h3 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_20px_rgba(255,255,255,0.25)]">
             {title}
           </h3>
         </div>
@@ -101,7 +102,7 @@ function HighlightCarousel(){
       {/* Strip */}
       <div
         ref={scrollerRef}
-        className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 py-2"
+        className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 sm:gap-6 overflow-x-auto px-4 py-2"
       >
         {cards.map((c, idx) => (
           <div key={idx} className="snap-center shrink-0">
@@ -116,7 +117,7 @@ function HighlightCarousel(){
 function VideoTile({ title, src }){
   return (
     <motion.div
-      className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
+      className="group relative aspect-[16/10] md:aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -135,7 +136,7 @@ function VideoTile({ title, src }){
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08),rgba(255,255,255,0)_45%)]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/60" />
       <Vignette />
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
         <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/15">
           {title}
         </div>
@@ -147,18 +148,18 @@ function VideoTile({ title, src }){
 function PosterTile({ title, img }){
   return (
     <motion.div
-      className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
+      className="group relative aspect-[16/10] md:aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       whileHover={{ scale: 1.01 }}
     >
-      <img src={img} alt={title} className="absolute inset-0 h-full w-full object-cover opacity-90" />
+      <img src={img} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-90" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.25),rgba(0,0,0,0.75))]" />
       <Spotlight />
       <Vignette />
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
         <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/15">
           {title}
         </div>
@@ -197,7 +198,7 @@ function AchievementGrid(){
   ]
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
       {mixed.map((item, idx) => (
         item.type === 'video' ? (
           <VideoTile key={idx} title={item.title} src={item.src} />
@@ -219,7 +220,7 @@ export default function CinematicHall(){
         <Vignette />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28">
         <SectionHeading
           title="Stories That Made Us Proud."
           subtitle="A hall of fame crafted by grit, mentorship, and world‑stage wins."
@@ -229,12 +230,12 @@ export default function CinematicHall(){
         />
 
         {/* Cinematic Highlight Strip */}
-        <div className="mt-10 sm:mt-12 lg:mt-14">
+        <div className="mt-8 sm:mt-12 lg:mt-14">
           <HighlightCarousel />
         </div>
 
         {/* Cinematic Achievement Grid */}
-        <div className="mt-14 sm:mt-16 lg:mt-20">
+        <div className="mt-10 sm:mt-16 lg:mt-20">
           <AchievementGrid />
         </div>
       </div>
