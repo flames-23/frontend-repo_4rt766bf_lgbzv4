@@ -66,30 +66,30 @@ export default function Hero() {
               Learn from engineers who’ve built real systems at
             </p>
 
-            {/* Logos row - replaced with real company logos */}
+            {/* Logos row - reverted to stable brand SVGs */}
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 opacity-95">
               <img
-                src="https://images.unsplash.com/photo-1611162618071-b39a2ec4b0d7?q=80&w=600&auto=format&fit=contain"
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
                 alt="Google"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://images.unsplash.com/photo-1611162618071-19010bfe1b49?q=80&w=600&auto=format&fit=contain"
+                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
                 alt="Microsoft"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://images.unsplash.com/photo-1611162618071-35936f705a94?q=80&w=600&auto=format&fit=contain"
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
                 alt="Amazon"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://images.unsplash.com/photo-1611162617263-4fddb0d5f65e?q=80&w=600&auto=format&fit=contain"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg"
                 alt="Meta"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
               <img
-                src="https://images.unsplash.com/photo-1611162618071-3f5b0e0b6fd8?q=80&w=600&auto=format&fit=contain"
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Adobe_Corporate_Horizontal_Red_HEX.svg"
                 alt="Adobe"
                 loading="lazy"
                 className="h-7 sm:h-8 w-auto" />
