@@ -19,6 +19,7 @@ import AUET from './components/AUET'
 import MacbookM5 from './components/MacbookM5'
 import SchoolCSAI from './components/SchoolCSAI'
 import AdmissionsProcess from './components/AdmissionsProcess'
+import USPs from './components/USPs'
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
         <ComparisonASCA />
         <Leadership />
         <WhyASCA />
+        {/* New USPs section with alternating video + text cards */}
+        <USPs />
         {/* Dedicated School of CS & AI section following Why ASCA */}
         <SchoolCSAI />
         {/* Super-premium MacBook Pro M5 section placed after School of CS and AI */}
