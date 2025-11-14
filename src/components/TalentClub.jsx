@@ -21,18 +21,36 @@ export default function TalentClub() {
   ]
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24">
-      {/* Rich dark gradient background */}
-      <div
-        className="absolute inset-0 -z-10"
-        aria-hidden="true"
-        style={{
-          background:
-            'radial-gradient(1200px 500px at 10% -10%, rgba(99,102,241,0.20), transparent 60%), radial-gradient(900px 380px at 90% 110%, rgba(236,72,153,0.18), transparent 60%), linear-gradient(180deg, #0B0C10 0%, #111217 60%, #0F1015 100%)'
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#050505] py-28 sm:py-32 lg:py-40">
+      {/* Ambient premium glow (match MacBook section vibe) */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute left-1/2 top-1/2 h:[1400px] w-[1400px] -translate-x-1/2 -translate-y-1/2 opacity-20 blur-3xl"
+          style={{
+            background:
+              'radial-gradient(closest-side, rgba(246,227,180,0.18) 0%, rgba(246,227,180,0.08) 45%, rgba(246,227,180,0.03) 65%, transparent 75%)'
+          }}
+        />
+        <div
+          className="absolute left-1/2 top-0 h-[1400px] w-[1400px] -translate-x-1/2 -translate-y-1/3 opacity-15 blur-2xl"
+          style={{
+            background:
+              'conic-gradient(from 200deg at 50% 50%, rgba(246,227,180,0.06), transparent 18%, rgba(246,227,180,0.08) 28%, transparent 48%, rgba(246,227,180,0.07) 60%, transparent 78%, rgba(246,227,180,0.06) 92%, transparent)',
+            maskImage: 'radial-gradient(closest-side, black, transparent)',
+            WebkitMaskImage: 'radial-gradient(closest-side, black, transparent)'
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.10]"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(246,227,180,0.12) 1px, transparent 1px)',
+            backgroundSize: '20px 20px'
+          }}
+        />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* TOP: Centered Intro */}
         <SectionHeading
           kicker="Premium Industry Network"
@@ -47,7 +65,7 @@ export default function TalentClub() {
         {/* MIDDLE: Two-Half Layout */}
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           {/* Left: Highlight video */}
-          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_40px_120px_-40px_rgba(59,130,246,0.35),0_24px_60px_-28px_rgba(236,72,153,0.25)]">
+          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_40px_120px_-40px_rgba(0,0,0,0.7)]">
             <video
               className="h-[240px] sm:h-[320px] md:h-[360px] w-full object-cover"
               autoPlay
@@ -58,10 +76,12 @@ export default function TalentClub() {
             >
               <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
             </video>
+            {/* Inner glossy overlay */}
             <div
               className="pointer-events-none absolute inset-0"
-              style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25), transparent 35%, transparent 70%, rgba(0,0,0,0.35))' }}
+              style={{ background: 'linear-gradient(115deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 24%, transparent 40%)' }}
             />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
           </div>
 
           {/* Right: Minimal bullets */}
