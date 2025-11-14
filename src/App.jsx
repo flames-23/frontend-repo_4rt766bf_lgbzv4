@@ -17,6 +17,7 @@ import Leadership from './components/Leadership'
 import TalentClub from './components/TalentClub'
 import AUET from './components/AUET'
 import MacbookM5 from './components/MacbookM5'
+import SchoolCSAI from './components/SchoolCSAI'
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
         <ComparisonASCA />
         <Leadership />
         <WhyASCA />
-        {/* Super-premium MacBook Pro M5 section placed after Why Algouniversity School of CS and AI */}
+        {/* Dedicated School of CS & AI section following Why ASCA */}
+        <SchoolCSAI />
+        {/* Super-premium MacBook Pro M5 section placed after School of CS and AI */}
         <MacbookM5 />
         <Curriculum />
         <Achievers />

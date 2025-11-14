@@ -3,10 +3,10 @@
 > vite
 
 
-  VITE v5.4.20  ready in 645 ms
+  VITE v5.4.20  ready in 216 ms
 
   ➜  Local:   http://localhost:3000/
-  ➜  Network: http://172.20.0.35:3000/
+  ➜  Network: http://172.20.23.166:3000/
 [vite:css] @import must precede all other statements (besides @charset or empty @layer)
 4  |  
 5  |  /* Import unified font */
