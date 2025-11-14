@@ -35,7 +35,7 @@ export default function Navbar() {
   }, [open, onKeyDown])
 
   return (
-    <header className="sticky top-0 z-50 relative supports-[backdrop-filter]:bg-white/70 bg-white/90 backdrop-blur border-b border-black/10 shadow-[0_2px_12px_rgba(17,24,39,0.06)]" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+    <header className="sticky top-0 z-[9999] relative supports-[backdrop-filter]:bg-white/70 bg-white/90 backdrop-blur border-b border-black/10 shadow-[0_2px_12px_rgba(17,24,39,0.06)]" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-[2px]" style={{ backgroundImage: 'linear-gradient(90deg, var(--ds-blue), var(--ds-violet))' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -100,17 +100,17 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-50 md:hidden ${open ? '' : 'pointer-events-none'}`}
+        className={`fixed inset-0 z-[9999] md:hidden ${open ? '' : 'pointer-events-none'}`}
         aria-hidden={!open}
         role="dialog"
         aria-modal="true"
       >
         <div
-          className={`absolute inset-0 bg-black/40 transition-opacity duration-200 ${open ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-black/50 transition-opacity duration-200 ${open ? 'opacity-100' : 'opacity-0'} z-[9998]`}
           onClick={() => setOpen(false)}
         />
         <div
-          className={`absolute right-0 top-0 h-full w-[min(88vw,320px)] sm:w-80 bg-white shadow-2xl border-l border-black/10 transform transition-transform duration-200 ${open ? 'translate-x-0' : 'translate-x-full'} overscroll-contain overflow-y-auto`}
+          className={`absolute right-0 top-0 h-full w-[min(88vw,320px)] sm:w-80 bg-white shadow-2xl border-l border-black/10 transform transition-transform duration-200 ${open ? 'translate-x-0' : 'translate-x-full'} overscroll-contain overflow-y-auto z-[9999]`}
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex items-center justify-between px-4 h-16 sm:h-20 border-b border-black/10">
