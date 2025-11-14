@@ -20,6 +20,7 @@ import MacbookM5 from './components/MacbookM5'
 import SchoolCSAI from './components/SchoolCSAI'
 import AdmissionsProcess from './components/AdmissionsProcess'
 import USPs from './components/USPs'
+import CinematicHall from './components/CinematicHall'
 
 function App() {
   return (
@@ -42,11 +43,14 @@ function App() {
         <WhyASCA />
         {/* New USPs section with alternating video + text cards */}
         <USPs />
+        {/* Cinematic Achievement Hall in dark theme */}
+        <CinematicHall />
         {/* Dedicated School of CS & AI section following Why ASCA */}
         <SchoolCSAI />
         {/* Super-premium MacBook Pro M5 section placed after School of CS and AI */}
         <MacbookM5 />
         <Curriculum />
+        {/* Keep Achievers section after the cinematic hall */}
         <Achievers />
         {/* Move Talent Club section right after Achievers */}
         <TalentClub />
