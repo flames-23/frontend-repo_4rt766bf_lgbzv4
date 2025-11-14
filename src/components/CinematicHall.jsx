@@ -114,97 +114,66 @@ function HighlightCarousel(){
   )
 }
 
-function VideoTile({ title, src }){
+// New GrowthX-style small achievement card
+function SmallAchievementCard({ tag, img, meta }){
   return (
     <motion.div
-      className="group relative aspect-[16/10] md:aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
-      initial={{ opacity: 0, y: 20 }}
+      className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10 bg-zinc-900"
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      whileHover={{ y: -4 }}
     >
-      <video
-        className="absolute inset-0 h-full w-full object-cover opacity-90"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08),rgba(255,255,255,0)_45%)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/60" />
+      {/* Full-bleed image */}
+      <img
+        src={img}
+        alt={tag}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:brightness-110"
+      />
+      {/* Bottom-up gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+      {/* Subtle spotlight for premium feel */}
+      <Spotlight className="opacity-40" />
       <Vignette />
-      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-        <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/15">
-          {title}
+      {/* Text anchored bottom-left */}
+      <div className="relative z-10 flex h-full items-end">
+        <div className="p-4 sm:p-5">
+          <div className="text-white font-extrabold tracking-tight text-lg sm:text-xl">
+            {tag}
+          </div>
+          {meta ? (
+            <div className="mt-1 text-white/75 text-xs sm:text-sm">
+              {meta}
+            </div>
+          ) : null}
         </div>
       </div>
-    </motion.div>
-  )
-}
-
-function PosterTile({ title, img }){
-  return (
-    <motion.div
-      className="group relative aspect-[16/10] md:aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-      whileHover={{ scale: 1.01 }}
-    >
-      <img src={img} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-90" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.25),rgba(0,0,0,0.75))]" />
-      <Spotlight />
-      <Vignette />
-      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-        <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/15">
-          {title}
-        </div>
-      </div>
+      {/* Maintain vertical poster proportion */}
+      <div className="invisible aspect-[2/3] w-full" aria-hidden="true" />
     </motion.div>
   )
 }
 
 function AchievementGrid(){
-  const videos = [
-    { title: 'HFT ₹4.5 LPA/month', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'FAANG', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'GSoC', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'ICPC → WF', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'UberSTAR', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'Google STEP', src: 'https://images.unsplash.com/photo-1585752475238-52db8826b2f8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxIRlQlMjAlRTIlODIlQjk0LjUlMjBMUEElMkZtb250aHxlbnwwfDB8fHwxNzYzMTE2NDQzfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'International offers', src: 'https://videos.pexels.com/video-files/855272/855272-hd_1920_1080_24fps.mp4' },
-    { title: 'Smart India Hackathon', src: 'https://images.unsplash.com/photo-1744131290924-1d2fcbd59a17?ixid=M3w3OTkxMTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjMxMTY0NDZ8&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-    { title: 'Meta HackerCup stories', src: 'https://images.unsplash.com/photo-1744549112357-802befad1cc4?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxJQ1BDJTIwJUUyJTg2JTkyJTIwV0Z8ZW58MHwwfHx8MTc2MzExNjQ0Nnww&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
-  ]
-
-  const posters = [
-    { title: 'Shobhit Nair story', img: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1600&auto=format&fit=crop' },
-    { title: 'Multi-offer achievers', img: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop' },
-    { title: 'ICPC team photos', img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=1600&auto=format&fit=crop' },
-    { title: 'Meta HackerCup leaderboard', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop' },
-    { title: 'Hackathon winners', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop' },
-  ]
-
-  const mixed = [
-    ...videos.slice(0, 3).map(v => ({ type: 'video', ...v })),
-    ...posters.slice(0, 2).map(p => ({ type: 'poster', ...p })),
-    ...videos.slice(3, 6).map(v => ({ type: 'video', ...v })),
-    ...posters.slice(2, 5).map(p => ({ type: 'poster', ...p })),
-    ...videos.slice(6, 9).map(v => ({ type: 'video', ...v })),
+  // Replace the mixed media grid with GrowthX-style vertical posters only
+  const achievements = [
+    { tag: 'HFT ₹4.5 LPA/month', img: 'https://images.unsplash.com/photo-1551281044-8b89e4fd7f4b?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'FAANG', img: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'GSoC', img: 'https://images.unsplash.com/photo-1543269664-76bc3997d9ea?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'ICPC → WF', img: 'https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'UberSTAR', img: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'Google STEP', img: 'https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'International offers', img: 'https://images.unsplash.com/photo-1529070960185-6c75a0c6a743?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'Smart India Hackathon', img: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop' },
+    { tag: 'Meta HackerCup stories', img: 'https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop' },
   ]
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
-      {mixed.map((item, idx) => (
-        item.type === 'video' ? (
-          <VideoTile key={idx} title={item.title} src={item.src} />
-        ) : (
-          <PosterTile key={idx} title={item.title} img={item.img} />
-        )
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      {achievements.map((a, idx) => (
+        <SmallAchievementCard key={idx} tag={a.tag} img={a.img} meta={a.meta} />
       ))}
     </div>
   )
@@ -229,12 +198,12 @@ export default function CinematicHall(){
           size="lg"
         />
 
-        {/* Cinematic Highlight Strip */}
+        {/* Cinematic Highlight Strip → DO NOT MODIFY per request */}
         <div className="mt-8 sm:mt-12 lg:mt-14">
           <HighlightCarousel />
         </div>
 
-        {/* Cinematic Achievement Grid */}
+        {/* GrowthX-style Achievements Grid (3×N desktop, 2×N tablet, 1×N mobile) */}
         <div className="mt-10 sm:mt-16 lg:mt-20">
           <AchievementGrid />
         </div>
