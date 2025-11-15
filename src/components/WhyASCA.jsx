@@ -5,25 +5,29 @@ const points = [
     value: '1:1',
     label: 'Industry Mentorship',
     desc: 'Work with senior engineers and researchers from FAANG and fast-growing startups every semester.',
-    gradient: 'from-fuchsia-500 via-pink-500 to-amber-400'
+    // Brand gradient: Indigo → Violet → Fuchsia
+    gradient: 'from-indigo-600 via-violet-500 to-fuchsia-500'
   },
   {
     value: 'Paid',
     label: 'Internships from Year 2',
     desc: 'Co-op model ensures real product work, ownership and compensation while you study.',
-    gradient: 'from-emerald-400 via-teal-400 to-cyan-400'
+    // Brand gradient: Emerald → Teal → Cyan
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-500'
   },
   {
     value: '25 LPA',
     label: 'Avg. Placements',
     desc: 'Outcome-focused career prep with rigorous fundamentals and a project-heavy portfolio.',
-    gradient: 'from-sky-500 via-indigo-500 to-violet-500'
+    // Brand gradient: Indigo → Blue → Cyan
+    gradient: 'from-indigo-600 via-blue-500 to-cyan-400'
   },
   {
     value: '1,300+',
     label: 'Hiring Partners',
     desc: 'Expansive network of product companies, research labs, and high-frequency trading firms.',
-    gradient: 'from-rose-500 via-orange-500 to-yellow-400'
+    // Brand gradient: Violet → Indigo → Blue
+    gradient: 'from-violet-600 via-indigo-500 to-blue-500'
   }
 ]
 
