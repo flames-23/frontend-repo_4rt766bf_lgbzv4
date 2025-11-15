@@ -30,14 +30,14 @@ export default function Hero() {
   // Cards content to be shown below the hero, merged from the former Why ASCA section
   const points = [
     {
-      value: '200',
-      label: 'Seats',
-      desc: 'Only 200 students admitted, with merit-based scholarships up to 90%.'
+      value: '4 Years',
+      label: 'B.Tech in CS and AI',
+      desc: 'A fully industry-aligned degree built by engineers from FAANG & startups.'
     },
     {
-      value: '12',
-      label: 'Months Guaranteed Work-Ex',
-      desc: 'Paid internships & real engineering work from early semesters - so you graduate with experience, not as a fresher.'
+      value: '200 Seats',
+      label: 'Selective Admissions',
+      desc: 'Only 200 students are admitted each year through a merit-based process with upto 90% scholarships.'
     },
     {
       value: '25 LPA',
@@ -45,9 +45,9 @@ export default function Hero() {
       desc: 'Outcome-focused career prep with rigorous fundamentals and a project-heavy portfolio.'
     },
     {
-      value: '1,300+',
-      label: 'Hiring Partners',
-      desc: 'Expansive network of product companies, research labs, and high-frequency trading firms.'
+      value: '18 Months',
+      label: 'Real Work Experience',
+      desc: 'Graduate with 18 months of paid engineering work experience - not as a fresher.'
     }
   ]
 
