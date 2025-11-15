@@ -30,14 +30,14 @@ export default function Hero() {
   // Cards content to be shown below the hero, merged from the former Why ASCA section
   const points = [
     {
-      value: '1:1',
-      label: 'Industry Mentorship',
-      desc: '18 months of paid internships & real engineering work so you graduate with experience, not as a fresher.'
+      value: '200',
+      label: 'Seats',
+      desc: 'Only 200 students admitted, with merit-based scholarships up to 90%.'
     },
     {
-      value: 'Paid',
-      label: 'Internships from Year 2',
-      desc: 'Co-op model ensures real product work, ownership and compensation while you study.'
+      value: '12',
+      label: 'Months Guaranteed Work-Ex',
+      desc: 'Paid internships & real engineering work from early semesters - so you graduate with experience, not as a fresher.'
     },
     {
       value: '25 LPA',
