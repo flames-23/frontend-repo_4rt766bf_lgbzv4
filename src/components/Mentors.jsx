@@ -3,44 +3,44 @@ import { motion } from 'framer-motion'
 
 const mentors = [
   {
-    name: 'Dr. Ayesha Rao',
-    title: 'AI Researcher, Ex-DeepMind',
-    img: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1600&auto=format&fit=crop'
+    name: 'Manas Kumar Verma',
+    roles: ['Ex Quant Researcher @ Alphagrep Singapore', 'Directi'],
+    img: 'https://i.ibb.co/HjWb82z/image27.png',
+    college: 'IIIT Hyderabad',
+    companies: [
+      { name: 'Alphagrep' },
+      { name: 'Directi' }
+    ]
   },
   {
-    name: 'Prof. Karthik Menon',
-    title: 'Aerospace Systems, ISRO Advisor',
-    img: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1600&auto=format&fit=crop'
+    name: 'Swapnil Daga',
+    roles: ['Ex-Google London', 'Apple'],
+    img: 'https://i.ibb.co/zW3xFnwJ/image5.png',
+    college: 'IIIT Hyderabad',
+    companies: [
+      { name: 'Google', logo: 'https://cdn.simpleicons.org/google/FFFFFF' },
+      { name: 'Apple', logo: 'https://cdn.simpleicons.org/apple/FFFFFF' }
+    ]
   },
   {
-    name: 'Ananya Kapoor',
-    title: 'Cloud Architect, AWS Hero',
-    img: 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?q=80&w=1600&auto=format&fit=crop'
+    name: 'Nikita Agarwal',
+    roles: ['Ex-Data Scientist at Microsoft', 'Indeed'],
+    img: 'https://i.ibb.co/V0MMZmWf/image14.png',
+    college: 'IIIT Hyderabad',
+    companies: [
+      { name: 'Microsoft', logo: 'https://cdn.simpleicons.org/microsoft/FFFFFF' },
+      { name: 'Indeed', logo: 'https://cdn.simpleicons.org/indeed/FFFFFF' }
+    ]
   },
   {
-    name: 'Rohit Saini',
-    title: 'Security Engineer, Ex-Palo Alto',
-    img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1600&auto=format&fit=crop'
-  },
-  {
-    name: 'Meera Gupta',
-    title: 'Product Leader, Google',
-    img: 'https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1600&auto=format&fit=crop'
-  },
-  {
-    name: 'Arjun Verma',
-    title: 'ML Engineer, OpenAI',
-    img: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1600&auto=format&fit=crop'
-  },
-  {
-    name: 'Neha Sharma',
-    title: 'Data Scientist, Nvidia',
-    img: 'https://images.unsplash.com/photo-1544723120-68f20b61b66d?q=80&w=1600&auto=format&fit=crop'
-  },
-  {
-    name: 'Vikram Iyer',
-    title: 'SRE, Netflix',
-    img: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1600&auto=format&fit=crop'
+    name: 'Nalin Abrol',
+    roles: ['Ex - Plivo', 'CTO at AlgoUniversity'],
+    img: 'https://i.ibb.co/9HLb3FCC/image15.png',
+    college: 'IIIT Hyderabad',
+    companies: [
+      { name: 'Plivo' },
+      { name: 'AlgoUniversity' }
+    ]
   }
 ]
 
@@ -100,13 +100,33 @@ export default function Mentors() {
                 >
                   <div className="relative" style={{ aspectRatio: '3 / 4' }}>
                     <img src={m.img} alt={m.name} className="h-full w-full object-cover" loading="lazy" />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
                   </div>
 
+                  {/* Info panel */}
                   <div className="absolute bottom-0 left-0 right-0">
-                    <div className="mx-2 mb-2 rounded-lg border border-white/15 bg-white/15 backdrop-blur-2xl p-2.5">
+                    <div className="mx-2 mb-2 rounded-lg border border-white/15 bg-white/12 backdrop-blur-2xl p-2.5">
                       <h3 className="text-white text-sm sm:text-base font-semibold tracking-tight">{m.name}</h3>
-                      <p className="text-white/80 text-xs sm:text-sm">{m.title}</p>
+
+                      {/* Companies row (logos if available; fallback to monogram) */}
+                      <div className="mt-1.5 flex items-center gap-2">
+                        {m.companies?.map((c) => (
+                          <div key={c.name} className="h-5 w-5 shrink-0 rounded-[6px] bg-white/10 grid place-items-center overflow-hidden">
+                            {c.logo ? (
+                              <img src={c.logo} alt={c.name} className="h-3.5 w-3.5 object-contain" loading="lazy" />
+                            ) : (
+                              <span className="text-[10px] font-semibold text-white/90 leading-none">
+                                {c.name.slice(0,1)}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* College row */}
+                      <div className="mt-1 text-[12px] text-white/80">
+                        {m.college}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
