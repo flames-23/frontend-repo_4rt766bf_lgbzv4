@@ -5,7 +5,7 @@ const TRACKS = [
     key: 'gsoc',
     title: 'Google Summer of Code Track',
     short: 'GSoC',
-    tagline: 'Multiple open‑source selections with close mentorship.',
+    tagline: 'Open‑source selections with close mentorship.',
     accent: {
       ring: 'ring-amber-400/60',
       border: 'border-amber-400/70',
@@ -24,7 +24,7 @@ const TRACKS = [
     key: 'hacker-cup',
     title: 'Meta Hacker Cup Track',
     short: 'Hacker Cup',
-    tagline: 'Top‑percentile finishes with timed mocks and editorials.',
+    tagline: 'Timed mocks and editorials for top finishes.',
     accent: {
       ring: 'ring-sky-500/60',
       border: 'border-sky-500/70',
@@ -43,7 +43,7 @@ const TRACKS = [
     key: 'icpc',
     title: 'ACM ICPC Track',
     short: 'ICPC',
-    tagline: 'Regionals‑ready training with coached upsolving.',
+    tagline: 'Regionals‑ready training with coached upsolves.',
     accent: {
       ring: 'ring-violet-500/60',
       border: 'border-violet-500/70',
@@ -62,7 +62,7 @@ const TRACKS = [
     key: 'quant',
     title: 'Quant & Trading Track',
     short: 'Quant',
-    tagline: 'HFT‑level prep across math, Python, and systems.',
+    tagline: 'HFT‑level prep across math, Python, systems.',
     accent: {
       ring: 'ring-emerald-500/60',
       border: 'border-emerald-500/70',
@@ -81,14 +81,14 @@ const TRACKS = [
 
 function MentorSpotlight({ mentor }) {
   return (
-    <div className="mt-5 sm:mt-6 flex items-center gap-4">
-      <div className="relative h-14 w-14 sm:h-16 sm:w-16 rounded-2xl overflow-hidden ring-1 ring-gray-200 shadow-sm">
+    <div className="mt-3 flex items-center gap-3">
+      <div className="relative h-10 w-10 rounded-xl overflow-hidden ring-1 ring-gray-200 shadow-sm">
         <img src={mentor.photo} alt={mentor.name} className="h-full w-full object-cover" />
       </div>
       <div>
-        <p className="text-xs uppercase tracking-wide text-gray-500">Track led by</p>
-        <p className="font-semibold text-gray-900 text-sm sm:text-base">{mentor.name}</p>
-        <p className="text-gray-600 text-xs sm:text-sm">{mentor.role}</p>
+        <p className="text-[11px] uppercase tracking-wide text-gray-500">Track lead</p>
+        <p className="font-semibold text-gray-900 text-sm">{mentor.name}</p>
+        <p className="text-gray-600 text-xs">{mentor.role}</p>
       </div>
     </div>
   )
@@ -96,27 +96,25 @@ function MentorSpotlight({ mentor }) {
 
 function TrackCard({ track }) {
   return (
-    <article className={`group relative overflow-hidden rounded-3xl bg-white border-2 ${track.accent.border} shadow-md hover:shadow-lg transition-shadow`}>      
-      {/* Hero thumbnail */}
+    <article className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white/60 backdrop-blur-sm ring-1 ring-slate-200/70 shadow-sm hover:shadow-md transition-all`}>
+      {/* Media (portrait friendly) */}
       <div className="relative">
-        <div className="aspect-[16/9] w-full overflow-hidden rounded-t-[22px]">
+        <div className="h-40 sm:h-44 md:h-48 w-full overflow-hidden">
           <img src={track.thumb} alt={`${track.short} hero`} className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-500" />
         </div>
         {/* Logo badge overlay */}
-        <div className={`absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl ${track.accent.bg} px-3 py-2 ring-1 ${track.accent.ring} backdrop-blur-sm`}>          
-          <div className="h-5 w-5 shrink-0">
+        <div className={`absolute left-3 top-3 inline-flex items-center gap-2 rounded-xl ${track.accent.bg} px-2.5 py-1.5 ring-1 ${track.accent.ring} backdrop-blur-sm`}>          
+          <div className="h-4 w-4 shrink-0">
             <img src={track.logo} alt={`${track.short} logo`} className="h-full w-full object-contain" />
           </div>
-          <span className={`text-xs font-semibold ${track.accent.text}`}>{track.short}</span>
+          <span className={`text-[11px] font-semibold ${track.accent.text}`}>{track.short}</span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 sm:p-7 lg:p-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">{track.title}</h3>
-        <p className="mt-2 text-gray-600 text-sm sm:text-base">{track.tagline}</p>
-
-        {/* Mentor spotlight */}
+      <div className="p-4 sm:p-5 md:p-6">
+        <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 leading-snug">{track.title}</h3>
+        <p className="mt-1.5 text-slate-600 text-sm sm:text-[15px] leading-relaxed">{track.tagline}</p>
         <MentorSpotlight mentor={track.mentor} />
       </div>
     </article>
@@ -125,21 +123,19 @@ function TrackCard({ track }) {
 
 export default function Achievers() {
   return (
-    <section id="achievers" className="py-16 bg-[#F5F7FA]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Global heading outside the cards */}
-        <div className="mb-8 sm:mb-10">
-          <SectionHeading
-            title="Achievers Tracks"
-            subtitle="Elite tracks led by top mentors with real, measurable outcomes."
-            align="center"
-            theme="light"
-            size="lg"
-          />
-        </div>
+    <section id="achievers" className="py-10 sm:py-12 lg:py-14 bg-[#F5F7FA]">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Achievers Tracks"
+          subtitle="Four elite tracks, one builder-first approach."
+          align="center"
+          theme="light"
+          size="md"
+          className="mb-6 sm:mb-8"
+        />
 
-        {/* 2x2 grid of large, high-visual white cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* 4 → 2 → 1 responsive row of long portrait cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {TRACKS.map((t) => (
             <TrackCard key={t.key} track={t} />
           ))}
