@@ -34,8 +34,8 @@ export default function AUET() {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Compact heading */}
-        <div className="mb-5 sm:mb-6">
+        {/* Compact heading - centered */}
+        <div className="mb-5 sm:mb-6 text-center mx-auto max-w-2xl">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
             AlgoUniversity Entrance Test (AUET)
           </h2>
@@ -43,7 +43,7 @@ export default function AUET() {
         </div>
 
         {/* Compact glass card */}
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141418]/95 p-5 sm:p-6 lg:p-7 shadow-[0_10px_34px_-18px_rgba(0,0,0,0.65)]">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141418]/95 p-5 sm:p-6 lg:p-7 shadow-[0_10px_34px_-18px_rgba(0,0,0,0.65)] max-w-6xl mx-auto">
           {/* Soft edge glow */}
           <div
             className="absolute -inset-3 -z-10 rounded-[22px] opacity-35 blur-2xl"
