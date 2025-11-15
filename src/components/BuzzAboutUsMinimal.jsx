@@ -45,7 +45,7 @@ export default function BuzzAboutUsMinimal() {
     'flex-shrink-0 w-[260px] sm:w-[280px] md:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow transition-shadow duration-300'
 
   return (
-    <section id="buzz" className="py-[60px] bg-white">
+    <section id="buzz" className="py-[60px] bg-[#F5F5F5]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section title (top-left) */}
         <div className="mb-6">
