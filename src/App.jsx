@@ -34,12 +34,12 @@ function App() {
         {/* Hero remains as-is */}
         <Hero />
 
-        {/* Place Why ASCA as the second section, then the Founder video */}
+        {/* Order: 1) Hero, 2) Why ASCA, 3) Placements, then Founder video */}
         <WhyASCA />
+        <Placements />
         <JobGuarantee />
 
         {/* Continue with the rest of the flow */}
-        <Placements />
         {/* Place AUET before results */}
         <AUET />
         <Results />
