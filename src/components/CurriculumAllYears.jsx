@@ -1,16 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
+import SectionHeading from './SectionHeading'
 
 function LearningStrip({ title, items }) {
   return (
-    <div className="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm">
+    <div className="mt-5 rounded-2xl border border-slate-200 bg-white/60 backdrop-blur-sm p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-700">{title}</h4>
+        <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-700">{title}</h4>
+        <div className="h-px w-24 bg-slate-200/80" />
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {items.map((it) => (
-          <div key={it.title} className="group overflow-hidden rounded-xl border border-slate-200 bg-slate-50/70 shadow-sm">
-            <div className="aspect-[4/3] w-full overflow-hidden">
+          <div
+            key={it.title}
+            className="group overflow-hidden rounded-xl border border-slate-200 bg-white/70 shadow-sm transition hover:shadow-md"
+          >
+            <div className="aspect-[16/10] w-full overflow-hidden">
               <img
                 src={it.img}
                 alt={it.title}
@@ -18,7 +23,7 @@ function LearningStrip({ title, items }) {
                 loading="lazy"
               />
             </div>
-            <div className="p-3">
+            <div className="p-2.5">
               <div className="line-clamp-2 text-[13px] font-semibold text-slate-900">{it.title}</div>
             </div>
           </div>
@@ -156,20 +161,20 @@ export default function CurriculumAllYears() {
   }, [YEARS, activeKey])
 
   return (
-    <section className="section-light relative isolate overflow-hidden py-16 sm:py-20">
+    <section className="section-light relative isolate overflow-hidden py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-            4‑Year Curriculum at a Glance
-          </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-slate-600">
-            For every year, preview key focus areas and hands‑on experiences inside and beyond the classroom.
-          </p>
-        </div>
+        <SectionHeading
+          title="4‑Year Curriculum at a Glance"
+          subtitle="Browse each year’s focus, classroom work, and beyond‑the‑classroom projects."
+          align="center"
+          theme="light"
+          size="md"
+          className="mb-6 sm:mb-8"
+        />
 
         {/* Year Nav that controls the page scroll */}
-        <div className="mt-6 flex justify-center">
-          <div className="inline-flex overflow-hidden rounded-full bg-white/80 p-1 shadow ring-1 ring-slate-200 backdrop-blur">
+        <div className="mt-2 flex justify-center">
+          <div className="inline-flex overflow-hidden rounded-full bg-white/70 p-1 shadow-sm ring-1 ring-slate-200 backdrop-blur-sm">
             {YEARS.map((y) => (
               <button
                 key={y.key}
@@ -177,7 +182,7 @@ export default function CurriculumAllYears() {
                 onClick={() => scrollToYear(y.key)}
                 aria-label={`Go to ${y.label}`}
                 aria-current={activeKey === y.key ? 'page' : undefined}
-                className={`relative rounded-full px-4 py-2 text-sm font-semibold transition ${
+                className={`relative rounded-full px-3.5 py-1.5 text-sm font-semibold transition ${
                   activeKey === y.key
                     ? 'bg-[color:var(--ds-blue)] text-white shadow-sm'
                     : 'text-slate-700 hover:bg-slate-50'
@@ -189,8 +194,8 @@ export default function CurriculumAllYears() {
           </div>
         </div>
 
-        {/* Vertical stack of full‑width sections per year */}
-        <div className="mt-8 space-y-6 sm:space-y-8">
+        {/* Vertical stack of compact year sections */}
+        <div className="mt-7 space-y-5 sm:space-y-6">
           {YEARS.map((y) => {
             const Icon = y.icon
             return (
@@ -201,29 +206,37 @@ export default function CurriculumAllYears() {
                 }}
                 data-key={y.key}
                 id={y.key}
-                className="w-full rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
+                className="w-full rounded-3xl border border-slate-200 bg-white/60 p-5 shadow-[0_8px_32px_rgba(2,6,23,0.06)] backdrop-blur-sm sm:p-6"
               >
                 {/* Header: icon + year + title */}
                 <header>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
+                      <Icon className="h-4.5 w-4.5" />
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-slate-700">{y.label}</div>
-                      <h3 className="text-xl font-bold text-slate-900">{y.title}</h3>
+                      <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-600">{y.label}</div>
+                      <h3 className="text-lg font-semibold text-slate-900">{y.title}</h3>
                     </div>
                   </div>
                 </header>
 
-                {/* Blurbs outside the strips (full width) */}
+                {/* Blurbs with clear separation */}
                 <div className="mt-3">
-                  <p className="text-sm text-slate-700">{y.blurb}</p>
-                  <p className="mt-1 text-xs text-slate-600">{y.details}</p>
+                  <div className="grid gap-2 sm:grid-cols-3 sm:gap-3">
+                    <div className="sm:col-span-2">
+                      <div className="text-sm font-medium text-slate-800">Overview</div>
+                      <p className="mt-1 text-sm text-slate-700">{y.blurb}</p>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-slate-800">What you’ll practice</div>
+                      <p className="mt-1 text-xs text-slate-600">{y.details}</p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Full-width learning strips */}
-                <div className="mt-2">
+                {/* Learning strips */}
+                <div className="mt-3">
                   <LearningStrip title="Classroom Learning" items={y.classroom} />
                   <LearningStrip title="Beyond Classroom Learning" items={y.beyond} />
                 </div>
