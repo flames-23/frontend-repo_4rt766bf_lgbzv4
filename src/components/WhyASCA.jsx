@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 
 // Unified blue–purple brand gradient across all four cards
@@ -32,22 +33,44 @@ const points = [
 
 export default function WhyASCA() {
   return (
-    <section id="why" className="section-light py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="why" className="relative section-dark overflow-hidden py-16 sm:py-20">
+      {/* Dark premium backdrop to match the Hero */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_500px_at_-10%_-10%,rgba(79,140,255,0.35),transparent_50%),radial-gradient(800px_480px_at_110%_0%,rgba(154,111,255,0.22),transparent_55%),linear-gradient(180deg,#0b1226_0%,#070b14_50%,#030712_100%)]"
+      />
+
+      {/* Subtle animated ribbons for continuity with Hero */}
+      <div aria-hidden className="absolute inset-0">
+        <motion.div
+          initial={{ x: -100, opacity: 0.28 }}
+          animate={{ x: 100 }}
+          transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+          className="absolute top-10 left-0 h-px w-[18rem] -rotate-6 rounded-full ribbon-blue blur-sm"
+        />
+        <motion.div
+          initial={{ x: 100, opacity: 0.25 }}
+          animate={{ x: -100 }}
+          transition={{ duration: 16, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+          className="absolute bottom-10 right-0 h-px w-[22rem] rotate-6 rounded-full ribbon-violet blur-sm"
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           align="center"
-          theme="light"
+          theme="dark"
           size="md"
           title="Why AlgoUniversity School of CS & AI"
           subtitle="A builder-first program engineered for outcomes."
-          className="mb-8"
+          className="mb-10"
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {points.map(({ value, label, desc, gradient }) => (
             <div key={label} className="relative group">
               {/* Gradient border frame */}
-              <div className={`relative rounded-3xl p-[1.5px] bg-gradient-to-br ${gradient} shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]`}> 
+              <div className={`relative rounded-3xl p-[1.5px] bg-gradient-to-br ${gradient} shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)]`}> 
                 {/* Glass card (darkened for white text contrast) */}
                 <div className="relative rounded-3xl bg-slate-900/55 backdrop-blur-xl border border-white/10 shadow-sm overflow-hidden">
                   {/* Soft sheen */}
@@ -70,6 +93,10 @@ export default function WhyASCA() {
           ))}
         </div>
       </div>
+
+      {/* Fade to next section edges for smooth transitions */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[rgba(3,7,18,0.85)] to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[rgba(3,7,18,0.85)] to-transparent" />
     </section>
   )
 }
