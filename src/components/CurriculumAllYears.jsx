@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
+import { GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
 
 export default function CurriculumAllYears() {
   const YEARS = useMemo(
@@ -68,48 +68,37 @@ export default function CurriculumAllYears() {
     []
   )
 
-  const railRef = useRef(null)
   const cardRefs = useRef({})
   const [activeKey, setActiveKey] = useState(YEARS[0].key)
-
-  const scrollBy = (delta) => {
-    const el = railRef.current
-    if (!el) return
-    el.scrollBy({ left: delta, behavior: 'smooth' })
-  }
 
   const scrollToYear = (key) => {
     const el = cardRefs.current[key]
     if (!el) return
-    el.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })
+    el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
   }
 
-  // Track active item while user scrolls
+  // Track active item while user scrolls (viewport-based)
   useEffect(() => {
-    const rail = railRef.current
-    if (!rail) return
+    const entries = YEARS.map((y) => cardRefs.current[y.key]).filter(Boolean)
+    if (!entries.length) return
 
-    const handler = () => {
-      const children = YEARS.map((y) => cardRefs.current[y.key]).filter(Boolean)
-      if (!children.length) return
-      const railRect = rail.getBoundingClientRect()
-      // Pick the child whose left edge is closest to the rail's left edge
-      let bestKey = activeKey
-      let bestDist = Infinity
-      for (const child of children) {
-        const rect = child.getBoundingClientRect()
-        const dist = Math.abs(rect.left - railRect.left)
-        if (dist < bestDist) {
-          bestDist = dist
-          bestKey = child.dataset.key
+    const observer = new IntersectionObserver(
+      (obsEntries) => {
+        // Find the most visible entry and mark it active
+        let best = { key: activeKey, ratio: 0 }
+        for (const e of obsEntries) {
+          const key = e.target.dataset.key
+          if (e.intersectionRatio > best.ratio) {
+            best = { key, ratio: e.intersectionRatio }
+          }
         }
-      }
-      setActiveKey(bestKey)
-    }
+        if (best.key && best.key !== activeKey) setActiveKey(best.key)
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    )
 
-    handler()
-    rail.addEventListener('scroll', handler, { passive: true })
-    return () => rail.removeEventListener('scroll', handler)
+    entries.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [YEARS, activeKey])
 
   return (
@@ -120,11 +109,11 @@ export default function CurriculumAllYears() {
             4‑Year Curriculum at a Glance
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-slate-600">
-            Explore every year without switching tabs. Scroll horizontally or use the quick nav to jump to any year.
+            Explore every year using the quick nav or by scrolling. Each year expands into a wide, easy‑to‑read overview.
           </p>
         </div>
 
-        {/* Year Nav that controls the scroller */}
+        {/* Year Nav that controls the page scroll */}
         <div className="mt-6 flex justify-center">
           <div className="inline-flex overflow-hidden rounded-full bg-white/80 p-1 shadow ring-1 ring-slate-200 backdrop-blur">
             {YEARS.map((y) => (
@@ -146,73 +135,57 @@ export default function CurriculumAllYears() {
           </div>
         </div>
 
-        <div className="relative mt-8 sm:mt-10">
-          {/* Arrow controls */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 hidden items-center justify-between md:flex">
-            <button
-              aria-label="Scroll left"
-              onClick={() => scrollBy(-480)}
-              className="pointer-events-auto ml-2 rounded-full bg-white/90 p-2 shadow ring-1 ring-slate-200 hover:bg-white"
-            >
-              <ChevronLeft className="h-5 w-5 text-slate-700" />
-            </button>
-            <button
-              aria-label="Scroll right"
-              onClick={() => scrollBy(480)}
-              className="pointer-events-auto mr-2 rounded-full bg-white/90 p-2 shadow ring-1 ring-slate-200 hover:bg-white"
-            >
-              <ChevronRight className="h-5 w-5 text-slate-700" />
-            </button>
-          </div>
-
-          {/* Horizontal rail with 4 panels */}
-          <div
-            ref={railRef}
-            className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:gap-6 md:pb-3"
-          >
-            {YEARS.map((y) => {
-              const Icon = y.icon
-              return (
-                <article
-                  key={y.key}
-                  ref={(el) => {
-                    if (el) cardRefs.current[y.key] = el
-                  }}
-                  data-key={y.key}
-                  id={y.key}
-                  className="snap-start w-[88%] min-w-[280px] max-w-[360px] scroll-ml-4 rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
-                >
-                  <header className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
-                      <Icon className="h-5 w-5" />
+        {/* Vertical stack of full‑width horizontal cards (one per row) */}
+        <div className="mt-8 space-y-6 sm:space-y-8">
+          {YEARS.map((y) => {
+            const Icon = y.icon
+            return (
+              <article
+                key={y.key}
+                ref={(el) => {
+                  if (el) cardRefs.current[y.key] = el
+                }}
+                data-key={y.key}
+                id={y.key}
+                className="w-full rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
+              >
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-5">
+                  {/* Left rail: title + blurb */}
+                  <header className="md:col-span-2">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-slate-700">{y.label}</div>
+                        <h3 className="text-xl font-bold text-slate-900">{y.title}</h3>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-slate-700">{y.label}</div>
-                      <h3 className="text-lg font-bold text-slate-900">{y.title}</h3>
-                    </div>
+                    <p className="mt-3 text-sm text-slate-700">{y.blurb}</p>
+                    <p className="mt-1 text-xs text-slate-600">{y.details}</p>
                   </header>
 
-                  <p className="mt-3 text-sm text-slate-700">{y.blurb}</p>
-                  <p className="mt-1 text-xs text-slate-600">{y.details}</p>
-
-                  <div className="mt-4 space-y-2">
-                    {y.projects.map((p) => (
-                      <div
-                        key={p.title}
-                        className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/70 p-3"
-                      >
-                        <div className="mt-0.5 h-2 w-2 flex-none rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF]" />
-                        <div>
-                          <div className="text-[13px] font-semibold text-slate-900">{p.title}</div>
-                          <div className="text-xs text-slate-600">{p.note}</div>
+                  {/* Right content: projects list */}
+                  <div className="md:col-span-3">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {y.projects.map((p) => (
+                        <div
+                          key={p.title}
+                          className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/70 p-3"
+                        >
+                          <div className="mt-0.5 h-2 w-2 flex-none rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF]" />
+                          <div>
+                            <div className="text-[13px] font-semibold text-slate-900">{p.title}</div>
+                            <div className="text-xs text-slate-600">{p.note}</div>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </article>
-              )
-            })}
-          </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
