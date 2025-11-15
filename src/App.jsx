@@ -3,6 +3,7 @@ import AdmissionsBanner from './components/AdmissionsBanner'
 import Hero from './components/Hero'
 import WhyASCA from './components/WhyASCA'
 import Curriculum from './components/Curriculum'
+import CurriculumAllYears from './components/CurriculumAllYears'
 import Achievers from './components/Achievers'
 import CampusCarousel from './components/CampusCarousel'
 import Placements from './components/Placements'
@@ -49,7 +50,10 @@ function App() {
         <SchoolCSAI />
         {/* Super-premium MacBook Pro M5 section placed after School of CS and AI */}
         <MacbookM5 />
+        {/* Existing interactive curriculum */}
         <Curriculum />
+        {/* New light-themed all-years scroller */}
+        <CurriculumAllYears />
         {/* Keep Achievers section after the cinematic hall */}
         <Achievers />
         {/* Move Talent Club section right after Achievers */}
