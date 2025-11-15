@@ -1,5 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { GraduationCap, Wrench, Brain, Briefcase, BookOpen, Sparkles } from 'lucide-react'
+import {
+  GraduationCap,
+  Wrench,
+  Brain,
+  Briefcase,
+  BookOpen,
+  Sparkles,
+  Code2,
+  GitBranch,
+  Globe,
+  Database,
+  Layout,
+  Server,
+  ShieldCheck,
+  Beaker,
+  LineChart,
+  Settings,
+  Gauge
+} from 'lucide-react'
 import SectionHeading from './SectionHeading'
 
 function LearningStrip({ title, items, variant = 'classroom' }) {
@@ -41,28 +59,55 @@ function LearningStrip({ title, items, variant = 'classroom' }) {
         </div>
         <div className={`h-px w-24 ${theme.headBar}`} />
       </div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {items.map((it) => (
-          <div
-            key={it.title}
-            className={`group overflow-hidden rounded-xl border ${theme.itemBorder} bg-white/80 shadow-sm transition hover:shadow-md`}
-          >
-            <div className="relative aspect-[16/10] w-full overflow-hidden">
-              <img
-                src={it.img}
-                alt={it.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                loading="lazy"
-              />
-              {/* Subtle tint for differentiation */}
-              <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${theme.overlay}`} />
+
+      {/* Cards */}
+      {isClassroom ? (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((it) => {
+            const Icon = it.icon
+            return (
+              <div
+                key={it.title}
+                className={`group flex h-full flex-col rounded-xl border ${theme.itemBorder} bg-white/80 p-3 shadow-sm transition hover:shadow-md`}
+              >
+                <div className="flex items-start gap-3">
+                  <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg ${theme.chipBg} ring-1 ${theme.chipRing}`}>
+                    {Icon ? <Icon className={`h-4 w-4 ${theme.chipText}`} /> : <BookOpen className={`h-4 w-4 ${theme.chipText}`} />}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="text-[13px] font-semibold text-slate-900">{it.title}</div>
+                    {it.desc && (
+                      <p className="mt-1 text-[12px] leading-snug text-slate-700 line-clamp-4">{it.desc}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {items.map((it) => (
+            <div
+              key={it.title}
+              className={`group overflow-hidden rounded-xl border ${theme.itemBorder} bg-white/80 shadow-sm transition hover:shadow-md`}
+            >
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <img
+                  src={it.img}
+                  alt={it.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                  loading="lazy"
+                />
+                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${theme.overlay}`} />
+              </div>
+              <div className="p-2.5">
+                <div className="line-clamp-2 text-[13px] font-semibold text-slate-900">{it.title}</div>
+              </div>
             </div>
-            <div className="p-2.5">
-              <div className="line-clamp-2 text-[13px] font-semibold text-slate-900">{it.title}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -80,10 +125,10 @@ export default function CurriculumAllYears() {
         details:
           'Focus areas include DSA, Python, version control, and essential CS foundations. Projects like Tic‑Tac‑Toe, image editor, and mini dashboards bring learning to life.',
         classroom: [
-          { title: 'Python Basics & Problem Solving', img: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Data Structures Visual Labs', img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Git & Collaboration Workshops', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Web Fundamentals (HTML/CSS/JS)', img: 'https://images.unsplash.com/photo-1518933165971-611dbc9c412d?q=80&w=800&auto=format&fit=crop' }
+          { title: 'Python Basics & Problem Solving', icon: Code2, desc: 'Write clean Python, practice logic with loops and functions, and learn to break down problems into testable steps.' },
+          { title: 'Data Structures Visual Labs', icon: Database, desc: 'Understand arrays, stacks, queues, trees, and graphs with visual walkthroughs and interactive tracing.' },
+          { title: 'Git & Collaboration Workshops', icon: GitBranch, desc: 'Branching, pull requests, and code reviews. Learn to collaborate effectively in small teams.' },
+          { title: 'Web Fundamentals (HTML/CSS/JS)', icon: Globe, desc: 'Build accessible pages, responsive layouts, and add interactivity with vanilla JavaScript.' }
         ],
         beyond: [
           { title: 'Game Jam: Build Tic‑Tac‑Toe', img: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop' },
@@ -102,10 +147,10 @@ export default function CurriculumAllYears() {
         details:
           'Web apps, services, REST APIs, auth, CI. Build an E‑commerce app, realtime chat, and payment integrations.',
         classroom: [
-          { title: 'Frontend Frameworks (React)', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Backend & REST APIs', img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Databases & Auth', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop' },
-          { title: 'CI/CD & Testing', img: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop' }
+          { title: 'Frontend Frameworks (React)', icon: Layout, desc: 'Component-driven development, state management, and routing to craft user-first web apps.' },
+          { title: 'Backend & REST APIs', icon: Server, desc: 'Design and build API endpoints, handle auth, and structure services for clarity and scale.' },
+          { title: 'Databases & Auth', icon: Database, desc: 'Model data, write efficient queries, and implement secure authentication and authorization.' },
+          { title: 'CI/CD & Testing', icon: Beaker, desc: 'Automate testing and deployments. Set up pipelines to ship reliably with confidence.' }
         ],
         beyond: [
           { title: 'Build an E‑commerce App', img: 'https://images.unsplash.com/photo-1516542076529-1ea3854896e1?q=80&w=800&auto=format&fit=crop' },
@@ -124,10 +169,10 @@ export default function CurriculumAllYears() {
         details:
           'Model training & deployment, data pipelines, systems design and performance.',
         classroom: [
-          { title: 'Machine Learning Foundations', img: 'https://images.unsplash.com/photo-1515879218367-7201f28bd5bf?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Data Pipelines & Analytics', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Systems Design Deep‑Dive', img: 'https://images.unsplash.com/photo-1537432376769-00a2d6f7e15c?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Performance Engineering', img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop' }
+          { title: 'Machine Learning Foundations', icon: Brain, desc: 'Core algorithms, model evaluation, and building intuition for bias, variance, and generalization.' },
+          { title: 'Data Pipelines & Analytics', icon: LineChart, desc: 'Clean, transform, and analyze data. Build reproducible pipelines and dashboards.' },
+          { title: 'Systems Design Deep‑Dive', icon: Settings, desc: 'Architecture patterns, trade‑offs, and designing scalable, resilient systems.' },
+          { title: 'Performance Engineering', icon: Gauge, desc: 'Profiling, caching, and optimization techniques to make systems fast and efficient.' }
         ],
         beyond: [
           { title: 'Train & Deploy an ML Model', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop' },
@@ -146,10 +191,10 @@ export default function CurriculumAllYears() {
         details:
           'Production codebases, OSS contributions, polished portfolio and capstone.',
         classroom: [
-          { title: 'Career Prep & Interview Labs', img: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Product & Team Practices', img: 'https://images.unsplash.com/photo-1518081461904-9ac3cb0b6d99?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Security & Reliability', img: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=800&auto=format&fit=crop' },
-          { title: 'Portfolio & Storytelling', img: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=800&auto=format&fit=crop' }
+          { title: 'Career Prep & Interview Labs', icon: ShieldCheck, desc: 'Mock interviews, feedback loops, and targeted drills to turn knowledge into offer‑ready skills.' },
+          { title: 'Product & Team Practices', icon: Settings, desc: 'Agile rituals, prioritization, and collaboration patterns that keep teams shipping.' },
+          { title: 'Security & Reliability', icon: ShieldCheck, desc: 'Threat modeling, secure coding, and incident response fundamentals.' },
+          { title: 'Portfolio & Storytelling', icon: Layout, desc: 'Craft a compelling narrative around your projects and impact with a polished portfolio.' }
         ],
         beyond: [
           { title: 'Company Capstone Delivery', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop' },
@@ -171,7 +216,6 @@ export default function CurriculumAllYears() {
     el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
   }
 
-  // Track active item while user scrolls (viewport-based)
   useEffect(() => {
     const entries = YEARS.map((y) => cardRefs.current[y.key]).filter(Boolean)
     if (!entries.length) return
