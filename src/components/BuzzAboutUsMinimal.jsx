@@ -1,38 +1,47 @@
 import { motion } from 'framer-motion'
 
-// Final minimal section per request: "Buzz about us" with left-to-right image scroller, sharp edges, no text.
+// "Buzz about us" — newspaper cutouts scroller
+// Sharp edges, no text overlays, readable image size, subtle edge gradients
 
-const logos = [
-  'https://assets-v2.scaler.com/assets/programs/undergrad/svg/google-logo-97e403d0b48d2da1c9d47dc98b6198171ff21048714ba6575c6cadb409053aee.svg.gz',
-  'https://assets-v2.scaler.com/assets/programs/undergrad/svg/microsoft-logo-e807dee90674e40eecefb333c9c5520fd1b6350061677237394015dd7e01f855.svg.gz',
-  'https://assets-v2.scaler.com/assets/programs/undergrad/svg/amazon-logo-a2568f4eba54775b04f3ff133b9208b24f88523a928b35ea6c937f336426f1aa.svg.gz',
-  'https://assets-v2.scaler.com/assets/programs/undergrad/svg/meta-logo-f70b8a81c2da4927bea050414bf0c252ec5f8f2ca865eb6a00bb8d5771bce59b.svg.gz',
-  'https://assets-v2.scaler.com/assets/programs/undergrad/svg/adobe-logo-8e264a414a3687d0fe237cb585973f1b1ac4c26c639684f1aaa7de0ca4301dd9.svg.gz',
-  'https://upload.wikimedia.org/wikipedia/commons/0/08/Accenture.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/5/51/Infosys_logo.svg',
+// Replace these URLs with real Algouniversity press cutouts when available
+const cutouts = [
+  'https://upload.wikimedia.org/wikipedia/commons/7/7e/The_New_York_Times_front_page.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/9/95/2019-02-16_Le_Monde.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/8/8f/The_Guardian_March_2012.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/3/3a/Times_of_India_Newspaper.JPG',
+  'https://upload.wikimedia.org/wikipedia/commons/8/88/The_Times_front_page.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/1/1f/La_Stampa_2015-11-14.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/b/b7/Corriere_della_Sera_front_page_2015-11-14.jpg',
 ]
 
 const stripVariants = {
   animate: {
     x: ['-50%', '0%'],
     transition: {
-      x: { repeat: Infinity, repeatType: 'loop', duration: 28, ease: 'linear' },
+      x: { repeat: Infinity, repeatType: 'loop', duration: 40, ease: 'linear' },
     },
   },
 }
 
 export default function BuzzAboutUsMinimal() {
-  const items = [...logos, ...logos]
+  const items = [...cutouts, ...cutouts]
   return (
-    <section aria-label="Buzz about us" className="py-4">
+    <section aria-label="Buzz about us" className="py-6">
       <div className="relative overflow-hidden border-y border-black/10 bg-white">
         <motion.div
-          className="flex items-center gap-12 py-5 will-change-transform"
+          className="flex items-center gap-10 py-6 will-change-transform"
           variants={stripVariants}
           animate="animate"
         >
           {items.map((src, i) => (
-            <img key={`${src}-${i}`} src={src} alt="" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain select-none pointer-events-none" draggable={false} />
+            <img
+              key={`${src}-${i}`}
+              src={src}
+              alt=""
+              className="h-32 sm:h-36 md:h-40 lg:h-48 w-auto object-contain select-none pointer-events-none shadow-sm ring-1 ring-black/10 bg-white"
+              draggable={false}
+              loading="lazy"
+            />
           ))}
         </motion.div>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
