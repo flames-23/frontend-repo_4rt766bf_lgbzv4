@@ -76,59 +76,59 @@ export default function Results() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Light background gradient to contrast dark sections */}
+      {/* Subtle background to keep it elegant */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-slate-50 to-slate-100" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-center"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-[#111827]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight tracking-tight text-[#0f172a]">
             Results That Speak for Themselves.
           </h2>
-          <p className="mt-4 text-[#4B5563] text-base sm:text-lg">
-            Hear from our students who turned their B.Tech into real-world success stories.
+          <p className="mt-2 text-[#475569] text-sm sm:text-base">
+            Real students. Real offers. Real momentum.
           </p>
         </motion.div>
 
-        {/* Carousel */}
-        <div className="relative mt-10 sm:mt-12">
+        {/* Compact carousel */}
+        <div className="relative mt-8 sm:mt-10">
           {/* Nav buttons */}
           <button
             onClick={prev}
             aria-label="Previous"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-lg backdrop-blur-md transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-sky-400"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-md backdrop-blur-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
           >
-            <ChevronLeft className="h-5 w-5 text-slate-700" />
+            <ChevronLeft className="h-4 w-4 text-slate-700" />
           </button>
           <button
             onClick={next}
             aria-label="Next"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-lg backdrop-blur-md transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-sky-400"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-md backdrop-blur-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
           >
-            <ChevronRight className="h-5 w-5 text-slate-700" />
+            <ChevronRight className="h-4 w-4 text-slate-700" />
           </button>
 
           <div
             ref={containerRef}
-            className="scrollbar-hide relative mx-[-1rem] flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 sm:px-6 lg:px-8 py-2"
+            className="scrollbar-hide relative mx-[-1rem] flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 sm:px-6 lg:px-8 py-1"
           >
             {items.map((t, idx) => (
               <motion.div
                 key={t.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.05 * idx }}
-                className="group relative w-[85%] sm:w-[360px] lg:w-[400px] shrink-0 snap-center"
+                transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 * idx }}
+                className="group relative w-[82%] sm:w-[320px] lg:w-[360px] shrink-0 snap-center"
               >
-                {/* Panel card */}
-                <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-                  {/* Thumbnail */}
+                {/* Compact, classy card */}
+                <div className="rounded-xl border border-slate-200/70 bg-white/70 backdrop-blur-md shadow-sm overflow-hidden">
+                  {/* Thumb */}
                   <button
                     onClick={() => setOpenVideo(t.videoId)}
                     className="relative block w-full"
@@ -136,40 +136,39 @@ export default function Results() {
                     <img
                       src={`https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg`}
                       alt={`${t.name} testimonial thumbnail`}
-                      className="h-56 w-full object-cover"
+                      className="h-44 w-full object-cover"
                       loading="lazy"
                     />
                     {/* Play overlay */}
                     <span className="absolute inset-0 grid place-items-center">
-                      <span className="relative grid place-items-center h-16 w-16 rounded-full bg-white/90 text-slate-800 shadow-xl ring-1 ring-slate-200 transition group-hover:scale-105">
-                        <Play className="h-6 w-6" fill="currentColor" />
+                      <span className="relative grid place-items-center h-12 w-12 rounded-full bg-white/90 text-slate-800 shadow-xl ring-1 ring-slate-200 transition group-hover:scale-105">
+                        <Play className="h-5 w-5" fill="currentColor" />
                       </span>
                     </span>
-                    {/* subtle top highlight */}
-                    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/60 to-transparent" />
+                    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/50 to-transparent" />
                   </button>
 
                   {/* Meta */}
-                  <div className="p-5">
-                    {/* Student name as heading */}
-                    <h3 className="text-lg font-semibold text-slate-900">{t.name}</h3>
-                    {/* Subheading for stipend/full-time salary */}
-                    <div className="mt-0.5 text-sm text-slate-700">{t.roleType}: <span className="font-medium">{t.compensation}</span></div>
+                  <div className="p-4">
+                    {/* Name heading */}
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-900">{t.name}</h3>
+                    {/* Role + comp */}
+                    <div className="mt-0.5 text-[13px] sm:text-sm text-slate-700">
+                      {t.roleType}: <span className="font-medium">{t.compensation}</span>
+                    </div>
 
-                    {/* Company logo (no text names) */}
-                    <div className="mt-3 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <img
-                          src={t.companyLogo}
-                          alt={`${t.company} logo`}
-                          className="h-6 w-auto object-contain"
-                          loading="lazy"
-                        />
-                      </div>
+                    {/* Company logo */}
+                    <div className="mt-2 flex items-center justify-between">
+                      <img
+                        src={t.companyLogo}
+                        alt={`${t.company} logo`}
+                        className="h-5 sm:h-6 w-auto object-contain filter grayscale transition duration-300 group-hover:grayscale-0"
+                        loading="lazy"
+                      />
                     </div>
 
                     {/* Quote */}
-                    <p className="mt-3 text-slate-600 text-sm">“{t.quote}”</p>
+                    <p className="mt-2 text-slate-600 text-[13px] sm:text-sm">“{t.quote}”</p>
                   </div>
                 </div>
               </motion.div>
@@ -178,7 +177,7 @@ export default function Results() {
         </div>
       </div>
 
-      {/* Lightbox / Modal */}
+      {/* Lightbox */}
       <AnimatePresence>
         {openVideo && (
           <motion.div
@@ -190,9 +189,9 @@ export default function Results() {
           >
             <div className="absolute inset-0 p-4 sm:p-8 grid place-items-center" onClick={(e) => e.stopPropagation()}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.98, y: 10 }}
+                initial={{ opacity: 0, scale: 0.98, y: 8 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98, y: 10 }}
+                exit={{ opacity: 0, scale: 0.98, y: 8 }}
                 transition={{ duration: 0.2 }}
                 className="w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl"
               >
