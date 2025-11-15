@@ -1,18 +1,18 @@
 import React from 'react'
 import SectionHeading from './SectionHeading'
 
-const mediaClasses = 'w-full h-56 sm:h-64 md:h-72 lg:h-80 rounded-xl object-cover ring-1 ring-black/5'
+const mediaClasses = 'w-full h-44 sm:h-52 md:h-56 lg:h-64 rounded-xl object-cover ring-1 ring-black/5'
 
 function USPCard({ reverse = false, media, title, desc, extra }) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg shadow-black/5 ring-1 ring-black/5 overflow-hidden">
+    <div className="rounded-2xl border border-slate-200/70 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
       <div className={`grid grid-cols-1 md:grid-cols-2 ${reverse ? 'md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1' : ''}`}>
-        <div className="p-4 sm:p-6 md:p-8 flex items-center justify-center bg-gradient-to-b from-white to-slate-50">
+        <div className="p-3 sm:p-4 md:p-5 flex items-center justify-center bg-gradient-to-b from-white to-slate-50">
           {media}
         </div>
-        <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-center">
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-black">{title}</h3>
-          {desc ? <p className="mt-3 text-slate-600 text-base sm:text-lg">{desc}</p> : null}
+        <div className="p-5 sm:p-6 md:p-7 flex flex-col justify-center">
+          <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-black">{title}</h3>
+          {desc ? <p className="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p> : null}
           {extra}
         </div>
       </div>
@@ -22,17 +22,17 @@ function USPCard({ reverse = false, media, title, desc, extra }) {
 
 export default function USPs() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-[#F5F7FA]">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#F5F7FA]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="This is built different"
           align="left"
           theme="light"
-          size="lg"
-          className="mb-8 sm:mb-10 lg:mb-12"
+          size="md"
+          className="mb-6 sm:mb-8 lg:mb-10"
         />
 
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
           {/* 1. Travel Abroad in Year 1 */}
           <USPCard
             reverse={false}
@@ -51,20 +51,20 @@ export default function USPs() {
               </video>
             }
             extra={
-              <div className="mt-5 flex items-center gap-3">
+              <div className="mt-4 flex items-center gap-2.5">
                 <div className="flex -space-x-2">
                   <img
                     src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop"
                     alt="Student"
-                    className="h-10 w-10 rounded-full object-cover ring-2 ring-white"
+                    className="h-8 w-8 rounded-full object-cover ring-2 ring-white"
                   />
                   <img
                     src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop"
                     alt="Mentor"
-                    className="h-10 w-10 rounded-full object-cover ring-2 ring-white"
+                    className="h-8 w-8 rounded-full object-cover ring-2 ring-white"
                   />
                 </div>
-                <span className="text-sm text-slate-600">Student + Mentor guidance abroad</span>
+                <span className="text-xs sm:text-sm text-slate-600">Student + Mentor guidance abroad</span>
               </div>
             }
           />
