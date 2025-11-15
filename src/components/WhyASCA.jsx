@@ -1,26 +1,29 @@
-import { Briefcase, LineChart, Users, ShieldCheck } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 
 const points = [
   {
-    icon: Users,
-    title: '1:1 Industry Mentorship',
-    desc: 'Work with senior engineers and researchers from FAANG and fast-growing startups every semester.'
+    value: '1:1',
+    label: 'Industry Mentorship',
+    desc: 'Work with senior engineers and researchers from FAANG and fast-growing startups every semester.',
+    gradient: 'from-fuchsia-500 via-pink-500 to-amber-400'
   },
   {
-    icon: Briefcase,
-    title: 'Paid Internships',
-    desc: 'Intern from year two via our industry co-op. Real responsibility, real products, real pay.'
+    value: 'Paid',
+    label: 'Internships from Year 2',
+    desc: 'Co-op model ensures real product work, ownership and compensation while you study.',
+    gradient: 'from-emerald-400 via-teal-400 to-cyan-400'
   },
   {
-    icon: LineChart,
-    title: '25 LPA Avg. Placements',
-    desc: 'Outcome-focused career prep with rigorous fundamentals and project-heavy portfolio building.'
+    value: '25 LPA',
+    label: 'Avg. Placements',
+    desc: 'Outcome-focused career prep with rigorous fundamentals and a project-heavy portfolio.',
+    gradient: 'from-sky-500 via-indigo-500 to-violet-500'
   },
   {
-    icon: ShieldCheck,
-    title: '1,300+ Hiring Partners',
-    desc: 'Expansive network of product companies, research labs, and high-frequency trading firms.'
+    value: '1,300+',
+    label: 'Hiring Partners',
+    desc: 'Expansive network of product companies, research labs, and high-frequency trading firms.',
+    gradient: 'from-rose-500 via-orange-500 to-yellow-400'
   }
 ]
 
@@ -37,17 +40,29 @@ export default function WhyASCA() {
           className="mb-8"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {points.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group rounded-2xl border border-slate-200/70 bg-white/60 backdrop-blur-sm p-4 shadow-sm transition-all duration-300 hover:bg-white/80 hover:shadow-md hover:-translate-y-0.5"
-            >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl accent-gradient text-white shadow-sm ring-1 ring-white/20">
-                <Icon className="h-4 w-4" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {points.map(({ value, label, desc, gradient }) => (
+            <div key={label} className="relative group">
+              {/* Gradient border frame */}
+              <div className={`relative rounded-3xl p-[1.5px] bg-gradient-to-br ${gradient} shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]`}> 
+                {/* Glass card */}
+                <div className="rounded-3xl bg-white/30 backdrop-blur-xl border border-white/30 shadow-sm overflow-hidden">
+                  {/* Subtle gloss */}
+                  <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute -top-16 -left-8 h-40 w-40 rounded-full bg-white/30 blur-2xl" />
+                  </div>
+
+                  <div className="relative p-5 sm:p-6">
+                    {/* Value as big gradient text */}
+                    <div className={`bg-gradient-to-br ${gradient} bg-clip-text text-transparent font-extrabold tracking-tight text-3xl sm:text-4xl leading-none`}>{value}</div>
+                    <h3 className="mt-2 text-slate-900 font-semibold text-sm sm:text-base tracking-tight">{label}</h3>
+                    <p className="mt-2 text-[13px] leading-5 text-slate-600">{desc}</p>
+                  </div>
+
+                  {/* Hover aura */}
+                  <div className={`absolute inset-px rounded-[22px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br ${gradient} mix-blend-overlay`} />
+                </div>
               </div>
-              <h3 className="mt-3 text-sm font-semibold text-slate-900 tracking-tight">{title}</h3>
-              <p className="mt-1.5 text-[13px] leading-5 text-slate-600">{desc}</p>
             </div>
           ))}
         </div>
