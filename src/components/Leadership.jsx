@@ -23,53 +23,51 @@ const leaders = [
 
 export default function Leadership() {
   return (
-    <section className="section-light py-16">
+    <section className="section-light py-12 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
+        {/* Heading - compact + centered */}
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             A futuristic program, guided by experienced leaders.
           </h2>
-          <p className="mt-3 text-base text-slate-700">
+          <p className="mt-2 text-sm text-slate-600">
             Our curriculum and academic decisions are reviewed by leaders who have built and led at the highest levels of industry.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Cards - compact/classy */}
+        <div className="mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {leaders.map((p) => (
             <div
               key={p.name}
-              className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_10px_30px_-15px_rgba(15,23,42,0.18)]"
+              className="rounded-xl border border-slate-200/70 bg-white/80 backdrop-blur-sm p-3.5 shadow-[0_8px_26px_-16px_rgba(15,23,42,0.18)] transition hover:border-slate-300"
             >
               {/* Image placeholder */}
-              <div className="relative w-full overflow-hidden rounded-xl bg-slate-100" style={{ aspectRatio: '4 / 3' }}>
-                {/* Empty by design; user will replace */}
+              <div className="relative w-full overflow-hidden rounded-lg bg-slate-100" style={{ aspectRatio: '3 / 2' }}>
                 {p.img ? (
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover" />
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover grayscale hover:grayscale-0 transition" />
                 ) : (
-                  <div className="absolute inset-0 grid place-items-center text-slate-400 text-sm">Image Placeholder</div>
+                  <div className="absolute inset-0 grid place-items-center text-slate-400 text-xs">Image Placeholder</div>
                 )}
               </div>
 
               {/* Badge */}
-              <div className="mt-4 inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium
-                              border-green-200 bg-green-50 text-green-700">
+              <div className="mt-3 inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-medium border-green-200 bg-green-100/60 text-green-700">
                 Advisor & Oversight
               </div>
 
               {/* Text */}
-              <div className="mt-3">
-                <h3 className="text-base font-semibold text-slate-900 tracking-tight">{p.name}</h3>
-                <p className="mt-1 text-sm text-slate-600">{p.title}</p>
+              <div className="mt-2.5">
+                <h3 className="text-sm font-semibold text-slate-900 tracking-tight">{p.name}</h3>
+                <p className="mt-1 text-xs text-slate-600 leading-normal">{p.title}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Quote */}
-        <div className="mt-10 max-w-3xl mx-auto text-center">
-          <p className="text-sm text-slate-600 italic">
+        {/* Quote - compact */}
+        <div className="mt-8 max-w-3xl mx-auto text-center">
+          <p className="text-xs text-slate-600 italic">
             “Their oversight ensures academic rigor, real-world relevance, and a future-ready curriculum for every student.”
           </p>
         </div>
