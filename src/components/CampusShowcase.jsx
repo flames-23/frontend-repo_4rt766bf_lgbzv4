@@ -45,7 +45,6 @@ export default function CampusShowcase() {
               transition={{ duration: 0.45, delay: idx * 0.05 }}
               className={cardBase}
             >
-              {/* Media */}
               <div className="relative">
                 <img
                   src={card.img}
@@ -53,15 +52,12 @@ export default function CampusShowcase() {
                   className="h-36 w-full object-cover"
                   loading="lazy"
                 />
-                {/* Subtle overlay on hover for polish */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/0 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-5" />
               </div>
 
-              {/* Body */}
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="text-base font-semibold text-slate-900">{card.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{card.copy}</p>
-                {/* Compact footer spacing to keep cards tight */}
                 <div className="mt-4" />
               </div>
             </motion.article>
