@@ -34,9 +34,9 @@ function App() {
         {/* Hero remains as-is */}
         <Hero />
 
-        {/* Immediately follow with Founder video, then Why ASCA as the second section */}
-        <JobGuarantee />
+        {/* Place Why ASCA as the second section, then the Founder video */}
         <WhyASCA />
+        <JobGuarantee />
 
         {/* Continue with the rest of the flow */}
         <Placements />
