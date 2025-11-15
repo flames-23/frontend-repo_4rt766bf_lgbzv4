@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
 
 export default function CurriculumAllYears() {
@@ -69,11 +69,48 @@ export default function CurriculumAllYears() {
   )
 
   const railRef = useRef(null)
+  const cardRefs = useRef({})
+  const [activeKey, setActiveKey] = useState(YEARS[0].key)
+
   const scrollBy = (delta) => {
     const el = railRef.current
     if (!el) return
     el.scrollBy({ left: delta, behavior: 'smooth' })
   }
+
+  const scrollToYear = (key) => {
+    const el = cardRefs.current[key]
+    if (!el) return
+    el.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })
+  }
+
+  // Track active item while user scrolls
+  useEffect(() => {
+    const rail = railRef.current
+    if (!rail) return
+
+    const handler = () => {
+      const children = YEARS.map((y) => cardRefs.current[y.key]).filter(Boolean)
+      if (!children.length) return
+      const railRect = rail.getBoundingClientRect()
+      // Pick the child whose left edge is closest to the rail's left edge
+      let bestKey = activeKey
+      let bestDist = Infinity
+      for (const child of children) {
+        const rect = child.getBoundingClientRect()
+        const dist = Math.abs(rect.left - railRect.left)
+        if (dist < bestDist) {
+          bestDist = dist
+          bestKey = child.dataset.key
+        }
+      }
+      setActiveKey(bestKey)
+    }
+
+    handler()
+    rail.addEventListener('scroll', handler, { passive: true })
+    return () => rail.removeEventListener('scroll', handler)
+  }, [YEARS, activeKey])
 
   return (
     <section className="section-light relative isolate overflow-hidden py-16 sm:py-20">
@@ -83,8 +120,30 @@ export default function CurriculumAllYears() {
             4‑Year Curriculum at a Glance
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-slate-600">
-            Explore every year without switching tabs. Scroll horizontally to see what you build each year, inspired by Newton School of Technology.
+            Explore every year without switching tabs. Scroll horizontally or use the quick nav to jump to any year.
           </p>
+        </div>
+
+        {/* Year Nav that controls the scroller */}
+        <div className="mt-6 flex justify-center">
+          <div className="inline-flex overflow-hidden rounded-full bg-white/80 p-1 shadow ring-1 ring-slate-200 backdrop-blur">
+            {YEARS.map((y) => (
+              <button
+                key={y.key}
+                type="button"
+                onClick={() => scrollToYear(y.key)}
+                aria-label={`Go to ${y.label}`}
+                aria-current={activeKey === y.key ? 'page' : undefined}
+                className={`relative rounded-full px-4 py-2 text-sm font-semibold transition ${
+                  activeKey === y.key
+                    ? 'bg-[color:var(--ds-blue)] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                {y.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="relative mt-8 sm:mt-10">
@@ -116,7 +175,12 @@ export default function CurriculumAllYears() {
               return (
                 <article
                   key={y.key}
-                  className="snap-start w-[88%] min-w-[280px] max-w-[360px] rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
+                  ref={(el) => {
+                    if (el) cardRefs.current[y.key] = el
+                  }}
+                  data-key={y.key}
+                  id={y.key}
+                  className="snap-start w-[88%] min-w-[280px] max-w-[360px] scroll-ml-4 rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
                 >
                   <header className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
