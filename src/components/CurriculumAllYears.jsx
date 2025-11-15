@@ -3,7 +3,7 @@ import { GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
 
 function LearningStrip({ title, items }) {
   return (
-    <div className="mt-5 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm">
+    <div className="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
         <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-700">{title}</h4>
       </div>
@@ -189,7 +189,7 @@ export default function CurriculumAllYears() {
           </div>
         </div>
 
-        {/* Vertical stack of full‑width horizontal cards (one per row) */}
+        {/* Vertical stack of full‑width sections per year */}
         <div className="mt-8 space-y-6 sm:space-y-8">
           {YEARS.map((y) => {
             const Icon = y.icon
@@ -203,27 +203,29 @@ export default function CurriculumAllYears() {
                 id={y.key}
                 className="w-full rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_6px_30px_rgba(2,6,23,0.06)] backdrop-blur-xl"
               >
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-5">
-                  {/* Left rail: title + blurb */}
-                  <header className="md:col-span-2">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-slate-700">{y.label}</div>
-                        <h3 className="text-xl font-bold text-slate-900">{y.title}</h3>
-                      </div>
+                {/* Header: icon + year + title */}
+                <header>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[color:var(--ds-blue)] ring-1 ring-slate-200">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <p className="mt-3 text-sm text-slate-700">{y.blurb}</p>
-                    <p className="mt-1 text-xs text-slate-600">{y.details}</p>
-                  </header>
-
-                  {/* Right content: two horizontal cards each holding 4 items */}
-                  <div className="md:col-span-3">
-                    <LearningStrip title="Classroom Learning" items={y.classroom} />
-                    <LearningStrip title="Beyond Classroom Learning" items={y.beyond} />
+                    <div>
+                      <div className="text-xs font-semibold text-slate-700">{y.label}</div>
+                      <h3 className="text-xl font-bold text-slate-900">{y.title}</h3>
+                    </div>
                   </div>
+                </header>
+
+                {/* Blurbs outside the strips (full width) */}
+                <div className="mt-3">
+                  <p className="text-sm text-slate-700">{y.blurb}</p>
+                  <p className="mt-1 text-xs text-slate-600">{y.details}</p>
+                </div>
+
+                {/* Full-width learning strips */}
+                <div className="mt-2">
+                  <LearningStrip title="Classroom Learning" items={y.classroom} />
+                  <LearningStrip title="Beyond Classroom Learning" items={y.beyond} />
                 </div>
               </article>
             )
