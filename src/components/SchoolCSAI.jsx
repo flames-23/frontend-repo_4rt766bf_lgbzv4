@@ -7,7 +7,8 @@ export default function SchoolCSAI() {
         {/* Compact global heading */}
         <SectionHeading
           title="School of Computer Science & Artificial Intelligence"
-          align="left"
+          subtitle="Modern CS foundations with real‑world AI engineering."
+          align="center"
           theme="light"
           size="md"
           className="mb-6 sm:mb-8"
