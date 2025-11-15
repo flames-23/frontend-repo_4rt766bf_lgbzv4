@@ -8,6 +8,9 @@ const testimonials = [
     videoId: 'dQw4w9WgXcQ',
     name: 'Aarav Mehta',
     company: 'Amazon',
+    companyLogo: 'https://logo.clearbit.com/amazon.com',
+    roleType: 'Full-time',
+    compensation: '₹32 LPA',
     quote: 'From campus to my dream job at Amazon.'
   },
   {
@@ -15,6 +18,9 @@ const testimonials = [
     videoId: 'ysz5S6PUM-U',
     name: 'Ishika Rao',
     company: 'Google',
+    companyLogo: 'https://logo.clearbit.com/google.com',
+    roleType: 'Internship Stipend',
+    compensation: '₹80,000 / month',
     quote: 'The projects and mentorship changed everything.'
   },
   {
@@ -22,6 +28,9 @@ const testimonials = [
     videoId: 'ScMzIvxBSi4',
     name: 'Ritvik Sharma',
     company: 'Microsoft',
+    companyLogo: 'https://logo.clearbit.com/microsoft.com',
+    roleType: 'Full-time',
+    compensation: '₹28 LPA',
     quote: 'Clear roadmap + relentless support = offers.'
   },
   {
@@ -29,6 +38,9 @@ const testimonials = [
     videoId: '9bZkp7q19f0',
     name: 'Neha Kulkarni',
     company: 'Uber',
+    companyLogo: 'https://logo.clearbit.com/uber.com',
+    roleType: 'Internship Stipend',
+    compensation: '₹1,00,000 / month',
     quote: 'I learned to ship, not just study.'
   }
 ]
@@ -37,7 +49,6 @@ export default function Results() {
   const [current, setCurrent] = useState(0)
   const [openVideo, setOpenVideo] = useState(null)
   const containerRef = useRef(null)
-  const itemWidth = 320 // px approximated; we will compute via clientWidth if possible
 
   const items = useMemo(() => testimonials, [])
 
@@ -140,8 +151,25 @@ export default function Results() {
 
                   {/* Meta */}
                   <div className="p-5">
-                    <div className="text-sm font-medium text-slate-700">{t.name} • {t.company}</div>
-                    <p className="mt-1 text-slate-600 text-sm">“{t.quote}”</p>
+                    {/* Student name as heading */}
+                    <h3 className="text-lg font-semibold text-slate-900">{t.name}</h3>
+                    {/* Subheading for stipend/full-time salary */}
+                    <div className="mt-0.5 text-sm text-slate-700">{t.roleType}: <span className="font-medium">{t.compensation}</span></div>
+
+                    {/* Company logo (no text names) */}
+                    <div className="mt-3 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={t.companyLogo}
+                          alt={`${t.company} logo`}
+                          className="h-6 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Quote */}
+                    <p className="mt-3 text-slate-600 text-sm">“{t.quote}”</p>
                   </div>
                 </div>
               </motion.div>
