@@ -29,13 +29,7 @@ export default function JobGuarantee() {
 
   return (
     <section className="relative overflow-hidden py-12 sm:py-14">
-      {/* Subtle ambient background (kept ultra-soft, no colored frame around video) */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div aria-hidden className="absolute -top-24 left-1/2 h-56 w-[130%] -translate-x-1/2 rotate-2 rounded-full bg-gradient-to-r from-slate-300/10 via-slate-200/10 to-slate-300/10" />
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <SectionHeading
           title="Hear From Our Founder"
           align="center"
@@ -44,35 +38,22 @@ export default function JobGuarantee() {
           className="mb-5 sm:mb-6"
         />
 
-        {/* Clean, frameless glass block with "peeking" video */}
+        {/* Bezel-less, clean video (no peek, no glass, no vignettes) */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.2 }}
-          className="relative rounded-3xl bg-white/40 backdrop-blur-xl ring-1 ring-slate-200/60 shadow-[0_20px_60px_-28px_rgba(2,6,23,0.20)] p-0"
+          className="relative aspect-video w-full overflow-hidden rounded-xl bg-black"
         >
-          {/* Viewport that gently crops the video so it feels like it's peeping out */}
-          <div className="relative overflow-hidden rounded-2xl m-2 sm:m-3 lg:m-4 aspect-video">
-            {/* The iframe is slightly oversized and offset to create the peek illusion without any colored frame */}
-            <div className="absolute -inset-4 sm:-inset-5 lg:-inset-6">
-              <iframe
-                ref={iframeRef}
-                className="h-full w-full"
-                src={embedUrl}
-                title="Hear from our founder"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share"
-              />
-            </div>
-
-            {/* Subtle edge vignettes/reflections for classy glassy feel (neutral, no blue/purple) */}
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/60 via-white/20 to-transparent" />
-            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/5 via-transparent to-transparent" />
-          </div>
-
-          {/* Tiny frost ring to enhance glass without becoming a frame */}
-          <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/30 mix-blend-normal" />
+          <iframe
+            ref={iframeRef}
+            className="absolute inset-0 h-full w-full"
+            src={embedUrl}
+            title="Hear from our founder"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share"
+          />
 
           {muted && (
             <button
