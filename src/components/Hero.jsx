@@ -32,7 +32,7 @@ export default function Hero() {
     {
       value: '1:1',
       label: 'Industry Mentorship',
-      desc: 'Work with senior engineers and researchers from FAANG and fast-growing startups every semester.'
+      desc: '18 months of paid internships & real engineering work so you graduate with experience, not as a fresher.'
     },
     {
       value: 'Paid',
