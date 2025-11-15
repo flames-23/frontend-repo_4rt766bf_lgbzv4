@@ -25,7 +25,7 @@ export default function Placements() {
   ]
 
   return (
-    <section id="placements" className="py-16 bg-[#F5F7FA]">
+    <section id="placements" className="py-12 sm:py-14 bg-[#F7F8FB]">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -33,39 +33,46 @@ export default function Placements() {
         }
       `}</style>
 
-      {/* Heading */}
+      {/* Header */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 sm:mb-10">
+        <div className="mb-6 sm:mb-8">
           <SectionHeading
             title="Placements & Outcomes"
-            subtitle="Ship real products, publish research, and join high-growth teams. Our network opens doors across product, research, and quant."
+            subtitle="Real offers. Real outcomes. A network that opens doors."
             align="center"
             theme="light"
-            size="lg"
+            size="md"
           />
         </div>
 
-        {/* 4 stat cards - equal width and spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {stats.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm">
-              <div className="text-2xl font-extrabold text-[#111827]">{s.value}</div>
-              <div className="mt-1 text-sm text-[#4B5563]">{s.label}</div>
-            </div>
-          ))}
+        {/* Compact stats row */}
+        <div className="rounded-2xl border border-slate-200 bg-white/70 backdrop-blur p-3 sm:p-4 shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200">
+            {stats.map((s, i) => (
+              <div key={s.label} className={`px-3 py-3 sm:px-4 sm:py-4 ${i % 2 === 0 ? '' : ''}`}>
+                <div className="text-lg sm:text-xl font-semibold text-slate-900 tracking-tight">{s.value}</div>
+                <div className="mt-0.5 text-xs sm:text-sm text-slate-600">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Full-width logo carousel strip (edge to edge, no container card) */}
-      <div className="mt-12 overflow-hidden">
+      {/* Slim logo marquee */}
+      <div className="mt-8 overflow-hidden">
         <div className="relative">
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#F5F7FA] to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#F7F8FB] to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#F7F8FB] to-transparent" />
 
-          <div className="flex gap-10 sm:gap-12 min-w-max" style={{ animation: 'marquee 40s linear infinite' }}>
+          <div className="flex min-w-max gap-8 sm:gap-10" style={{ animation: 'marquee 55s linear infinite' }}>
             {[...carouselLogos, ...carouselLogos].map((src, i) => (
-              <div key={i} className="shrink-0 flex items-center justify-center px-8 py-5">
-                <img src={src} alt="Partner logo" className="h-7 sm:h-8 object-contain opacity-80" />
+              <div key={i} className="shrink-0 flex items-center justify-center px-6 py-4">
+                <img
+                  src={src}
+                  alt="Partner logo"
+                  className="h-6 sm:h-7 object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition duration-300"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
