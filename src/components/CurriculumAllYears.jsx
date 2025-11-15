@@ -1,27 +1,61 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
+import { GraduationCap, Wrench, Brain, Briefcase, BookOpen, Sparkles } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 
-function LearningStrip({ title, items }) {
+function LearningStrip({ title, items, variant = 'classroom' }) {
+  const isClassroom = variant === 'classroom'
+  const theme = isClassroom
+    ? {
+        wrapper: 'bg-white/70 ring-1 ring-sky-300/50 border border-sky-200/70',
+        headText: 'text-sky-800',
+        headBar: 'bg-sky-200/80',
+        chipBg: 'bg-sky-50',
+        chipRing: 'ring-sky-300/60',
+        chipText: 'text-sky-700',
+        itemBorder: 'border-sky-100',
+        overlay: 'from-sky-200/0 to-sky-200/0',
+      }
+    : {
+        wrapper: 'bg-gradient-to-br from-amber-50/70 to-rose-50/60 ring-1 ring-amber-300/40 border border-dashed border-amber-300/70',
+        headText: 'text-amber-800',
+        headBar: 'bg-amber-200/80',
+        chipBg: 'bg-amber-50',
+        chipRing: 'ring-amber-300/60',
+        chipText: 'text-amber-700',
+        itemBorder: 'border-amber-100',
+        overlay: 'from-amber-200/20 to-rose-200/10',
+      }
+
   return (
-    <div className="mt-5 rounded-2xl border border-slate-200 bg-white/60 backdrop-blur-sm p-4 shadow-sm">
+    <div className={`mt-5 rounded-2xl backdrop-blur-sm p-4 shadow-sm ${theme.wrapper}`}>
       <div className="mb-3 flex items-center justify-between">
-        <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-700">{title}</h4>
-        <div className="h-px w-24 bg-slate-200/80" />
+        <div className="flex items-center gap-2">
+          <span className={`inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/70 ring-1 ${theme.chipRing}`}>
+            {isClassroom ? (
+              <BookOpen className="h-4.5 w-4.5 text-sky-600" />
+            ) : (
+              <Sparkles className="h-4.5 w-4.5 text-amber-600" />
+            )}
+          </span>
+          <h4 className={`text-xs font-semibold uppercase tracking-wide ${theme.headText}`}>{title}</h4>
+        </div>
+        <div className={`h-px w-24 ${theme.headBar}`} />
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {items.map((it) => (
           <div
             key={it.title}
-            className="group overflow-hidden rounded-xl border border-slate-200 bg-white/70 shadow-sm transition hover:shadow-md"
+            className={`group overflow-hidden rounded-xl border ${theme.itemBorder} bg-white/80 shadow-sm transition hover:shadow-md`}
           >
-            <div className="aspect-[16/10] w-full overflow-hidden">
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
               <img
                 src={it.img}
                 alt={it.title}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
                 loading="lazy"
               />
+              {/* Subtle tint for differentiation */}
+              <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${theme.overlay}`} />
             </div>
             <div className="p-2.5">
               <div className="line-clamp-2 text-[13px] font-semibold text-slate-900">{it.title}</div>
@@ -235,10 +269,10 @@ export default function CurriculumAllYears() {
                   </div>
                 </div>
 
-                {/* Learning strips */}
+                {/* Learning strips with distinct visual treatment */}
                 <div className="mt-3">
-                  <LearningStrip title="Classroom Learning" items={y.classroom} />
-                  <LearningStrip title="Beyond Classroom Learning" items={y.beyond} />
+                  <LearningStrip title="Classroom Learning" items={y.classroom} variant="classroom" />
+                  <LearningStrip title="Beyond Classroom Learning" items={y.beyond} variant="beyond" />
                 </div>
               </article>
             )
