@@ -176,21 +176,21 @@ export default function Hero() {
             {points.map(({ value, label, desc }) => (
               <div key={label} className="relative group">
                 {/* Transparent + blur card using background, with silver border */}
-                <div className="relative rounded-2xl bg-transparent backdrop-blur-lg border border-[rgba(192,192,192,0.28)] shadow-[0_8px_22px_-14px_rgba(0,0,0,0.45)] overflow-hidden">
-                  {/* Subtle silver sheen */}
+                <div className="relative rounded-2xl bg-white/2 backdrop-blur-sm border border-white/10 shadow-none overflow-hidden">
+                  {/* Subtle silver sheen (further reduced) */}
                   <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute -top-14 -left-8 h-32 w-32 rounded-full bg-[rgba(192,192,192,0.10)] blur-2xl" />
-                    <div className="absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-[rgba(255,255,255,0.05)] blur-2xl" />
+                    <div className="absolute -top-14 -left-8 h-32 w-32 rounded-full bg-[rgba(192,192,192,0.06)] blur-3xl" />
+                    <div className="absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-[rgba(255,255,255,0.03)] blur-3xl" />
                   </div>
 
-                  <div className="relative p-4 sm:p-5">
-                    <div className="text-white font-extrabold tracking-tight text-2xl sm:text-3xl leading-tight [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]">{value}</div>
-                    <h3 className="mt-1.5 text-white font-semibold text-sm sm:text-[15px] tracking-tight [text-shadow:0_1px_6px_rgba(0,0,0,0.25)]">{label}</h3>
-                    <p className="mt-1.5 text-white/85 text-xs sm:text-[13px] leading-5">{desc}</p>
+                  <div className="relative p-3.5 sm:p-4">
+                    <div className="text-white/90 font-bold tracking-tight text-xl sm:text-2xl leading-tight">{value}</div>
+                    <h3 className="mt-1 text-white/80 font-medium text-[13px] sm:text-sm tracking-tight">{label}</h3>
+                    <p className="mt-1 text-white/70 text-[11px] sm:text-[12px] leading-5">{desc}</p>
                   </div>
 
-                  {/* Hover: subtle brighten + slight lift */}
-                  <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-[rgba(192,192,192,0.5)] transition-all duration-300" />
+                  {/* Hover: very subtle */}
+                  <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-white/10 transition-all duration-300" />
                 </div>
               </div>
             ))}
