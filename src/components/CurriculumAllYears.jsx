@@ -1,6 +1,33 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { GraduationCap, Wrench, Brain, Briefcase } from 'lucide-react'
 
+function LearningStrip({ title, items }) {
+  return (
+    <div className="mt-5 rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm">
+      <div className="mb-3 flex items-center justify-between">
+        <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-700">{title}</h4>
+      </div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {items.map((it) => (
+          <div key={it.title} className="group overflow-hidden rounded-xl border border-slate-200 bg-slate-50/70 shadow-sm">
+            <div className="aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={it.img}
+                alt={it.title}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-3">
+              <div className="line-clamp-2 text-[13px] font-semibold text-slate-900">{it.title}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function CurriculumAllYears() {
   const YEARS = useMemo(
     () => [
@@ -13,10 +40,17 @@ export default function CurriculumAllYears() {
           'Master the fundamentals: DSA, Python, problem-solving, and core CS concepts. Build small but complete apps to cement concepts.',
         details:
           'Focus areas include DSA, Python, version control, and essential CS foundations. Projects like Tic‑Tac‑Toe, image editor, and mini dashboards bring learning to life.',
-        projects: [
-          { title: 'Interactive Game', note: 'Tic‑Tac‑Toe, Snake, Memory Match' },
-          { title: 'Image Editor', note: 'Filters, crop, draw — mini‑Canva' },
-          { title: 'Algo Visualizer', note: 'Sorting/search in browser' }
+        classroom: [
+          { title: 'Python Basics & Problem Solving', img: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Data Structures Visual Labs', img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Git & Collaboration Workshops', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Web Fundamentals (HTML/CSS/JS)', img: 'https://images.unsplash.com/photo-1518933165971-611dbc9c412d?q=80&w=800&auto=format&fit=crop' }
+        ],
+        beyond: [
+          { title: 'Game Jam: Build Tic‑Tac‑Toe', img: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Mini‑Canva Image Editor', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Algo Visualizer Hackday', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Showcase & Peer Reviews', img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop' }
         ]
       },
       {
@@ -28,10 +62,17 @@ export default function CurriculumAllYears() {
           'Ship full‑stack apps: frontend, backend, APIs, deployments and quality engineering practices.',
         details:
           'Web apps, services, REST APIs, auth, CI. Build an E‑commerce app, realtime chat, and payment integrations.',
-        projects: [
-          { title: 'E‑commerce App', note: 'Catalog, cart, checkout, admin' },
-          { title: 'Chat + Realtime', note: 'Sockets, bot replies' },
-          { title: 'API Platform', note: 'Design, test, publish' }
+        classroom: [
+          { title: 'Frontend Frameworks (React)', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Backend & REST APIs', img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Databases & Auth', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop' },
+          { title: 'CI/CD & Testing', img: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop' }
+        ],
+        beyond: [
+          { title: 'Build an E‑commerce App', img: 'https://images.unsplash.com/photo-1516542076529-1ea3854896e1?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Realtime Chat & Bots', img: 'https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=800&auto=format&fit=crop' },
+          { title: 'API Platform & Docs', img: 'https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Deployments & Monitoring', img: 'https://images.unsplash.com/photo-1545987796-200677ee1011?q=80&w=800&auto=format&fit=crop' }
         ]
       },
       {
@@ -43,10 +84,17 @@ export default function CurriculumAllYears() {
           'Choose AI, Full‑Stack, or Quant. Build ML models, analytics dashboards, simulations, and scalable systems.',
         details:
           'Model training & deployment, data pipelines, systems design and performance.',
-        projects: [
-          { title: 'ML Model Suite', note: 'Classification, RecSys, NLP' },
-          { title: 'Trading Simulator', note: 'Backtests, risk metrics' },
-          { title: 'Observability Stack', note: 'Metrics, logs, traces' }
+        classroom: [
+          { title: 'Machine Learning Foundations', img: 'https://images.unsplash.com/photo-1515879218367-7201f28bd5bf?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Data Pipelines & Analytics', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Systems Design Deep‑Dive', img: 'https://images.unsplash.com/photo-1537432376769-00a2d6f7e15c?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Performance Engineering', img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop' }
+        ],
+        beyond: [
+          { title: 'Train & Deploy an ML Model', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Trading Simulator Project', img: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Observability Dashboard', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Scalability Challenge', img: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=800&auto=format&fit=crop' }
         ]
       },
       {
@@ -58,10 +106,17 @@ export default function CurriculumAllYears() {
           'Work on paid internships and real company projects. Finish with a standout portfolio and interview readiness.',
         details:
           'Production codebases, OSS contributions, polished portfolio and capstone.',
-        projects: [
-          { title: 'Company Capstone', note: 'Feature end‑to‑end' },
-          { title: 'Internship Sprint', note: 'Tickets, demos, retros' },
-          { title: 'Portfolio Lab', note: 'Case studies and outcomes' }
+        classroom: [
+          { title: 'Career Prep & Interview Labs', img: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Product & Team Practices', img: 'https://images.unsplash.com/photo-1518081461904-9ac3cb0b6d99?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Security & Reliability', img: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Portfolio & Storytelling', img: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=800&auto=format&fit=crop' }
+        ],
+        beyond: [
+          { title: 'Company Capstone Delivery', img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Internship Sprint', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Open‑Source Contribution', img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop' },
+          { title: 'Portfolio Showcase', img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=800&auto=format&fit=crop' }
         ]
       }
     ],
@@ -84,7 +139,6 @@ export default function CurriculumAllYears() {
 
     const observer = new IntersectionObserver(
       (obsEntries) => {
-        // Find the most visible entry and mark it active
         let best = { key: activeKey, ratio: 0 }
         for (const e of obsEntries) {
           const key = e.target.dataset.key
@@ -109,7 +163,7 @@ export default function CurriculumAllYears() {
             4‑Year Curriculum at a Glance
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-slate-600">
-            Explore every year using the quick nav or by scrolling. Each year expands into a wide, easy‑to‑read overview.
+            For every year, preview key focus areas and hands‑on experiences inside and beyond the classroom.
           </p>
         </div>
 
@@ -165,22 +219,10 @@ export default function CurriculumAllYears() {
                     <p className="mt-1 text-xs text-slate-600">{y.details}</p>
                   </header>
 
-                  {/* Right content: projects list */}
+                  {/* Right content: two horizontal cards each holding 4 items */}
                   <div className="md:col-span-3">
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                      {y.projects.map((p) => (
-                        <div
-                          key={p.title}
-                          className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/70 p-3"
-                        >
-                          <div className="mt-0.5 h-2 w-2 flex-none rounded-full bg-gradient-to-r from-[#4F8CFF] to-[#9A6FFF]" />
-                          <div>
-                            <div className="text-[13px] font-semibold text-slate-900">{p.title}</div>
-                            <div className="text-xs text-slate-600">{p.note}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    <LearningStrip title="Classroom Learning" items={y.classroom} />
+                    <LearningStrip title="Beyond Classroom Learning" items={y.beyond} />
                   </div>
                 </div>
               </article>
