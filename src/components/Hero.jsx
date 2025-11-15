@@ -27,6 +27,30 @@ export default function Hero() {
     }
   }, [])
 
+  // Cards content to be shown below the hero, merged from the former Why ASCA section
+  const points = [
+    {
+      value: '1:1',
+      label: 'Industry Mentorship',
+      desc: 'Work with senior engineers and researchers from FAANG and fast-growing startups every semester.'
+    },
+    {
+      value: 'Paid',
+      label: 'Internships from Year 2',
+      desc: 'Co-op model ensures real product work, ownership and compensation while you study.'
+    },
+    {
+      value: '25 LPA',
+      label: 'Avg. Placements',
+      desc: 'Outcome-focused career prep with rigorous fundamentals and a project-heavy portfolio.'
+    },
+    {
+      value: '1,300+',
+      label: 'Hiring Partners',
+      desc: 'Expansive network of product companies, research labs, and high-frequency trading firms.'
+    }
+  ]
+
   return (
     <section className="relative section-dark overflow-hidden">
       {/* Full-width dark gradient background overlay (blue → deep navy → black) */}
@@ -143,6 +167,33 @@ export default function Hero() {
                 </button>
               )}
             </div>
+          </div>
+        </div>
+
+        {/* Merged cards from Why ASCA: placed below hero content */}
+        <div className="mt-10 sm:mt-12 lg:mt-14">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {points.map(({ value, label, desc }) => (
+              <div key={label} className="relative group">
+                {/* Transparent + blur card using background, with silver border */}
+                <div className="relative rounded-3xl bg-transparent backdrop-blur-xl border border-[rgba(192,192,192,0.35)] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] overflow-hidden">
+                  {/* Subtle silver sheen */}
+                  <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute -top-16 -left-8 h-40 w-40 rounded-full bg-[rgba(192,192,192,0.12)] blur-2xl" />
+                    <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-[rgba(255,255,255,0.06)] blur-2xl" />
+                  </div>
+
+                  <div className="relative p-5 sm:p-6">
+                    <div className="text-white font-extrabold tracking-tight text-3xl sm:text-4xl leading-none [text-shadow:0_2px_12px_rgba(0,0,0,0.35)]">{value}</div>
+                    <h3 className="mt-2 text-white font-semibold text-sm sm:text-base tracking-tight [text-shadow:0_1px_8px_rgba(0,0,0,0.25)]">{label}</h3>
+                    <p className="mt-2 text-white/90 text-[13px] leading-5">{desc}</p>
+                  </div>
+
+                  {/* Hover: brighten silver outline slightly */}
+                  <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-1 group-hover:ring-[rgba(192,192,192,0.55)] transition-all duration-300" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
