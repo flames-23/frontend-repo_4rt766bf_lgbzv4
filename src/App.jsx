@@ -22,6 +22,7 @@ import SchoolCSAI from './components/SchoolCSAI'
 import AdmissionsProcess from './components/AdmissionsProcess'
 import USPs from './components/USPs'
 import CinematicHall from './components/CinematicHall'
+import BuzzAboutUsMinimal from './components/BuzzAboutUsMinimal'
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
       <main>
         {/* Hero remains as-is */}
         <Hero />
+
+        {/* Buzz about us trust scroller */}
+        <BuzzAboutUsMinimal />
 
         {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
