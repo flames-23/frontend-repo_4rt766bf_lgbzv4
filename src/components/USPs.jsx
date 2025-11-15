@@ -26,6 +26,7 @@ export default function USPs() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="This is built different"
+          subtitle="Hands-on, industry-backed learning from day one."
           align="center"
           theme="light"
           size="md"
