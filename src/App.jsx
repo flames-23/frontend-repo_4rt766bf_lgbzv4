@@ -34,9 +34,6 @@ function App() {
         {/* Hero remains as-is */}
         <Hero />
 
-        {/* Buzz about us trust scroller */}
-        <BuzzAboutUsMinimal />
-
         {/* Clean, hard-cut section transitions: simply stack sections */}
         <JobGuarantee />
         <Placements />
@@ -68,6 +65,9 @@ function App() {
         <Mentors />
         <ASeatCTA />
         <Admissions />
+
+        {/* Buzz about us at the end of the page (above footer) */}
+        <BuzzAboutUsMinimal />
       </main>
 
       <Footer />
