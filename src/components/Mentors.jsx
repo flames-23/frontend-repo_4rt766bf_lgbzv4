@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const mentors = [
@@ -8,8 +8,8 @@ const mentors = [
     img: 'https://i.ibb.co/HjWb82z/image27.png',
     college: 'IIIT Hyderabad',
     companies: [
-      { name: 'Alphagrep' },
-      { name: 'Directi' }
+      { name: 'Alphagrep', logo: 'https://www.alpha-grep.com/wp-content/uploads/2022/01/logo-color.png' },
+      { name: 'Directi', logo: 'https://www.directi.com/images/directi-logo-0b6a20d2.svg' }
     ]
   },
   {
@@ -18,8 +18,9 @@ const mentors = [
     img: 'https://i.ibb.co/zW3xFnwJ/image5.png',
     college: 'IIIT Hyderabad',
     companies: [
-      { name: 'Google', logo: 'https://cdn.simpleicons.org/google/FFFFFF' },
-      { name: 'Apple', logo: 'https://cdn.simpleicons.org/apple/FFFFFF' }
+      // Using direct Wikimedia assets where possible; graceful fallback is handled
+      { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Google_logo_%282013-2015%29.svg' },
+      { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' }
     ]
   },
   {
@@ -28,8 +29,8 @@ const mentors = [
     img: 'https://i.ibb.co/V0MMZmWf/image14.png',
     college: 'IIIT Hyderabad',
     companies: [
-      { name: 'Microsoft', logo: 'https://cdn.simpleicons.org/microsoft/FFFFFF' },
-      { name: 'Indeed', logo: 'https://cdn.simpleicons.org/indeed/FFFFFF' }
+      { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+      { name: 'Indeed', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Indeed_logo.svg' }
     ]
   },
   {
@@ -38,11 +39,39 @@ const mentors = [
     img: 'https://i.ibb.co/9HLb3FCC/image15.png',
     college: 'IIIT Hyderabad',
     companies: [
-      { name: 'Plivo' },
-      { name: 'AlgoUniversity' }
+      { name: 'Plivo', logo: 'https://cdn.prod.website-files.com/6836fa6fd9f61895cba27d8b/6842ca7808ff42cfd420b97c_Group%201000007593.svg' },
+      { name: 'AlgoUniversity', logo: 'https://d1lrk9cp1c3gxw.cloudfront.net/static/nurture/images/logo.png' }
     ]
   }
 ]
+
+function CompanyLogo({ name, logo }) {
+  const [failed, setFailed] = useState(false)
+  const initials = name
+    .split(/\s|\-/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((s) => s[0]?.toUpperCase())
+    .join('')
+
+  return (
+    <div className="h-6 w-8 sm:h-7 sm:w-9 md:h-8 md:w-10 shrink-0 rounded-md bg-white/10 grid place-items-center overflow-hidden border border-white/10">
+      {!failed && logo ? (
+        <img
+          src={logo}
+          alt={name}
+          className="max-h-5 sm:max-h-6 md:max-h-7 w-auto object-contain contrast-125"
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span className="text-[10px] sm:text-[11px] md:text-xs font-semibold text-white/90 leading-none tracking-wide">
+          {initials || name.slice(0, 2).toUpperCase()}
+        </span>
+      )}
+    </div>
+  )
+}
 
 export default function Mentors() {
   const scrollerRef = useRef(null)
@@ -50,7 +79,7 @@ export default function Mentors() {
   const scrollByAmount = (dir) => {
     const el = scrollerRef.current
     if (!el) return
-    const amount = Math.max(1, Math.floor(el.clientWidth / 4)) * (dir === 'left' ? -1 : 1)
+    const amount = Math.max(1, Math.floor(el.clientWidth / 3)) * (dir === 'left' ? -1 : 1)
     el.scrollBy({ left: amount, behavior: 'smooth' })
   }
 
@@ -62,7 +91,7 @@ export default function Mentors() {
           <p className="mt-3 text-white/70">Industry leaders and researchers guiding your journey.</p>
         </div>
 
-        {/* Carousel wrapper: shows 4 cards per row on large screens, scrolls for more */}
+        {/* Carousel wrapper */}
         <div className="relative">
           {/* Left/Right controls (desktop only) */}
           <button
@@ -85,7 +114,7 @@ export default function Mentors() {
             className="overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
           >
             <div
-              className="flex gap-5 pr-4 snap-x snap-mandatory"
+              className="flex gap-6 pr-4 snap-x snap-mandatory"
               style={{ scrollPaddingLeft: '1rem' }}
             >
               {mentors.map((m, i) => (
@@ -95,39 +124,45 @@ export default function Mentors() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group relative snap-start flex-shrink-0 w-[240px] sm:w-[260px] md:w-[280px] lg:w-[calc((100%_-_3rem)/4)] xl:w-[calc((100%_-_3rem)/4)] overflow-hidden rounded-xl glass-card"
-                  style={{ WebkitBackdropFilter: 'blur(14px)', backdropFilter: 'blur(14px)' }}
+                  className="group relative snap-start flex-shrink-0 w-[250px] sm:w-[260px] md:w-[280px] lg:w-[calc((100%_-_4rem)/3)] xl:w-[calc((100%_-_4rem)/3)] overflow-hidden rounded-2xl"
                 >
-                  <div className="relative" style={{ aspectRatio: '3 / 4' }}>
-                    <img src={m.img} alt={m.name} className="h-full w-full object-cover" loading="lazy" />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                  </div>
-
-                  {/* Info panel */}
-                  <div className="absolute bottom-0 left-0 right-0">
-                    <div className="mx-2 mb-2 rounded-lg border border-white/15 bg-white/12 backdrop-blur-2xl p-2.5">
-                      <h3 className="text-white text-sm sm:text-base font-semibold tracking-tight">{m.name}</h3>
-
-                      {/* Companies row (logos if available; fallback to monogram) */}
-                      <div className="mt-1.5 flex items-center gap-2">
-                        {m.companies?.map((c) => (
-                          <div key={c.name} className="h-5 w-5 shrink-0 rounded-[6px] bg-white/10 grid place-items-center overflow-hidden">
-                            {c.logo ? (
-                              <img src={c.logo} alt={c.name} className="h-3.5 w-3.5 object-contain" loading="lazy" />
-                            ) : (
-                              <span className="text-[10px] font-semibold text-white/90 leading-none">
-                                {c.name.slice(0,1)}
-                              </span>
-                            )}
-                          </div>
-                        ))}
+                  {/* Elegant glass card with subtle gradient border */}
+                  <div className="relative h-full rounded-2xl p-[1px] bg-gradient-to-b from-white/25 via-white/10 to-white/5">
+                    <div className="rounded-2xl h-full w-full bg-white/5 backdrop-blur-xl border border-white/10">
+                      {/* Image */}
+                      <div className="relative rounded-t-2xl overflow-hidden" style={{ aspectRatio: '3 / 4' }}>
+                        <img src={m.img} alt={m.name} className="h-full w-full object-cover" loading="lazy" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
                       </div>
 
-                      {/* College row */}
-                      <div className="mt-1 text-[12px] text-white/80">
-                        {m.college}
+                      {/* Info */}
+                      <div className="px-4 pt-4 pb-4 text-center">
+                        <h3 className="text-white text-base sm:text-lg font-semibold tracking-tight">{m.name}</h3>
+                        {/* Roles */}
+                        <div className="mt-1 space-y-0.5">
+                          {m.roles?.map((r) => (
+                            <p key={r} className="text-xs sm:text-sm text-white/75 leading-relaxed">{r}</p>
+                          ))}
+                        </div>
+
+                        {/* Divider */}
+                        <div className="my-3 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
+                        {/* Companies row */}
+                        <div className="mt-2 flex items-center justify-center gap-2.5 sm:gap-3">
+                          {m.companies?.map((c) => (
+                            <CompanyLogo key={c.name} name={c.name} logo={c.logo} />
+                          ))}
+                        </div>
+
+                        {/* College */}
+                        <div className="mt-3 text-[11px] sm:text-xs uppercase tracking-[0.12em] text-white/70">{m.college}</div>
                       </div>
                     </div>
+
+                    {/* Hover polish */}
+                    <div className="absolute inset-0 rounded-2xl ring-0 ring-white/0 group-hover:ring-1 group-hover:ring-white/15 transition" />
+                    <div className="absolute -inset-x-6 -bottom-6 h-20 opacity-0 group-hover:opacity-20 blur-2xl" style={{ backgroundImage: 'radial-gradient(40% 60% at 50% 20%, var(--ds-violet), transparent)' }} />
                   </div>
                 </motion.div>
               ))}
