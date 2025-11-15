@@ -10,7 +10,7 @@ function USPCard({ reverse = false, media, title, desc, extra }) {
         <div className="p-3 sm:p-4 md:p-5 flex items-center justify-center bg-gradient-to-b from-white to-slate-50">
           {media}
         </div>
-        <div className="p-5 sm:p-6 md:p-7 flex flex-col justify-center">
+        <div className="p-5 sm:p-6 md:p-7 flex flex-col items-center justify-center text-center">
           <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-black">{title}</h3>
           {desc ? <p className="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p> : null}
           {extra}
@@ -26,13 +26,13 @@ export default function USPs() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="This is built different"
-          align="left"
+          align="center"
           theme="light"
           size="md"
           className="mb-6 sm:mb-8 lg:mb-10"
         />
 
-        <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        <div className="mx-auto max-w-5xl space-y-4 sm:space-y-6 lg:space-y-8">
           {/* 1. Travel Abroad in Year 1 */}
           <USPCard
             reverse={false}
