@@ -5,7 +5,7 @@ import WhyASCA from './components/WhyASCA'
 import Curriculum from './components/Curriculum'
 import CurriculumAllYears from './components/CurriculumAllYears'
 import Achievers from './components/Achievers'
-import CampusCarousel from './components/CampusCarousel'
+import CampusShowcase from './components/CampusShowcase'
 import Placements from './components/Placements'
 import Admissions from './components/Admissions'
 import Mentors from './components/Mentors'
@@ -61,7 +61,8 @@ function App() {
         <TalentClub />
         {/* New Admissions & Process section in light theme */}
         <AdmissionsProcess />
-        <CampusCarousel />
+        {/* Compact Campus Life showcase with glass cards */}
+        <CampusShowcase />
         <Mentors />
         <ASeatCTA />
         <Admissions />

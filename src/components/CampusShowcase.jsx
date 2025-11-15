@@ -24,7 +24,7 @@ export default function CampusShowcase() {
     'group relative flex flex-col overflow-hidden rounded-2xl bg-white/70 backdrop-blur-sm ring-1 ring-slate-200/70 shadow-sm transition duration-300 hover:shadow-md'
 
   return (
-    <section id="campus" className="py-14 bg-[#F5F5F5]">
+    <section id="campus" className="py-14">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           align="center"
