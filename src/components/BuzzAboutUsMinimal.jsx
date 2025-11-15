@@ -44,6 +44,9 @@ export default function BuzzAboutUsMinimal() {
   const cardBase =
     'flex-shrink-0 w-[260px] sm:w-[280px] md:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow transition-shadow duration-300'
 
+  // Duplicate items to create a seamless loop
+  const loopItems = [...pressItems, ...pressItems]
+
   return (
     <section id="buzz" className="py-[60px] bg-transparent">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -57,50 +60,49 @@ export default function BuzzAboutUsMinimal() {
             size="md"
           />
         </div>
+      </div>
 
-        {/* Horizontal card strip */}
-        <div
-          className="overflow-x-auto scroll-smooth"
-          style={{ WebkitOverflowScrolling: 'touch' }}
+      {/* Auto-scrolling, infinite loop carousel */}
+      <div className="relative overflow-hidden">
+        <motion.div
+          className="flex gap-8 py-2 will-change-transform"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ repeat: Infinity, repeatType: 'loop', ease: 'linear', duration: 35 }}
+          aria-label="Press carousel auto-scroll"
         >
-          <div
-            className="flex gap-8 pr-4 snap-x snap-mandatory sm:snap-none"
-            style={{ scrollPaddingLeft: '1rem' }}
-          >
-            {pressItems.map((item, i) => (
-              <motion.article
-                key={`${item.publication}-${i}`}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.45, delay: i * 0.05 }}
-                className={`${cardBase} snap-start`}
-                aria-label={`Press card: ${item.publication}`}
-              >
-                {/* Top header bar */}
-                <div className="px-4 pt-4 pb-3">
-                  <div className="text-[12px] leading-5 text-[#8A8A8A]">Acknowledged by media</div>
-                  <div className="mt-0.5 text-sm font-semibold text-slate-900">{item.publication}</div>
-                </div>
+          {loopItems.map((item, i) => (
+            <article
+              key={`${item.publication}-${i}`}
+              className={`${cardBase}`}
+              aria-label={`Press card: ${item.publication}`}
+            >
+              {/* Top header bar */}
+              <div className="px-4 pt-4 pb-3">
+                <div className="text-[12px] leading-5 text-[#8A8A8A]">Acknowledged by media</div>
+                <div className="mt-0.5 text-sm font-semibold text-slate-900">{item.publication}</div>
+              </div>
 
-                {/* Main body */}
-                <div className="px-4 pb-4">
-                  <div className="rounded-2xl shadow-sm overflow-hidden bg-white">
-                    {/* Fixed-height media box for consistent card heights */}
-                    <div className="h-[160px] sm:h-[180px] md:h-[200px] flex items-center justify-center bg-white">
-                      <img
-                        src={item.src}
-                        alt={item.alt}
-                        className="max-h-full max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+              {/* Main body */}
+              <div className="px-4 pb-4">
+                <div className="rounded-2xl shadow-sm overflow-hidden bg-white">
+                  {/* Fixed-height media box for consistent card heights */}
+                  <div className="h-[160px] sm:h-[180px] md:h-[200px] flex items-center justify-center bg-white">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="max-h-full max-w-full object-contain"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
+              </div>
+            </article>
+          ))}
+        </motion.div>
+
+        {/* Edge fades to hint overflow while keeping it clean */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F5F7FA] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F5F7FA] to-transparent" />
       </div>
     </section>
   )
