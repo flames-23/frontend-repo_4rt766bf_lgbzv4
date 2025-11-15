@@ -34,15 +34,17 @@ function App() {
         {/* Hero remains as-is */}
         <Hero />
 
-        {/* Clean, hard-cut section transitions: simply stack sections */}
+        {/* Immediately follow with Founder video, then Why ASCA as the second section */}
         <JobGuarantee />
+        <WhyASCA />
+
+        {/* Continue with the rest of the flow */}
         <Placements />
         {/* Place AUET before results */}
         <AUET />
         <Results />
         <ComparisonASCA />
         <Leadership />
-        <WhyASCA />
         {/* New USPs section with alternating video + text cards */}
         <USPs />
         {/* Cinematic Achievement Hall in dark theme */}
