@@ -171,26 +171,26 @@ export default function Hero() {
         </div>
 
         {/* Merged cards from Why ASCA: placed below hero content */}
-        <div className="mt-10 sm:mt-12 lg:mt-14">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-8 sm:mt-10 lg:mt-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {points.map(({ value, label, desc }) => (
               <div key={label} className="relative group">
                 {/* Transparent + blur card using background, with silver border */}
-                <div className="relative rounded-3xl bg-transparent backdrop-blur-xl border border-[rgba(192,192,192,0.35)] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] overflow-hidden">
+                <div className="relative rounded-2xl bg-transparent backdrop-blur-lg border border-[rgba(192,192,192,0.28)] shadow-[0_8px_22px_-14px_rgba(0,0,0,0.45)] overflow-hidden">
                   {/* Subtle silver sheen */}
                   <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute -top-16 -left-8 h-40 w-40 rounded-full bg-[rgba(192,192,192,0.12)] blur-2xl" />
-                    <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-[rgba(255,255,255,0.06)] blur-2xl" />
+                    <div className="absolute -top-14 -left-8 h-32 w-32 rounded-full bg-[rgba(192,192,192,0.10)] blur-2xl" />
+                    <div className="absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-[rgba(255,255,255,0.05)] blur-2xl" />
                   </div>
 
-                  <div className="relative p-5 sm:p-6">
-                    <div className="text-white font-extrabold tracking-tight text-3xl sm:text-4xl leading-none [text-shadow:0_2px_12px_rgba(0,0,0,0.35)]">{value}</div>
-                    <h3 className="mt-2 text-white font-semibold text-sm sm:text-base tracking-tight [text-shadow:0_1px_8px_rgba(0,0,0,0.25)]">{label}</h3>
-                    <p className="mt-2 text-white/90 text-[13px] leading-5">{desc}</p>
+                  <div className="relative p-4 sm:p-5">
+                    <div className="text-white font-extrabold tracking-tight text-2xl sm:text-3xl leading-tight [text-shadow:0_2px_10px_rgba(0,0,0,0.35)]">{value}</div>
+                    <h3 className="mt-1.5 text-white font-semibold text-sm sm:text-[15px] tracking-tight [text-shadow:0_1px_6px_rgba(0,0,0,0.25)]">{label}</h3>
+                    <p className="mt-1.5 text-white/85 text-xs sm:text-[13px] leading-5">{desc}</p>
                   </div>
 
-                  {/* Hover: brighten silver outline slightly */}
-                  <div className="absolute inset-0 rounded-3xl ring-0 group-hover:ring-1 group-hover:ring-[rgba(192,192,192,0.55)] transition-all duration-300" />
+                  {/* Hover: subtle brighten + slight lift */}
+                  <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-[rgba(192,192,192,0.5)] transition-all duration-300" />
                 </div>
               </div>
             ))}
