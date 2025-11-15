@@ -18,7 +18,6 @@ const mentors = [
     img: 'https://i.ibb.co/zW3xFnwJ/image5.png',
     college: 'IIIT Hyderabad',
     companies: [
-      // Using direct Wikimedia assets where possible; graceful fallback is handled
       { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Google_logo_%282013-2015%29.svg' },
       { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' }
     ]
@@ -54,22 +53,22 @@ function CompanyLogo({ name, logo }) {
     .map((s) => s[0]?.toUpperCase())
     .join('')
 
+  if (!failed && logo) {
+    return (
+      <img
+        src={logo}
+        alt={name}
+        className="h-6 sm:h-7 md:h-8 w-auto object-contain drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]"
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    )
+  }
+
   return (
-    <div className="h-6 w-8 sm:h-7 sm:w-9 md:h-8 md:w-10 shrink-0 rounded-md bg-white/10 grid place-items-center overflow-hidden border border-white/10">
-      {!failed && logo ? (
-        <img
-          src={logo}
-          alt={name}
-          className="max-h-5 sm:max-h-6 md:max-h-7 w-auto object-contain contrast-125"
-          loading="lazy"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <span className="text-[10px] sm:text-[11px] md:text-xs font-semibold text-white/90 leading-none tracking-wide">
-          {initials || name.slice(0, 2).toUpperCase()}
-        </span>
-      )}
-    </div>
+    <span className="text-xs sm:text-[13px] md:text-sm font-semibold text-white/85 tracking-wide">
+      {initials || name.slice(0, 2).toUpperCase()}
+    </span>
   )
 }
 
@@ -148,8 +147,8 @@ export default function Mentors() {
                         {/* Divider */}
                         <div className="my-3 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
-                        {/* Companies row */}
-                        <div className="mt-2 flex items-center justify-center gap-2.5 sm:gap-3">
+                        {/* Companies row (unboxed logos) */}
+                        <div className="mt-2 flex items-center justify-center gap-3 sm:gap-3.5 md:gap-4">
                           {m.companies?.map((c) => (
                             <CompanyLogo key={c.name} name={c.name} logo={c.logo} />
                           ))}
